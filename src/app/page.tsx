@@ -2,6 +2,7 @@
 
 import About from "@/components/home/About";
 import BlogSection from "@/components/home/Blogs";
+import SisterCompany from "@/components/home/Company";
 import Contact from "@/components/home/Contact";
 import FAQ from "@/components/home/Faq";
 import Hero from "@/components/home/Hero";
@@ -21,6 +22,7 @@ export default function Home() {
       <Services />
       <EddvaProduct />
       <WhyChooseUs />
+      <SisterCompany />
       <Leaders />
       <FAQ />
       <BlogSection />
