@@ -17,12 +17,12 @@ const Navbar = () => {
   }, []);
 
   const services = [
-    { name: "AI Solutions", href: "/services/ai", icon: <FiCpu />, desc: "LLMs & Neural Networks" },
-    { name: "Web Apps", href: "/services/web", icon: <FiGlobe />, desc: "React & Next.js Platforms" },
-    { name: "Mobile Apps", href: "/services/mobile", icon: <FiSmartphone />, desc: "iOS & Android Apps" },
-    { name: "E-Commerce", href: "/services/ecom", icon: <FiShoppingCart />, desc: "Digital Storefronts" },
-    { name: "Cyber Security", href: "/services/security", icon: <FiShield />, desc: "Enterprise Protection" },
-    { name: "Cloud Services", href: "/services/cloud", icon: <FiCloud />, desc: "AWS & Infrastructure" },
+    { name: "AI Solutions", href: "/services/ai-solutions", icon: <FiCpu />, desc: "LLMs & Neural Networks" },
+    { name: "Web Apps", href: "/services/web-apps", icon: <FiGlobe />, desc: "React & Next.js Platforms" },
+    { name: "Mobile Apps", href: "/services/mobile-apps", icon: <FiSmartphone />, desc: "iOS & Android Apps" },
+    { name: "E-Commerce", href: "/services/e-comm", icon: <FiShoppingCart />, desc: "Digital Storefronts" },
+    { name: "Cyber Security", href: "/services/cyber-security", icon: <FiShield />, desc: "Enterprise Protection" },
+    { name: "Cloud Services", href: "/services/cloud-services", icon: <FiCloud />, desc: "AWS & Infrastructure" },
   ];
 
   return (
@@ -30,12 +30,11 @@ const Navbar = () => {
       {/* 1. THE SPACER: This pushes the Hero down so nothing overlaps */}
       <div className="h-20 lg:h-24 bg-white w-full" />
 
-      <nav className={`fixed top-0 left-0 w-full z-[100] transition-all duration-500 ${
-        scrolled ? "bg-white/80 backdrop-blur-xl border-b border-slate-100 py-3 shadow-sm" : "bg-white py-6"
-      }`}>
+      <nav className={`fixed top-0 left-0 w-full z-[100] transition-all duration-500 ${scrolled ? "bg-white/80 backdrop-blur-xl border-b border-slate-100 py-3 shadow-sm" : "bg-white py-6"
+        }`}>
         <div className="max-w-7xl mx-auto px-6 lg:px-8">
           <div className="flex justify-between items-center">
-            
+
             {/* Logo */}
             <Link href="/" className="group relative z-[101]">
               <span className="text-2xl font-black tracking-tighter text-slate-900">
@@ -46,17 +45,17 @@ const Navbar = () => {
             {/* Desktop Nav */}
             <div className="hidden lg:flex space-x-10 items-center">
               <Link href="/" className="text-xs font-bold uppercase tracking-[0.2em] text-slate-600 hover:text-blue-600 transition-colors">Home</Link>
-              
+
               {/* Services Dropdown */}
-              <div 
+              <div
                 className="relative py-2"
                 onMouseEnter={() => setIsServicesOpen(true)}
                 onMouseLeave={() => setIsServicesOpen(false)}
               >
-                <button className="flex items-center space-x-1 text-xs font-bold uppercase tracking-[0.2em] text-slate-600 hover:text-blue-600 transition-colors outline-none">
+                <Link href="/services" className="flex items-center space-x-1 text-xs font-bold uppercase tracking-[0.2em] text-slate-600 hover:text-blue-600 transition-colors outline-none">
                   <span>Services</span>
                   <HiChevronDown className={`transition-transform duration-300 ${isServicesOpen ? "rotate-180" : ""}`} />
-                </button>
+                </Link>
 
                 <AnimatePresence>
                   {isServicesOpen && (
@@ -85,7 +84,7 @@ const Navbar = () => {
 
               <Link href="/about" className="text-xs font-bold uppercase tracking-[0.2em] text-slate-600 hover:text-blue-600 transition-colors">About</Link>
               <Link href="/portfolio" className="text-xs font-bold uppercase tracking-[0.2em] text-slate-600 hover:text-blue-600 transition-colors">Portfolio</Link>
-              
+
               <Link
                 href="/contact"
                 className="flex items-center space-x-2 px-7 py-3.5 rounded-xl font-bold text-xs uppercase tracking-widest text-white bg-gradient-to-r from-blue-600 to-[#044DB6] hover:from-blue-700 hover:to-[#0863e7] transition-all duration-300 shadow-xl shadow-blue-500/20"
@@ -105,7 +104,7 @@ const Navbar = () => {
         {/* Mobile Menu */}
         <AnimatePresence>
           {isOpen && (
-            <motion.div 
+            <motion.div
               initial={{ opacity: 0, y: -20 }}
               animate={{ opacity: 1, y: 0 }}
               exit={{ opacity: 0, y: -20 }}
@@ -114,7 +113,7 @@ const Navbar = () => {
               <div className="flex flex-col space-y-8">
                 <Link href="/" onClick={() => setIsOpen(false)} className="text-4xl font-black text-slate-900">Home</Link>
                 <div className="space-y-4">
-                  <p className="text-xs font-bold text-blue-600 uppercase tracking-widest">Our Expertise</p>
+                  <Link href="/services" onClick={() => setIsOpen(false)} className="inline-block text-xs font-bold text-blue-600 uppercase tracking-widest hover:underline">Our Expertise (All Services)</Link>
                   <div className="grid grid-cols-1 gap-6">
                     {services.map((s) => (
                       <Link key={s.name} href={s.href} onClick={() => setIsOpen(false)} className="flex items-center space-x-4">
