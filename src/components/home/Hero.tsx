@@ -6,9 +6,9 @@ const Hero = () => {
   return (
     <section className="relative w-full flex items-center justify-center bg-slate-50 overflow-hidden py-10">
       {/* 1. Subtle Grid Background */}
-      <div className="absolute inset-0 z-0 opacity-20 [mask-image:linear-gradient(to_bottom,white,transparent)]" 
+      {/* <div className="absolute inset-0 z-0 opacity-20 [mask-image:linear-gradient(to_bottom,white,transparent)]" 
            style={{ backgroundImage: 'url("data:image/svg+xml,%3Csvg width=\'60\' height=\'60\' viewBox=\'0\' 0\' 60\' 60\' xmlns=\'http://www.w3.org/2000/svg\'%3E%3Cg fill=\'none\' fill-rule=\'evenodd\'%3E%3Cg fill=\'%239C92AC\' fill-opacity=\'0.2\'%3E%3Cpath d=\'M36 34v-4h-2v4h-4v2h4v4h2v-4h4v-2h-4zm0-30V0h-2v4h-4v2h4v4h2V6h4V4h-4zM6 34v-4H4v4H0v2h4v4h2v-4h4v-2H6zM6 4V0H4v4H0v2h4v4h2V6h4V4H6z\'/%3E%3C/g%3E%3C/g%3E%3C/svg%3E")' }} 
-      />
+      /> */}
 
       {/* 2. Animated Blobs */}
       {/* <div className="absolute top-1/4 -left-20 w-96 h-96 bg-blue-400 rounded-full mix-blend-multiply filter blur-[128px] opacity-20 animate-blob" />
@@ -21,6 +21,7 @@ const Hero = () => {
           initial={{ opacity: 0, y: 20 }}
           animate={{ opacity: 1, y: 0 }}
           transition={{ duration: 0.6 }}
+          suppressHydrationWarning={true}
         >
           {/* Status Badge */}
           <div className="inline-flex items-center space-x-2 bg-white/80 backdrop-blur-sm border border-blue-100 px-4 py-2 rounded-full mb-8 shadow-sm">
@@ -62,7 +63,7 @@ const Hero = () => {
           </div>
 
           {/* Trust Badges */}
-          <div className="mt-12 flex items-center space-x-6 text-slate-400">
+          {/* <div className="mt-12 flex items-center space-x-6 text-slate-400">
              <div className="flex items-center space-x-2">
                 <FiCheckCircle className="text-blue-500" />
                 <span className="text-sm font-semibold uppercase tracking-wider">ISO Certified</span>
@@ -71,7 +72,7 @@ const Hero = () => {
                 <FiCheckCircle className="text-blue-500" />
                 <span className="text-sm font-semibold uppercase tracking-wider">AWS Partner</span>
              </div>
-          </div>
+          </div> */}
         </motion.div>
 
         {/* Right Content - IMAGE SECTION */}
@@ -80,6 +81,7 @@ const Hero = () => {
           animate={{ opacity: 1, scale: 1, x: 0 }}
           transition={{ duration: 0.8, delay: 0.2, ease: "easeOut" }}
           className="relative lg:pl-10"
+          suppressHydrationWarning={true}
         >
           {/* Image Container with depth effects */}
           <div className="relative overflow-hidden group">

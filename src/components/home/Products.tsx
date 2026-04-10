@@ -52,19 +52,19 @@ const EddvaProduct = () => {
             <div className="relative rounded-[3rem] overflow-hidden bg-slate-100 p-4 border border-slate-100 shadow-2xl shadow-blue-500/10 group">
               <div className="relative aspect-video lg:aspect-square overflow-hidden rounded-[2.2rem]">
                 <img
-                  src="https://images.unsplash.com/photo-1551288049-bbbda536339a?q=80&w=1000&auto=format&fit=crop"
+                  src="https://img.freepik.com/free-vector/artificial-intelligence-abstract-concept-illustration-ai-machine-learning-artificial-intelligence-evolution-high-tech-cutting-edge-technology-cognitive-robotics_335657-483.jpg?semt=ais_hybrid&w=740&q=80"
                   alt="EDDVA Interface"
                   className="w-full h-full object-cover group-hover:scale-105 transition-transform duration-700"
                 />
                 {/* Glass Overlay Tag */}
-                <div className="absolute top-6 left-6 bg-white/80 backdrop-blur-md px-5 py-3 rounded-2xl shadow-xl border border-white/20">
+                {/* <div className="absolute top-6 left-6 bg-white/80 backdrop-blur-md px-5 py-3 rounded-2xl shadow-xl border border-white/20">
                   <p className="text-[10px] font-black uppercase tracking-[0.2em] text-blue-600">
                     Flagship Product
                   </p>
                   <p className="text-xl font-black text-slate-900 leading-none">
                     EDDVA v4.0
                   </p>
-                </div>
+                </div> */}
               </div>
             </div>
 

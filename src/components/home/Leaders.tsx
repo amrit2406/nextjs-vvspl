@@ -6,29 +6,29 @@ import { FiArrowUpRight, FiInstagram, FiTwitter } from "react-icons/fi";
 const leaders = [
   {
     id: "01",
-    name: "Alex Rivera",
-    role: "Chief Architect",
+    name: "LT. Col. Anil Tripathi, Sena Medal (Retd.)",
+    role: "Founder",
     bio: "Visionary in distributed systems and high-scale cloud infrastructure.",
     image: "https://i.pinimg.com/originals/8b/16/7a/8b167af653c2399dd93b952a48740620.jpg", 
   },
   {
     id: "02",
-    name: "Sarah Chen",
-    role: "Design Lead",
+    name: "Ankit Tripathi",
+    role: "Founder",
     bio: "Specializing in minimalist industrial tech aesthetics and immersive UI.",
     image: "https://i.pinimg.com/originals/8b/16/7a/8b167af653c2399dd93b952a48740620.jpg",
   },
   {
     id: "03",
-    name: "Marcus Vane",
-    role: "Head of Motion",
+    name: "Dattavi Jariwala Tripathi",
+    role: "Founder",
     bio: "Expert in GSAP, Three.js, and creating high-end 3D web experiences.",
     image: "https://i.pinimg.com/originals/8b/16/7a/8b167af653c2399dd93b952a48740620.jpg",
   },
   {
     id: "04",
-    name: "Marcus Vane",
-    role: "Head of Motion",
+    name: "Priyanka Tripathi Kriech",
+    role: "Founder",
     bio: "Expert in GSAP, Three.js, and creating high-end 3D web experiences.",
     image: "https://i.pinimg.com/originals/8b/16/7a/8b167af653c2399dd93b952a48740620.jpg",
   }
