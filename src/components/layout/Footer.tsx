@@ -10,7 +10,7 @@ export default function Footer() {
         {/* Company Info */}
         <div>
           <h2 className="text-white text-2xl font-bold">
-            VVSPL<span className="text-orange-500">TECH</span>
+            VVSPL<span className="text-[#FF7E00]">TECH</span>
           </h2>
           <p className="mt-4 text-sm">
             We build scalable software and AI-powered solutions to help businesses grow smarter.

@@ -48,8 +48,8 @@ const Leaders = () => {
               viewport={{ once: true }}
               className="flex items-center gap-3 mb-6"
             >
-              <div className="w-10 h-[1px] bg-blue-600" />
-              <span className="text-blue-600 font-bold uppercase tracking-[0.3em] text-[10px]">
+              <div className="w-10 h-[1px] bg-[#FF7E00]" />
+              <span className="text-[#FF7E00] font-bold uppercase tracking-[0.3em] text-[10px]">
                 The Minds Behind VVSPL
               </span>
             </motion.div>
@@ -60,7 +60,7 @@ const Leaders = () => {
               transition={{ delay: 0.1 }}
               className="text-5xl md:text-7xl font-black text-slate-900 tracking-tighter leading-none"
             >
-              Led by <span className="text-transparent bg-clip-text bg-gradient-to-r from-blue-600 via-blue-500 to-[#044DB6] italic">Innovation.</span>
+              Led by <span className="text-transparent bg-clip-text bg-gradient-to-r from-[#FF7E00] via-orange-500 to-[#e67300] italic">Innovation.</span>
             </motion.h3>
           </div>
           
@@ -98,7 +98,7 @@ const Leaders = () => {
                 
                 {/* Float Social Overlay */}
                 <div className="absolute bottom-6 right-6 flex flex-col gap-3 translate-y-12 opacity-0 group-hover:translate-y-0 group-hover:opacity-100 transition-all duration-500">
-                   <a href="#" className="w-12 h-12 bg-white rounded-2xl flex items-center justify-center text-slate-900 shadow-xl hover:bg-gradient-to-r hover:from-blue-600 hover:to-[#044DB6] hover:text-white transition-all">
+                   <a href="#" className="w-12 h-12 bg-white rounded-2xl flex items-center justify-center text-slate-900 shadow-xl hover:bg-gradient-to-r hover:from-[#FF7E00] hover:to-[#e67300] hover:text-white transition-all">
                       <FaLinkedinIn size={18} />
                    </a>
                    {/* <a href="#" className="w-12 h-12 bg-white rounded-2xl flex items-center justify-center text-slate-900 shadow-xl hover:bg-blue-600 hover:text-white transition-colors">
@@ -120,7 +120,7 @@ const Leaders = () => {
                   </h4>
                   <div className="h-[1px] flex-grow mx-4 bg-slate-100" />
                 </div>
-                <p className="text-blue-600 font-bold uppercase tracking-widest text-[10px] mb-4">
+                <p className="text-[#FF7E00] font-bold uppercase tracking-widest text-[10px] mb-4">
                   {leader.role}
                 </p>
                 <p className="text-slate-500 text-sm leading-relaxed max-w-[260px]">
@@ -142,7 +142,7 @@ const Leaders = () => {
           </span>
           <div className="flex gap-8">
              {["Instagram", "Twitter", "LinkedIn"].map((social) => (
-               <a key={social} href="#" className="text-slate-400 text-[10px] font-bold uppercase tracking-widest hover:text-blue-600 transition-colors">
+               <a key={social} href="#" className="text-slate-400 text-[10px] font-bold uppercase tracking-widest hover:text-[#FF7E00] transition-colors">
                  {social}
                </a>
              ))}

@@ -1,20 +1,18 @@
 "use client";
-import { motion, useScroll, useTransform } from "framer-motion";
+import { motion } from "framer-motion";
 import { useRef } from "react";
 import {
   FiCheckCircle,
-  FiTarget,
-  FiAward,
-  FiZap,
   FiArrowUpRight,
+  FiAward
 } from "react-icons/fi";
 
 const About = () => {
   const containerRef = useRef(null);
 
   const stats = [
-    { label: "Years of Mastery", value: "10+", color: "text-blue-600" },
-    { label: "Elite Engineers", value: "50+", color: "text-indigo-600" },
+    { label: "Years of Mastery", value: "10+", color: "text-[#FF7E00]" },
+    { label: "Elite Engineers", value: "50+", color: "text-[#044DB6]" },
     { label: "Global Deployments", value: "100+", color: "text-orange-500" },
   ];
 
@@ -23,140 +21,99 @@ const About = () => {
       ref={containerRef}
       className="py-24 bg-white overflow-hidden relative"
     >
-      {/* Background Accent */}
-      <div className="absolute top-0 right-0 w-1/2 h-full hidden lg:block" />
-
       <div className="max-w-7xl mx-auto px-6 lg:px-8 relative z-10">
         <div className="grid grid-cols-1 lg:grid-cols-12 gap-16 items-center">
+          
           {/* LEFT: Visual & Stats */}
           <div className="lg:col-span-5 order-2 lg:order-1">
             <div className="relative">
-              {/* Main Image Container */}
+              {/* Main Image Container - Match Hero Border Radius */}
               <motion.div
-                initial={{ opacity: 0, scale: 0.95 }}
-                whileInView={{ opacity: 1, scale: 1 }}
+                initial={{ opacity: 0, x: -20 }}
+                whileInView={{ opacity: 1, x: 0 }}
                 viewport={{ once: true }}
-                className="relative z-10 rounded-[2.5rem] overflow-hidden shadow-2xl border-8 border-white"
+                transition={{ duration: 0.8 }}
+                className="relative z-10 rounded-[2.5rem] overflow-hidden shadow-2xl border-[12px] border-slate-50"
               >
                 <img
                   src="https://images.unsplash.com/photo-1552664730-d307ca884978?q=80&w=1000&auto=format&fit=crop"
                   alt="Team collaboration"
-                  className="w-full h-[500px] object-cover"
+                  className="w-full h-[550px] object-cover"
                 />
 
-                {/* Floating Stats Overlay */}
-                {/* <div className="absolute inset-x-0 bottom-0 bg-gradient-to-t from-slate-900/90 to-transparent p-8 pt-20">
-                  <div className="grid grid-cols-3 gap-4">
-                    {stats.map((stat, i) => (
-                      <div key={i} className="text-center">
-                        <p className="text-white text-2xl font-black">
-                          {stat.value}
-                        </p>
-                        <p className="text-slate-300 text-[10px] uppercase font-bold tracking-tighter">
-                          {stat.label}
-                        </p>
-                      </div>
-                    ))}
-                  </div>
-                </div> */}
               </motion.div>
 
-              {/* Decorative Geometric Elements */}
-              <div className="absolute -top-10 -left-10 w-40 h-40 bg-blue-100 rounded-full blur-3xl opacity-50" />
-              <div className="absolute -bottom-10 -right-10 w-40 h-40 bg-orange-100 rounded-full blur-3xl opacity-50" />
+              {/* Decorative Blobs - Match Hero logic */}
+              <div className="absolute -top-10 -left-10 w-64 h-64 bg-orange-100 rounded-full blur-[100px] opacity-60" />
+              <div className="absolute -bottom-10 -right-10 w-64 h-64 bg-blue-100 rounded-full blur-[100px] opacity-60" />
             </div>
-
-            {/* Accreditation Badge */}
-            {/* <motion.div
-              initial={{ x: -20, opacity: 0 }}
-              whileInView={{ x: 0, opacity: 1 }}
-              className="mt-8 flex items-center p-5 bg-white rounded-3xl shadow-xl shadow-slate-200/50 border border-slate-100"
-            >
-              <div className="bg-blue-600 p-3 rounded-2xl text-white mr-4 shadow-lg shadow-blue-200">
-                <FiAward size={24} />
-              </div>
-              <div>
-                <h4 className="font-bold text-slate-900 text-sm">
-                  Certified Excellence
-                </h4>
-                <p className="text-xs text-slate-500 uppercase tracking-widest font-medium">
-                  ISO 9001:2015 Industry Standard
-                </p>
-              </div>
-              <FiArrowUpRight className="ml-auto text-slate-300" />
-            </motion.div> */}
           </div>
 
           {/* RIGHT: Content & Narrative */}
           <div className="lg:col-span-7 order-1 lg:order-2">
-            <motion.span
-              initial={{ opacity: 0 }}
-              whileInView={{ opacity: 1 }}
-              className="inline-block text-blue-600 font-bold tracking-[0.3em] text-xs mb-6 bg-blue-50 px-4 py-1.5 rounded-full"
+            {/* Status Badge Style Label */}
+            <motion.div 
+              initial={{ opacity: 0, y: 10 }}
+              whileInView={{ opacity: 1, y: 0 }}
+              className="inline-flex items-center space-x-2 bg-orange-50 border border-orange-100 px-4 py-2 rounded-full mb-8"
             >
-              About Us
-            </motion.span>
+              <span className="flex h-2 w-2 rounded-full bg-[#FF7E00]"></span>
+              <span className="text-[#FF7E00] text-xs font-black uppercase tracking-[0.2em]">
+                Our Legacy
+              </span>
+            </motion.div>
 
             <motion.h2
               initial={{ opacity: 0, y: 20 }}
               whileInView={{ opacity: 1, y: 0 }}
-              className="text-4xl md:text-5xl font-black text-slate-900 leading-tight mb-8 tracking-tighter"
+              transition={{ duration: 0.6 }}
+              className="text-5xl font-black text-slate-900 leading-[0.95] mb-8 tracking-tighter"
             >
-              Architecting{" "}
-              <span className="text-transparent bg-clip-text bg-gradient-to-r from-blue-600 to-indigo-600">
-                Futures
-              </span>
-              , Not Just Features.
+              Architecting <span></span>
+              <span className="text-transparent bg-clip-text bg-gradient-to-r from-[#044DB6] to-blue-500">
+                Futures, 
+              </span><br />
+              Not Just Features.
             </motion.h2>
 
-            <div className="space-y-6 text-lg text-slate-600 leading-relaxed max-w-2xl">
+            <div className="space-y-6 text-xl text-slate-600 leading-relaxed max-w-2xl font-medium">
               <p>
                 At{" "}
-                <span className="text-slate-900 font-bold underline decoration-orange-400 underline-offset-4">
+                <span className="text-slate-900 font-bold underline decoration-[#FF7E00] decoration-4 underline-offset-4">
                   VVSPL TECH
                 </span>
-                , we serve as the bridge between legacy infrastructure and the
-                AI-driven future.
+                , we serve as the critical bridge between legacy infrastructure and the AI-driven future.
               </p>
               <p>
-                We operate on a philosophy of{" "}
-                <span className="text-slate-900 font-semibold">
-                  Precision Architecture
-                </span>
-                . Every line of code and every cloud node is deployed with a
-                singular goal: to turn your technical debt into a competitive
-                engine.
+                We operate on a philosophy of <span className="text-[#044DB6] font-bold">Precision Architecture</span>. Every line of code is deployed to turn technical debt into a competitive engine.
               </p>
             </div>
 
-            {/* CTA Action Group */}
-            <div className="flex flex-wrap gap-5 mt-12">
+            {/* CTA Action Group - Matching Hero Buttons */}
+            <div className="flex flex-col sm:flex-row gap-5 mt-12">
               <motion.button
                 whileHover={{ scale: 1.02 }}
                 whileTap={{ scale: 0.98 }}
-                className="group relative px-10 py-5 bg-gradient-to-r from-blue-600 to-[#044DB6] hover:from-blue-700 hover:to-[#0863e7] text-white rounded-2xl font-bold overflow-hidden shadow-2xl shadow-blue-500/20 transition-all"
+                className="flex items-center justify-center space-x-3 px-6 py-4 rounded-2xl font-bold text-white bg-gradient-to-r from-[#FF7E00] to-[#e67300] shadow-lg shadow-orange-500/20 group"
               >
-                <span className="relative z-10 flex items-center gap-3">
-                  Start Your Project
-                  <FiArrowUpRight className="text-xl group-hover:rotate-45 transition-transform duration-300" />
-                </span>
+                <span>Start Your Project</span>
+                <FiArrowUpRight className="group-hover:rotate-45 transition-transform duration-300" />
               </motion.button>
 
               <motion.button
                 whileHover={{ scale: 1.02 }}
                 whileTap={{ scale: 0.98 }}
-                className="px-10 py-5 bg-white text-slate-700 border border-slate-200 rounded-2xl font-bold hover:border-slate-300 hover:bg-slate-50 transition-all flex items-center gap-3 group"
+                className="flex items-center justify-center space-x-2 px-6 py-4 rounded-xl font-semibold text-[#044DB6] border border-[#044DB6]/25 bg-white hover:bg-gradient-to-r hover:from-[#044DB6] hover:to-[#2A6BFF] hover:text-white hover:border-transparent transition-all duration-300 shadow-sm hover:shadow-md"
               >
                 <span>More About Us</span>
-                <div className="w-2 h-2 rounded-full bg-blue-600 group-hover:scale-150 transition-transform" />
               </motion.button>
             </div>
           </div>
         </div>
 
-        {/* Scrolling Feature Ribbon */}
-        <div className="mt-24 py-8 border-y border-slate-200 overflow-hidden relative group">
-          <div className="flex animate-marquee whitespace-nowrap space-x-12 items-center">
+        {/* Scrolling Feature Ribbon - Match Hero Palette */}
+        <div className="mt-14 py-6 border-y border-slate-100 overflow-hidden relative group bg-slate-50/50">
+          <div className="flex animate-marquee whitespace-nowrap space-x-16 items-center">
             {[
               "AI Integration",
               "Cloud Architecture",
@@ -164,10 +121,10 @@ const About = () => {
               "Custom ERP",
               "Blockchain",
               "Big Data",
-            ].map((tech) => (
-              <div key={tech} className="flex items-center space-x-3">
-                <FiCheckCircle className="text-blue-600" />
-                <span className="text-slate-900 font-bold uppercase tracking-tighter text-lg">
+            ].map((tech, idx) => (
+              <div key={idx} className="flex items-center space-x-4">
+                {/* <FiCheckCircle className="text-[#FF7E00] text-xl" /> */}
+                <span className="text-slate-900 font-black tracking-tighter text-lg">
                   {tech}
                 </span>
               </div>
@@ -180,10 +137,10 @@ const About = () => {
               "Custom ERP",
               "Blockchain",
               "Big Data",
-            ].map((tech) => (
-              <div key={tech + "-2"} className="flex items-center space-x-3">
-                <FiCheckCircle className="text-blue-600" />
-                <span className="text-slate-900 font-bold uppercase tracking-tighter text-lg">
+            ].map((tech, idx) => (
+              <div key={idx + "-2"} className="flex items-center space-x-4">
+                {/* <FiCheckCircle className="text-[#FF7E00] text-xl" /> */}
+                <span className="text-slate-900 font-black tracking-tighter text-lg">
                   {tech}
                 </span>
               </div>
@@ -194,15 +151,11 @@ const About = () => {
 
       <style jsx>{`
         @keyframes marquee {
-          0% {
-            transform: translateX(0);
-          }
-          100% {
-            transform: translateX(-50%);
-          }
+          0% { transform: translateX(0); }
+          100% { transform: translateX(-50%); }
         }
         .animate-marquee {
-          animation: marquee 30s linear infinite;
+          animation: marquee 25s linear infinite;
         }
       `}</style>
     </section>

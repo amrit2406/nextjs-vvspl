@@ -44,13 +44,13 @@ const BlogSection = () => {
               initial={{ opacity: 0, x: -20 }}
               whileInView={{ opacity: 1, x: 0 }}
               viewport={{ once: true }}
-              className="inline-flex items-center space-x-2 bg-blue-50 px-3 py-1.5 rounded-full mb-4"
+              className="inline-flex items-center space-x-2 bg-orange-50 px-3 py-1.5 rounded-full mb-4"
             >
-              <span className="w-1.5 h-1.5 rounded-full bg-blue-600 animate-pulse" />
-              <span className="text-blue-600 font-bold tracking-[0.2em] text-[10px] uppercase">Knowledge Base</span>
+              <span className="w-1.5 h-1.5 rounded-full bg-[#FF7E00] animate-pulse" />
+              <span className="text-[#FF7E00] font-bold tracking-[0.2em] text-[10px] uppercase">Knowledge Base</span>
             </motion.div>
             <h3 className="text-5xl md:text-6xl font-black text-slate-900 tracking-tighter leading-[0.9]">
-              Latest <span className="text-transparent bg-clip-text bg-gradient-to-r from-blue-600 via-blue-500 to-[#044DB6] italic">Insights.</span>
+              Latest <span className="text-transparent bg-clip-text bg-gradient-to-r from-[#FF7E00] via-orange-500 to-[#e67300] italic">Insights.</span>
             </h3>
           </div>
           
@@ -92,23 +92,23 @@ const BlogSection = () => {
               <div className="p-8 flex flex-col flex-grow">
                 {/* <div className="flex items-center space-x-4 text-[10px] font-bold uppercase tracking-widest text-slate-400 mb-4">
                   <div className="flex items-center space-x-1.5">
-                    <FiCalendar className="text-blue-600" />
+                    <FiCalendar className="text-[#FF7E00]" />
                     <span>{post.date}</span>
                   </div>
                   <span>/</span>
                   <div className="flex items-center space-x-1.5">
-                    <FiClock className="text-blue-600" />
+                    <FiClock className="text-[#FF7E00]" />
                     <span>{post.readTime}</span>
                   </div>
                 </div> */}
 
-                <h4 className="text-2xl font-black text-slate-900 tracking-tight leading-tight group-hover:text-blue-600 transition-colors mb-6">
+                <h4 className="text-2xl font-black text-slate-900 tracking-tight leading-tight group-hover:text-[#FF7E00] transition-colors mb-6">
                   {post.title}
                 </h4>
 
                 <div className="mt-auto pt-6 border-t border-slate-100 flex items-center justify-between">
                   <span className="text-xs font-black uppercase tracking-widest text-slate-900">Read Full Story</span>
-                  <div className="w-8 h-8 rounded-lg bg-slate-100 text-slate-900 flex items-center justify-center group-hover:bg-blue-600 group-hover:text-white transition-all transform group-hover:rotate-45">
+                  <div className="w-8 h-8 rounded-lg bg-slate-100 text-slate-900 flex items-center justify-center group-hover:bg-[#FF7E00] group-hover:text-white transition-all transform group-hover:rotate-45">
                     <FiArrowRight size={16} />
                   </div>
                 </div>

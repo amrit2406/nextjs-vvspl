@@ -17,7 +17,7 @@ export const services = [
     description: "Transforming raw data into actionable insights through advanced Machine Learning models.",
     image: "https://images.unsplash.com/photo-1551288049-bbbda536339a?q=80&w=800&auto=format&fit=crop",
     icon: <FiBarChart />,
-    theme: "from-purple-600 to-blue-600",
+    theme: "from-purple-600 to-[#FF7E00]",
     slug: "ai-solutions"
   },
   {
@@ -25,7 +25,7 @@ export const services = [
     description: "Tailor-made web solutions designed to scale with your business logic and enterprise needs.",
     image: "https://images.unsplash.com/photo-1510915228340-29c85a43dcfe?q=80&w=800&auto=format&fit=crop",
     icon: <FiCode />,
-    theme: "from-blue-600 to-indigo-600",
+    theme: "from-[#FF7E00] to-indigo-600",
     slug: "web-apps"
   },
   {
@@ -33,7 +33,7 @@ export const services = [
     description: "High-performance native and cross-platform mobile applications for iOS and Android.",
     image: "https://images.unsplash.com/photo-1512941937669-90a1b58e7e9c?q=80&w=800&auto=format&fit=crop",
     icon: <FiSmartphone />,
-    theme: "from-blue-500 to-cyan-500",
+    theme: "from-[#FF7E00] to-cyan-500",
     slug: "mobile-apps"
   },
   {
@@ -73,7 +73,7 @@ const Services = () => {
             <motion.span
               initial={{ opacity: 0, x: -20 }}
               whileInView={{ opacity: 1, x: 0 }}
-              className="text-blue-600 font-bold uppercase tracking-widest text-sm"
+              className="text-[#FF7E00] font-bold uppercase tracking-widest text-sm"
             >
               Our Expertise
             </motion.span>
@@ -83,7 +83,7 @@ const Services = () => {
               transition={{ delay: 0.1 }}
               className="text-4xl md:text-5xl font-black text-slate-900 mt-2 tracking-tighter"
             >
-              Solutions that drive <span className="text-transparent bg-clip-text bg-gradient-to-r from-blue-600 via-blue-500 to-[#044DB6]">innovation.</span>
+              Solutions that drive <span className="text-transparent bg-clip-text bg-gradient-to-r from-[#FF7E00] via-orange-500 to-[#e67300]">innovation.</span>
             </motion.h3>
           </div>
           <motion.p
@@ -128,7 +128,7 @@ const Services = () => {
                 {/* CTA Button */}
                 <div className="mt-auto">
                   <Link href={`/services/${service.slug}`} className="w-full flex items-center justify-between group/btn bg-slate-50 text-slate-900 hover:text-white px-6 py-4 rounded-2xl font-bold transition-all duration-300 ease-in-out
-                    hover:bg-gradient-to-r hover:from-blue-600 hover:to-[#044DB6] shadow-sm hover:shadow-lg hover:scale-[1.02]">
+                    hover:bg-gradient-to-r hover:from-[#FF7E00] hover:to-[#e67300] shadow-sm hover:shadow-lg hover:scale-[1.02]">
                     <span>Explore Service</span>
                     <div className="w-8 h-8 rounded-full bg-white flex items-center justify-center text-slate-900 group-hover/btn:scale-110 transition-transform shadow-sm">
                       <FiArrowRight />
@@ -149,13 +149,13 @@ const Services = () => {
             <h4 className="text-3xl font-bold text-white mb-2">Ready to architect your future?</h4>
             <p className="text-slate-400">Consult with our veterans to design your next technical ecosystem.</p>
           </div>
-          <Link href="/contact" className="mt-8 md:mt-0 relative z-10 bg-gradient-to-r from-blue-600 to-[#044DB6] hover:from-blue-700 hover:to-[#0863e7] text-white px-10 py-5 rounded-2xl font-black transition-all duration-300 flex items-center justify-center space-x-3 shadow-2xl shadow-blue-500/20 w-fit self-center">
+          <Link href="/contact" className="mt-8 md:mt-0 relative z-10 bg-gradient-to-r from-[#FF7E00] to-[#e67300] hover:from-[#e67300] hover:to-[#cc6600] text-white px-10 py-5 rounded-2xl font-black transition-all duration-300 flex items-center justify-center space-x-3 shadow-2xl shadow-orange-500/20 w-fit self-center">
             <span>Book a Strategy Call</span>
             <FiArrowRight />
           </Link>
 
           {/* Decorative Background for Global CTA */}
-          <div className="absolute top-0 right-0 w-64 h-64 bg-blue-600/20 rounded-full blur-[80px]" />
+          <div className="absolute top-0 right-0 w-64 h-64 bg-[#FF7E00]/20 rounded-full blur-[80px]" />
           <div className="absolute bottom-0 left-0 w-64 h-64 bg-orange-500/10 rounded-full blur-[80px]" />
         </div>
       </div>

@@ -33,11 +33,11 @@ const SisterCompany = () => {
               whileInView={{ opacity: 1, x: 0 }}
               transition={{ duration: 0.8 }}
             >
-              <span className="text-blue-600 font-bold tracking-[0.3em] uppercase text-xs">
+              <span className="text-[#FF7E00] font-bold tracking-[0.3em] uppercase text-xs">
                 The Ecosystem
               </span>
               <h3 className="mt-4 text-5xl md:text-6xl font-black text-slate-900 leading-[1.1] tracking-tighter">
-                <span className="text-transparent bg-clip-text bg-gradient-to-r from-blue-600 via-blue-500 to-[#044DB6]">
+                <span className="text-transparent bg-clip-text bg-gradient-to-r from-[#FF7E00] via-orange-500 to-[#e67300]">
                   Software Intelligence
                 </span>{" "}
                 <br />
@@ -48,9 +48,9 @@ const SisterCompany = () => {
             </motion.div>
 
             <div className="grid grid-cols-1 sm:grid-cols-2 gap-6">
-              <div className="p-6 border-l-2 border-slate-100 hover:border-blue-600 transition-colors group">
+              <div className="p-6 border-l-2 border-slate-100 hover:border-[#FF7E00] transition-colors group">
                 <FiActivity
-                  className="text-blue-600 mb-4 group-hover:scale-110 transition-transform"
+                  className="text-[#FF7E00] mb-4 group-hover:scale-110 transition-transform"
                   size={24}
                 />
                 <h4 className="font-bold text-slate-900 uppercase tracking-tight text-sm">
@@ -60,9 +60,9 @@ const SisterCompany = () => {
                   Digital Orchestration & AI-Driven Analytics.
                 </p>
               </div>
-              <div className="p-6 border-l-2 border-slate-100 hover:border-blue-600 transition-colors group">
+              <div className="p-6 border-l-2 border-slate-100 hover:border-[#FF7E00] transition-colors group">
                 <FiAnchor
-                  className="text-blue-600 mb-4 group-hover:scale-110 transition-transform"
+                  className="text-[#FF7E00] mb-4 group-hover:scale-110 transition-transform"
                   size={24}
                 />
                 <h4 className="font-bold text-slate-900 uppercase tracking-tight text-sm">

@@ -24,40 +24,40 @@ const Hero = () => {
           suppressHydrationWarning={true}
         >
           {/* Status Badge */}
-          <div className="inline-flex items-center space-x-2 bg-white/80 backdrop-blur-sm border border-blue-100 px-4 py-2 rounded-full mb-8 shadow-sm">
+          <div className="inline-flex items-center space-x-2 bg-white/80 backdrop-blur-sm border border-orange-100 px-4 py-2 rounded-full mb-8 shadow-sm">
             <span className="relative flex h-3 w-3">
-              <span className="animate-ping absolute inline-flex h-full w-full rounded-full bg-blue-400 opacity-75"></span>
-              <span className="relative inline-flex rounded-full h-3 w-3 bg-blue-600"></span>
+              <span className="animate-ping absolute inline-flex h-full w-full rounded-full bg-orange-400 opacity-75"></span>
+              <span className="relative inline-flex rounded-full h-3 w-3 bg-[#FF7E00]"></span>
             </span>
-            <span className="text-blue-900 text-xs font-bold tracking-widest">
+            <span className="text-orange-900 text-xs font-bold tracking-widest">
               AI solutions for the future, today
             </span>
           </div>
 
           {/* Headline */}
-          <h1 className="text-6xl md:text-7xl font-black text-slate-900 leading-[0.95] mb-8 tracking-tighter">
+          <h1 className="text-5xl font-black text-slate-900 leading-[0.95] mb-8 tracking-tighter">
             Build Fast.<br />
-            <span className="text-transparent bg-clip-text bg-gradient-to-r from-blue-600 via-blue-500 to-[#044DB6]">
+            <span className="text-transparent bg-clip-text bg-gradient-to-r from-[#FF7E00] via-orange-500 to-[#e67300]">
               Scale Smarter.
             </span>
           </h1>
 
           {/* Subheadline */}
           <p className="text-xl text-slate-600 mb-10 max-w-lg leading-relaxed font-medium">
-            VVSPL TECH engineers high-performance <span className="text-slate-900 font-bold">AI architectures</span> and 
+            VVSPL TECH engineers high-performance <span className="text-[#044DB6] font-bold">AI architectures</span> and 
             cloud-native software that turns operational bottlenecks into competitive advantages.
           </p>
 
           {/* Buttons */}
           <div className="flex flex-col sm:flex-row gap-4">
             {/* Primary (Blue Gradient) */}
-            <button className="flex items-center justify-center space-x-3 px-10 py-5 rounded-2xl font-bold text-white bg-gradient-to-r from-blue-600 to-[#044DB6] hover:from-blue-700 hover:to-[#0863e7] transition-all duration-300 shadow-lg shadow-blue-500/20 group">
+            <button className="flex items-center justify-center space-x-3 px-6 py-4 rounded-2xl font-bold text-white bg-gradient-to-r from-[#FF7E00] to-[#e67300] hover:from-[#e67300] hover:to-[#cc6600] transition-all duration-300 shadow-lg shadow-orange-500/20 group">
               <span>Start Your Project</span>
               <FiArrowRight className="group-hover:translate-x-1 transition-transform" />
             </button>
 
             {/* Secondary (Minimal) */}
-            <button className="flex items-center justify-center space-x-2 px-10 py-5 rounded-2xl font-bold bg-white border border-slate-200 text-slate-700 hover:border-slate-300 hover:bg-slate-50 transition-all duration-300">
+           <button className="flex items-center justify-center space-x-2 px-6 py-4 rounded-xl font-semibold text-[#044DB6] border border-[#044DB6]/25 bg-white hover:bg-gradient-to-r hover:from-[#044DB6] hover:to-[#2A6BFF] hover:text-white hover:border-transparent transition-all duration-300 shadow-sm hover:shadow-md">
               <span>Our Work</span>
             </button>
           </div>
@@ -65,11 +65,11 @@ const Hero = () => {
           {/* Trust Badges */}
           {/* <div className="mt-12 flex items-center space-x-6 text-slate-400">
              <div className="flex items-center space-x-2">
-                <FiCheckCircle className="text-blue-500" />
+                <FiCheckCircle className="text-[#FF7E00]" />
                 <span className="text-sm font-semibold uppercase tracking-wider">ISO Certified</span>
              </div>
              <div className="flex items-center space-x-2">
-                <FiCheckCircle className="text-blue-500" />
+                <FiCheckCircle className="text-[#FF7E00]" />
                 <span className="text-sm font-semibold uppercase tracking-wider">AWS Partner</span>
              </div>
           </div> */}
@@ -106,11 +106,11 @@ const Hero = () => {
             transition={{ repeat: Infinity, duration: 6, ease: "easeInOut" }}
             className="absolute bottom-10 -left-12 bg-slate-900 text-white p-6 rounded-3xl shadow-2xl z-20 flex items-center space-x-4 border-4 border-white"
           >
-            <div className="bg-blue-500 p-3 rounded-xl text-white">
+            <div className="bg-[#FF7E00] p-3 rounded-xl text-white">
               <FiLayers size={24} />
             </div>
             <div>
-              <p className="text-xs text-blue-300 font-mono tracking-widest uppercase">Microservices</p>
+              <p className="text-xs text-orange-300 font-mono tracking-widest uppercase">Microservices</p>
               <p className="text-xl font-bold">Architecture Optimized</p>
               <p className="text-xs text-slate-400 mt-1">v3.1 Stable Release</p>
             </div>

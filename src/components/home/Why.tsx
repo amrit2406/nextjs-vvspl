@@ -7,8 +7,8 @@ const reasons = [
     icon: <FiCpu size={26} />,
     title: "Cutting-Edge Expertise",
     description: "Mastering advanced AI/ML models and complex Cloud architectures to keep your stack future-ready.",
-    color: "from-blue-500 to-cyan-400",
-    glow: "shadow-blue-500/10"
+    color: "from-[#FF7E00] to-orange-400",
+    glow: "shadow-orange-500/10"
   },
   {
     icon: <FiShield size={26} />,
@@ -37,7 +37,7 @@ const WhyChooseUs = () => {
   return (
     <section className="relative py-32 bg-[#030712] overflow-hidden">
       {/* Background Decor */}
-      <div className="absolute top-0 left-1/4 w-[500px] h-[500px] bg-blue-600/5 rounded-full blur-[120px] pointer-events-none" />
+      <div className="absolute top-0 left-1/4 w-[500px] h-[500px] bg-[#FF7E00]/5 rounded-full blur-[120px] pointer-events-none" />
       
       <div className="max-w-7xl mx-auto px-6 lg:px-8">
         <div className="grid grid-cols-1 lg:grid-cols-12 gap-16 items-start">
@@ -50,9 +50,9 @@ const WhyChooseUs = () => {
               viewport={{ once: true }}
               transition={{ duration: 0.8 }}
             >
-              <div className="inline-flex items-center space-x-2 bg-blue-500/10 border border-blue-500/20 px-3 py-1 rounded-full mb-6">
-                <span className="w-2 h-2 bg-blue-500 rounded-full animate-pulse" />
-                <span className="text-blue-400 text-[10px] font-bold uppercase tracking-widest">The VVSPL Edge</span>
+              <div className="inline-flex items-center space-x-2 bg-[#FF7E00]/10 border border-[#FF7E00]/20 px-3 py-1 rounded-full mb-6">
+                <span className="w-2 h-2 bg-[#FF7E00] rounded-full animate-pulse" />
+                <span className="text-[#FF7E00] text-[10px] font-bold uppercase tracking-widest">The VVSPL Edge</span>
               </div>
               
               <h2 className="text-5xl lg:text-6xl font-black text-white mb-8 leading-[1.1] tracking-tight">
@@ -110,7 +110,7 @@ const WhyChooseUs = () => {
                 </p>
 
                 {/* Bottom Accent Line */}
-                <div className="absolute bottom-0 left-1/2 -translate-x-1/2 w-0 h-[2px] bg-gradient-to-r from-transparent via-blue-500 to-transparent group-hover:w-1/2 transition-all duration-700" />
+                <div className="absolute bottom-0 left-1/2 -translate-x-1/2 w-0 h-[2px] bg-gradient-to-r from-transparent via-[#FF7E00] to-transparent group-hover:w-1/2 transition-all duration-700" />
               </motion.div>
             ))}
           </div>
