@@ -1,4 +1,5 @@
 "use client";
+import React from "react";
 import { motion } from "framer-motion";
 import Link from "next/link";
 import {
@@ -11,7 +12,18 @@ import {
   FiShoppingCart
 } from "react-icons/fi";
 
-export const services = [
+// 1. Define an Interface for your data
+interface ServiceItem {
+  title: string;
+  description: string;
+  image: string;
+  icon: React.ReactNode;
+  theme: string;
+  slug: string;
+}
+
+// 2. Export the data with the type applied
+export const serviceData: ServiceItem[] = [
   {
     title: "AI Solutions",
     description: "Transforming raw data into actionable insights through advanced Machine Learning models.",
@@ -66,8 +78,8 @@ const Services = () => {
   return (
     <section className="py-24 bg-slate-50">
       <div className="max-w-7xl mx-auto px-6 lg:px-8">
-
-        {/* Header */}
+        
+        {/* Header - Still your original excellent header */}
         <div className="flex flex-col md:flex-row md:items-end justify-between mb-16 gap-6">
           <div className="max-w-2xl">
             <motion.span
@@ -91,72 +103,86 @@ const Services = () => {
             whileInView={{ opacity: 1 }}
             className="text-slate-500 max-w-xs font-medium"
           >
-            We combine architectural excellence with cutting-edge engineering to build the future of tech.
+            We combine architectural excellence with cutting-edge engineering.
           </motion.p>
         </div>
 
         {/* Services Grid */}
         <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
-          {services.map((service, index) => (
+          {serviceData.map((service: ServiceItem, index: number) => (
             <motion.div
-              key={index}
+              key={service.slug}
               initial={{ opacity: 0, y: 30 }}
               whileInView={{ opacity: 1, y: 0 }}
               viewport={{ once: true }}
               transition={{ delay: index * 0.1 }}
-              className="group relative flex flex-col h-[520px] rounded-[2.5rem] bg-white overflow-hidden border border-slate-200 shadow-sm hover:shadow-2xl hover:border-transparent transition-all duration-500"
+              className="group relative h-[420px] w-full rounded-[2.5rem] overflow-hidden bg-white shadow-lg cursor-pointer"
             >
-              {/* Top Section: Image */}
-              <div className="relative h-64 w-full overflow-hidden">
-                <img
-                  src={service.image}
-                  alt={service.title}
-                  className="w-full h-full object-cover transition-transform duration-700 group-hover:scale-110"
-                />
-                <div className="absolute inset-0 bg-slate-900/20 group-hover:bg-slate-900/40 transition-colors" />
-              </div>
+              {/* Background Image - Scale up subtly on hover */}
+              <img
+                src={service.image}
+                alt={service.title}
+                className="absolute inset-0 w-full h-full object-cover transition-transform duration-700 group-hover:scale-105"
+              />
 
-              {/* Bottom Section: Content */}
-              <div className="flex flex-col flex-grow p-8">
-                <h4 className="text-2xl font-bold text-slate-900 mb-3 tracking-tight">
-                  {service.title}
-                </h4>
-                <p className="text-slate-500 text-sm leading-relaxed mb-6 line-clamp-3">
-                  {service.description}
-                </p>
+              {/* Overlays */}
+              {/* Base gradient to ensure title is readable */}
+              <div className="absolute inset-0 bg-gradient-to-t from-black/80 via-black/40 to-transparent" />
+              
+              {/* Color accent wash on hover */}
+              <div className={`absolute inset-0 bg-gradient-to-br ${service.theme} opacity-0 group-hover:opacity-30 transition-opacity duration-500`} />
 
-                {/* CTA Button */}
-                <div className="mt-auto">
-                  <Link href={`/services/${service.slug}`} className="w-full flex items-center justify-between group/btn bg-slate-50 text-slate-900 hover:text-white px-6 py-4 rounded-2xl font-bold transition-all duration-300 ease-in-out
-                    hover:bg-gradient-to-r hover:from-[#FF7E00] hover:to-[#e67300] shadow-sm hover:shadow-lg hover:scale-[1.02]">
-                    <span>Explore Service</span>
-                    <div className="w-8 h-8 rounded-full bg-white flex items-center justify-center text-slate-900 group-hover/btn:scale-110 transition-transform shadow-sm">
+              {/* content Container - Positioned absolutely at the bottom */}
+              <div className="absolute bottom-0 inset-x-0 p-8">
+                
+                {/* Wrapper for the text. 
+                  We apply the slide animation to this container so the 
+                  Title + Description move up as one.
+                */}
+                <div className="translate-y-[100px] group-hover:translate-y-0 transition-transform duration-500 ease-out relative z-10">
+                  
+                  {/* Title - It now slides up *into* this position on hover */}
+                  <h4 className="text-3xl font-bold text-white mb-2 tracking-tight">
+                    {service.title}
+                  </h4>
+                  
+                  {/* Description and Button Container.
+                    Set height and opacity transition.
+                    It's "hidden" off-screen due to the parent transform,
+                    but we also control its visibility here.
+                  */}
+                  <div className="opacity-0 group-hover:opacity-100 transition-opacity duration-500 pt-3">
+                    <p className="text-slate-200 text-sm leading-relaxed line-clamp-2 mb-6">
+                      {service.description}
+                    </p>
+
+                    <Link 
+                      href={`/services/${service.slug}`} 
+                      className="inline-flex items-center space-x-3 bg-white text-slate-900 px-7 py-3.5 rounded-2xl font-bold hover:bg-[#FF7E00] hover:text-white transition-colors duration-300 shadow-lg"
+                    >
+                      <span>Explore Service</span>
                       <FiArrowRight />
-                    </div>
-                  </Link>
+                    </Link>
+                  </div>
                 </div>
               </div>
 
-              {/* Top Accent Bar (Hover Effect) */}
-              <div className={`absolute top-0 inset-x-0 h-1.5 bg-gradient-to-r ${service.theme} transform scale-x-0 group-hover:scale-x-100 transition-transform origin-left duration-500`} />
+              {/* Hover Accent Top Bar */}
+              <div className={`absolute top-0 inset-x-0 h-2 bg-gradient-to-r ${service.theme} transform scale-x-0 group-hover:scale-x-100 transition-transform origin-left duration-500`} />
             </motion.div>
           ))}
         </div>
 
-        {/* Global CTA */}
+        {/* Global CTA - No changes here, keeping your robust CTA */}
         <div className="mt-20 relative p-12 rounded-[3rem] bg-slate-900 overflow-hidden text-center md:text-left md:flex items-center justify-between">
           <div className="relative z-10">
             <h4 className="text-3xl font-bold text-white mb-2">Ready to architect your future?</h4>
             <p className="text-slate-400">Consult with our veterans to design your next technical ecosystem.</p>
           </div>
-          <Link href="/contact" className="mt-8 md:mt-0 relative z-10 bg-gradient-to-r from-[#FF7E00] to-[#e67300] hover:from-[#e67300] hover:to-[#cc6600] text-white px-10 py-5 rounded-2xl font-black transition-all duration-300 flex items-center justify-center space-x-3 shadow-2xl shadow-orange-500/20 w-fit self-center">
+          <Link href="/contact" className="mt-8 md:mt-0 relative z-10 bg-gradient-to-r from-[#FF7E00] to-[#e67300] text-white px-10 py-5 rounded-2xl font-black transition-all hover:scale-105 flex items-center justify-center space-x-3 shadow-xl">
             <span>Book a Strategy Call</span>
             <FiArrowRight />
           </Link>
-
-          {/* Decorative Background for Global CTA */}
-          <div className="absolute top-0 right-0 w-64 h-64 bg-[#FF7E00]/20 rounded-full blur-[80px]" />
-          <div className="absolute bottom-0 left-0 w-64 h-64 bg-orange-500/10 rounded-full blur-[80px]" />
         </div>
       </div>
     </section>

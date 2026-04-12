@@ -297,7 +297,7 @@ const Navbar = () => {
                 isServicesOpen ? "text-black" : "text-slate-700"
               }`}
             >
-              Expertise
+              Solutions
             </button>
 
             <AnimatePresence>
