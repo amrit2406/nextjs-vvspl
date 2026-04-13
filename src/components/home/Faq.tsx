@@ -92,12 +92,17 @@ const FAQ = () => {
               whileInView={{ opacity: 1, y: 0 }}
               viewport={{ once: true }}
             >
-              <div className="inline-flex items-center space-x-2 bg-orange-50 border border-orange-100 px-4 py-2 rounded-full mb-8">
-                <FiZap className="text-[#FF7E00]" size={14} />
-                <span className="text-[#FF7E00] text-[10px] font-black uppercase tracking-[0.2em]">
-                  Support & Strategy
+              <motion.div 
+              initial={{ opacity: 0, y: 20 }}
+              whileInView={{ opacity: 1, y: 0 }}
+              viewport={{ once: true }}
+              className="flex items-center gap-3 mb-6"
+              >
+                <div className="w-10 h-[1px] bg-[#FF7E00]" />
+                <span className="text-[#FF7E00] font-bold uppercase tracking-[0.3em] text-[10px]">
+                  Support & FAQs
                 </span>
-              </div>
+              </motion.div>
 
               <h2 className="text-5xl font-black text-slate-900 leading-[0.95] mb-8 tracking-tighter">
                 Your questions, <br />

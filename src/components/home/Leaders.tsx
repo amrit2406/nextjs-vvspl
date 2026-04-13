@@ -89,11 +89,11 @@ const Leaders = () => {
               className="group"
             >
               {/* Image Container */}
-              <div className="relative aspect-[3/4] overflow-hidden rounded-[2rem] bg-slate-100 mb-8">
+              <div className="relative aspect-[4/4] p-2 overflow-hidden rounded-[2rem] bg-slate-100 mb-8">
                 <img 
                   src={leader.image} 
                   alt={leader.name} 
-                  className="w-full h-full object-cover group-hover:grayscale-0 group-hover:scale-105 transition-all duration-700 ease-out" 
+                  className="w-full h-full object-contain group-hover:grayscale-0 group-hover:scale-102 transition-all duration-700 ease-out" 
                 />
                 
                 {/* Float Social Overlay */}

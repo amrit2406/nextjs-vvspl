@@ -53,13 +53,14 @@ const About = () => {
           <div className="lg:col-span-7 order-1 lg:order-2">
             {/* Status Badge Style Label */}
             <motion.div 
-              initial={{ opacity: 0, y: 10 }}
+              initial={{ opacity: 0, y: 20 }}
               whileInView={{ opacity: 1, y: 0 }}
-              className="inline-flex items-center space-x-2 bg-orange-50 border border-orange-100 px-4 py-2 rounded-full mb-8"
+              viewport={{ once: true }}
+              className="flex items-center gap-3 mb-6"
             >
-              <span className="flex h-2 w-2 rounded-full bg-[#FF7E00]"></span>
-              <span className="text-[#FF7E00] text-xs font-black uppercase tracking-[0.2em]">
-                Our Legacy
+              <div className="w-10 h-[1px] bg-[#FF7E00]" />
+              <span className="text-[#FF7E00] font-bold uppercase tracking-[0.3em] text-[10px]">
+                About Us
               </span>
             </motion.div>
 
@@ -70,7 +71,7 @@ const About = () => {
               className="text-5xl font-black text-slate-900 leading-[0.95] mb-8 tracking-tighter"
             >
               Architecting <span></span>
-              <span className="text-transparent bg-clip-text bg-gradient-to-r from-[#044DB6] to-blue-500">
+              <span className="text-transparent bg-clip-text bg-gradient-to-r from-[#FF7E00] via-orange-500 to-[#e67300]">
                 Futures, 
               </span><br />
               Not Just Features.

@@ -11,6 +11,7 @@ import MissionVision from "@/components/home/Mv";
 import EddvaProduct from "@/components/home/Products";
 import Services from "@/components/home/Service";
 import WhyChooseUs from "@/components/home/Why";
+// import TechStackSection from "@/components/layout/TechStack";
 
 
 export default function Home() {
@@ -22,6 +23,7 @@ export default function Home() {
       <Services />
       <EddvaProduct />
       <WhyChooseUs />
+      {/* <TechStackSection /> */}
       <SisterCompany />
       <Leaders />
       <FAQ />

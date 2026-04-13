@@ -9,10 +9,24 @@ import {
   FiSmartphone,
   FiShield,
   FiBarChart,
-  FiShoppingCart
+  FiShoppingCart,
+  FiChevronLeft,
+  FiChevronRight
 } from "react-icons/fi";
 
-// 1. Define an Interface for your data
+// 1. Import Navigation module
+import { Swiper, SwiperSlide } from "swiper/react";
+import { Pagination, Autoplay, FreeMode, Navigation } from "swiper/modules";
+
+// @ts-ignore
+import "swiper/css";
+// @ts-ignore
+import "swiper/css/pagination";
+// @ts-ignore
+import "swiper/css/navigation";
+// @ts-ignore
+import "swiper/css/free-mode";
+
 interface ServiceItem {
   title: string;
   description: string;
@@ -22,7 +36,6 @@ interface ServiceItem {
   slug: string;
 }
 
-// 2. Export the data with the type applied
 export const serviceData: ServiceItem[] = [
   {
     title: "AI Solutions",
@@ -76,19 +89,23 @@ export const serviceData: ServiceItem[] = [
 
 const Services = () => {
   return (
-    <section className="py-24 bg-slate-50">
+    <section className="py-24 bg-slate-50 overflow-hidden">
       <div className="max-w-7xl mx-auto px-6 lg:px-8">
         
-        {/* Header - Still your original excellent header */}
+        {/* Header */}
         <div className="flex flex-col md:flex-row md:items-end justify-between mb-16 gap-6">
           <div className="max-w-2xl">
-            <motion.span
-              initial={{ opacity: 0, x: -20 }}
-              whileInView={{ opacity: 1, x: 0 }}
-              className="text-[#FF7E00] font-bold uppercase tracking-widest text-sm"
+            <motion.div 
+              initial={{ opacity: 0, y: 20 }}
+              whileInView={{ opacity: 1, y: 0 }}
+              viewport={{ once: true }}
+              className="flex items-center gap-3 mb-6"
             >
-              Our Expertise
-            </motion.span>
+              <div className="w-10 h-[1px] bg-[#FF7E00]" />
+              <span className="text-[#FF7E00] font-bold uppercase tracking-[0.3em] text-[10px]">
+                Our Expertise
+              </span>
+            </motion.div>
             <motion.h3
               initial={{ opacity: 0, y: 20 }}
               whileInView={{ opacity: 1, y: 0 }}
@@ -98,83 +115,81 @@ const Services = () => {
               Solutions that drive <span className="text-transparent bg-clip-text bg-gradient-to-r from-[#FF7E00] via-orange-500 to-[#e67300]">innovation.</span>
             </motion.h3>
           </div>
-          <motion.p
-            initial={{ opacity: 0 }}
-            whileInView={{ opacity: 1 }}
-            className="text-slate-500 max-w-xs font-medium"
+          
+          {/* Custom Navigation Buttons Container */}
+          <div className="flex gap-3 mb-2">
+            <button className="swiper-prev-btn w-12 h-12 rounded-full border-2 border-slate-200 flex items-center justify-center text-slate-600 hover:bg-[#FF7E00] hover:border-[#FF7E00] hover:text-white transition-all duration-300">
+              <FiChevronLeft size={24} />
+            </button>
+            <button className="swiper-next-btn w-12 h-12 rounded-full border-2 border-slate-200 flex items-center justify-center text-slate-600 hover:bg-[#FF7E00] hover:border-[#FF7E00] hover:text-white transition-all duration-300">
+              <FiChevronRight size={24} />
+            </button>
+          </div>
+        </div>
+
+        {/* Swiper Slider */}
+        <div className="pb-10 relative">
+          <Swiper
+            modules={[Pagination, Autoplay, FreeMode, Navigation]}
+            spaceBetween={30}
+            slidesPerView={1}
+            loop={true} // Infinite looping
+            navigation={{
+              prevEl: ".swiper-prev-btn",
+              nextEl: ".swiper-next-btn",
+            }}
+            pagination={{ clickable: true, dynamicBullets: true }}
+            autoplay={{ delay: 4000, disableOnInteraction: false }}
+            freeMode={true}
+            breakpoints={{
+              1024: { slidesPerView: 3 },
+              768: { slidesPerView: 2 },
+            }}
+            className="services-swiper !pb-14"
           >
-            We combine architectural excellence with cutting-edge engineering.
-          </motion.p>
-        </div>
+            {serviceData.map((service: ServiceItem) => (
+              <SwiperSlide key={service.slug}>
+                <div className="group relative h-[420px] w-full rounded-[2.5rem] overflow-hidden bg-white shadow-lg cursor-pointer">
+                  <img
+                    src={service.image}
+                    alt={service.title}
+                    className="absolute inset-0 w-full h-full object-cover transition-transform duration-700 group-hover:scale-105"
+                  />
 
-        {/* Services Grid */}
-        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
-          {serviceData.map((service: ServiceItem, index: number) => (
-            <motion.div
-              key={service.slug}
-              initial={{ opacity: 0, y: 30 }}
-              whileInView={{ opacity: 1, y: 0 }}
-              viewport={{ once: true }}
-              transition={{ delay: index * 0.1 }}
-              className="group relative h-[420px] w-full rounded-[2.5rem] overflow-hidden bg-white shadow-lg cursor-pointer"
-            >
-              {/* Background Image - Scale up subtly on hover */}
-              <img
-                src={service.image}
-                alt={service.title}
-                className="absolute inset-0 w-full h-full object-cover transition-transform duration-700 group-hover:scale-105"
-              />
+                  <div className="absolute inset-0 bg-gradient-to-t from-black/80 via-black/40 to-transparent" />
+                  <div className={`absolute inset-0 bg-gradient-to-br ${service.theme} opacity-0 group-hover:opacity-30 transition-opacity duration-500`} />
 
-              {/* Overlays */}
-              {/* Base gradient to ensure title is readable */}
-              <div className="absolute inset-0 bg-gradient-to-t from-black/80 via-black/40 to-transparent" />
-              
-              {/* Color accent wash on hover */}
-              <div className={`absolute inset-0 bg-gradient-to-br ${service.theme} opacity-0 group-hover:opacity-30 transition-opacity duration-500`} />
+                  <div className="absolute bottom-0 inset-x-0 p-8">
+                    <div className="translate-y-[100px] group-hover:translate-y-0 transition-transform duration-500 ease-out relative z-10">
+                      <h4 className="text-3xl font-bold text-white mb-2 tracking-tight">
+                        {service.title}
+                      </h4>
+                      
+                      <div className="opacity-0 group-hover:opacity-100 transition-opacity duration-500 pt-3">
+                        <p className="text-slate-200 text-sm leading-relaxed line-clamp-2 mb-6">
+                          {service.description}
+                        </p>
 
-              {/* content Container - Positioned absolutely at the bottom */}
-              <div className="absolute bottom-0 inset-x-0 p-8">
-                
-                {/* Wrapper for the text. 
-                  We apply the slide animation to this container so the 
-                  Title + Description move up as one.
-                */}
-                <div className="translate-y-[100px] group-hover:translate-y-0 transition-transform duration-500 ease-out relative z-10">
-                  
-                  {/* Title - It now slides up *into* this position on hover */}
-                  <h4 className="text-3xl font-bold text-white mb-2 tracking-tight">
-                    {service.title}
-                  </h4>
-                  
-                  {/* Description and Button Container.
-                    Set height and opacity transition.
-                    It's "hidden" off-screen due to the parent transform,
-                    but we also control its visibility here.
-                  */}
-                  <div className="opacity-0 group-hover:opacity-100 transition-opacity duration-500 pt-3">
-                    <p className="text-slate-200 text-sm leading-relaxed line-clamp-2 mb-6">
-                      {service.description}
-                    </p>
-
-                    <Link 
-                      href={`/services/${service.slug}`} 
-                      className="inline-flex items-center space-x-3 bg-white text-slate-900 px-7 py-3.5 rounded-2xl font-bold hover:bg-[#FF7E00] hover:text-white transition-colors duration-300 shadow-lg"
-                    >
-                      <span>Explore Service</span>
-                      <FiArrowRight />
-                    </Link>
+                        <Link 
+                          href={`/services/${service.slug}`} 
+                          className="inline-flex items-center space-x-3 bg-white text-slate-900 px-7 py-3.5 rounded-2xl font-bold hover:bg-[#FF7E00] hover:text-white transition-colors duration-300 shadow-lg"
+                        >
+                          <span>Explore Service</span>
+                          <FiArrowRight />
+                        </Link>
+                      </div>
+                    </div>
                   </div>
-                </div>
-              </div>
 
-              {/* Hover Accent Top Bar */}
-              <div className={`absolute top-0 inset-x-0 h-2 bg-gradient-to-r ${service.theme} transform scale-x-0 group-hover:scale-x-100 transition-transform origin-left duration-500`} />
-            </motion.div>
-          ))}
+                  <div className={`absolute top-0 inset-x-0 h-2 bg-gradient-to-r ${service.theme} transform scale-x-0 group-hover:scale-x-100 transition-transform origin-left duration-500`} />
+                </div>
+              </SwiperSlide>
+            ))}
+          </Swiper>
         </div>
 
-        {/* Global CTA - No changes here, keeping your robust CTA */}
-        <div className="mt-20 relative p-12 rounded-[3rem] bg-slate-900 overflow-hidden text-center md:text-left md:flex items-center justify-between">
+        {/* Global CTA */}
+        <div className="mt-8 relative p-12 rounded-[3rem] bg-slate-900 overflow-hidden text-center md:text-left md:flex items-center justify-between">
           <div className="relative z-10">
             <h4 className="text-3xl font-bold text-white mb-2">Ready to architect your future?</h4>
             <p className="text-slate-400">Consult with our veterans to design your next technical ecosystem.</p>
@@ -185,6 +200,14 @@ const Services = () => {
           </Link>
         </div>
       </div>
+
+      <style jsx global>{`
+        .services-swiper .swiper-pagination-bullet-active {
+          background: #FF7E00 !important;
+          width: 24px;
+          border-radius: 10px;
+        }
+      `}</style>
     </section>
   );
 };

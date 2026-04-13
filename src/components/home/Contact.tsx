@@ -19,16 +19,21 @@ const Contact = () => {
               viewport={{ once: true }}
               className="mb-16"
             >
-              <div className="flex items-center gap-3 mb-8">
-                <span className="w-8 h-[2px] bg-[#FF7E00]" />
-                <span className="text-[#FF7E00] font-bold uppercase tracking-[0.4em] text-[10px]">
-                  Strategic Inbound
+              <motion.div 
+              initial={{ opacity: 0, y: 20 }}
+              whileInView={{ opacity: 1, y: 0 }}
+              viewport={{ once: true }}
+              className="flex items-center gap-3 mb-6"
+              >
+                <div className="w-10 h-[1px] bg-[#FF7E00]" />
+                <span className="text-[#FF7E00] font-bold uppercase tracking-[0.3em] text-[10px]">
+                  Contact us
                 </span>
-              </div>
+              </motion.div>
               
-              <h3 className="text-5xl md:text-7xl font-black text-slate-900 leading-[0.9] tracking-tighter mb-8">
+              <h3 className="text-5xl font-black text-slate-900 leading-[0.9] tracking-tighter mb-8">
                 Let's build <br /> 
-                <span className="text-transparent bg-clip-text bg-gradient-to-r from-[#FF7E00] via-orange-500 to-[#e67300] italic">future</span> together.
+                <span className="text-transparent bg-clip-text bg-gradient-to-r from-[#FF7E00] via-orange-500 to-[#e67300] italic pr-2">future</span> together.
               </h3>
               
               <p className="text-slate-500 text-lg leading-relaxed max-w-md">

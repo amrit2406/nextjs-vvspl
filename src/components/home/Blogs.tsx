@@ -41,15 +41,17 @@ const BlogSection = () => {
         <div className="flex flex-col md:flex-row md:items-end justify-between mb-16">
           <div className="max-w-xl">
             <motion.div 
-              initial={{ opacity: 0, x: -20 }}
-              whileInView={{ opacity: 1, x: 0 }}
+              initial={{ opacity: 0, y: 20 }}
+              whileInView={{ opacity: 1, y: 0 }}
               viewport={{ once: true }}
-              className="inline-flex items-center space-x-2 bg-orange-50 px-3 py-1.5 rounded-full mb-4"
+              className="flex items-center gap-3 mb-6"
             >
-              <span className="w-1.5 h-1.5 rounded-full bg-[#FF7E00] animate-pulse" />
-              <span className="text-[#FF7E00] font-bold tracking-[0.2em] text-[10px] uppercase">Knowledge Base</span>
+              <div className="w-10 h-[1px] bg-[#FF7E00]" />
+              <span className="text-[#FF7E00] font-bold uppercase tracking-[0.3em] text-[10px]">
+                Knowledge base
+              </span>
             </motion.div>
-            <h3 className="text-5xl md:text-6xl font-black text-slate-900 tracking-tighter leading-[0.9]">
+            <h3 className="text-5xl font-black text-slate-900 tracking-tighter leading-[0.9]">
               Latest <span className="text-transparent bg-clip-text bg-gradient-to-r from-[#FF7E00] via-orange-500 to-[#e67300] italic">Insights.</span>
             </h3>
           </div>

@@ -59,7 +59,7 @@ const EddvaProduct = () => {
             <div className="relative rounded-[3rem] overflow-hidden bg-slate-50 p-4 border border-slate-100 shadow-2xl shadow-slate-200/50 group">
               <div className="relative aspect-square overflow-hidden rounded-[2.2rem]">
                 <img
-                  src="https://img.freepik.com/free-vector/artificial-intelligence-abstract-concept-illustration-ai-machine-learning-artificial-intelligence-evolution-high-tech-cutting-edge-technology-cognitive-robotics_335657-483.jpg?semt=ais_hybrid&w=740&q=80"
+                  src="https://img.freepik.com/premium-photo/ai-education-chatbot_944525-86140.jpg?w=1480"
                   alt="EDDVA Interface"
                   className="w-full h-full object-cover group-hover:scale-105 transition-transform duration-700"
                 />
@@ -96,6 +96,17 @@ const EddvaProduct = () => {
                 Proprietary SaaS
               </span>
             </div> */}
+            <motion.div 
+              initial={{ opacity: 0, y: 20 }}
+              whileInView={{ opacity: 1, y: 0 }}
+              viewport={{ once: true }}
+              className="flex items-center gap-3 mb-6"
+            >
+              <div className="w-10 h-[1px] bg-[#FF7E00]" />
+              <span className="text-[#FF7E00] font-bold uppercase tracking-[0.3em] text-[10px]">
+                The Product
+              </span>
+            </motion.div>
 
             <h2 className="text-5xl font-black text-slate-900 tracking-tighter leading-[0.9] mb-8">
               Meet <span></span>

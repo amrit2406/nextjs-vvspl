@@ -47,12 +47,17 @@ const MissionVision = () => {
       <div className="max-w-7xl mx-auto px-6 relative z-10">
         <div className="flex flex-col items-center text-center mb-16">
           {/* Status-style badge */}
-          <div className="inline-flex items-center space-x-2 bg-white border border-slate-200 px-4 py-2 rounded-full mb-6 shadow-sm">
-            <FiZap className="text-[#FF7E00] animate-pulse" size={14} />
-            <span className="text-slate-900 text-xs font-black tracking-[0.2em] uppercase">
-              Our Core Philosophy
-            </span>
-          </div>
+          <motion.div 
+              initial={{ opacity: 0, y: 20 }}
+              whileInView={{ opacity: 1, y: 0 }}
+              viewport={{ once: true }}
+              className="flex items-center gap-3 mb-6"
+            >
+              <div className="w-10 h-[1px] bg-[#FF7E00]" />
+              <span className="text-[#FF7E00] font-bold uppercase tracking-[0.3em] text-[10px]">
+                Our Core
+              </span>
+            </motion.div>
 
           <h3 className="text-5xl font-black text-slate-900 tracking-tighter leading-[0.95] mb-6">
             Purpose Beyond <span></span>

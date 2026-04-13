@@ -15,7 +15,7 @@ const SisterCompany = () => {
   return (
     <section
       ref={containerRef}
-      className="relative py-32 bg-white overflow-hidden"
+      className="relative py-20 bg-white overflow-hidden"
     >
       {/* Background Large Text Label */}
       <div className="absolute top-10 left-0 w-full overflow-hidden pointer-events-none select-none">
@@ -33,9 +33,17 @@ const SisterCompany = () => {
               whileInView={{ opacity: 1, x: 0 }}
               transition={{ duration: 0.8 }}
             >
-              <span className="text-[#FF7E00] font-bold tracking-[0.3em] uppercase text-xs">
-                The Ecosystem
+              <motion.div 
+              initial={{ opacity: 0, y: 20 }}
+              whileInView={{ opacity: 1, y: 0 }}
+              viewport={{ once: true }}
+              className="flex items-center gap-3 mb-6"
+            >
+              <div className="w-10 h-[1px] bg-[#FF7E00]" />
+              <span className="text-[#FF7E00] font-bold uppercase tracking-[0.3em] text-[10px]">
+                Our Sister Company
               </span>
+            </motion.div>
               <h3 className="mt-4 text-5xl md:text-6xl font-black text-slate-900 leading-[1.1] tracking-tighter">
                 <span className="text-transparent bg-clip-text bg-gradient-to-r from-[#FF7E00] via-orange-500 to-[#e67300]">
                   Software Intelligence
