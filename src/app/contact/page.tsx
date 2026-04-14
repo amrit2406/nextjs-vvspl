@@ -300,9 +300,6 @@ const ContactPage = () => {
                 +1 (555) 123-4567
               </button>
             </div>
-            <p className="text-slate-400 text-sm mt-8">
-              📍 San Francisco | London | Singapore | Sydney
-            </p>
           </motion.div>
         </div>
       </section>

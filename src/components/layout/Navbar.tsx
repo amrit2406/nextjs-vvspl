@@ -62,7 +62,7 @@ const Navbar = () => {
 
         {/* Desktop Navigation */}
         <div className="hidden lg:flex items-center gap-2 z-10">
-          {["Home", "Services", "Industries", "Careers"].map((item) => (
+          {["About", "Services", "Industries", "Careers"].map((item) => (
           // {["Home", "About", "Services", "Industries", "Careers"].map((item) => (
             <Link
               key={item}

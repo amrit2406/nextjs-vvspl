@@ -90,7 +90,7 @@ const InteractiveStack = () => {
               {activeTab === tab.id && (
                 <motion.div 
                   layoutId="activeTab"
-                  className="absolute inset-0 bg-slate-900 rounded-full z-0"
+                  className="absolute inset-0 bg-gradient-to-r from-[#044DB6] to-[#2A6BFF] rounded-full z-0"
                   transition={{ type: "spring", bounce: 0.2, duration: 0.6 }}
                 />
               )}
@@ -109,10 +109,10 @@ const InteractiveStack = () => {
                 animate={{ opacity: 1, y: 0 }}
                 exit={{ opacity: 0, y: -20 }}
                 transition={{ duration: 0.3 }}
-                className="grid lg:grid-cols-12 gap-12 items-center"
+                className="grid lg:grid-cols-12 gap-6 items-center"
               >
                 {/* Text Content */}
-                <div className="lg:col-span-5">
+                {/* <div className="lg:col-span-5">
                   <h3 className="text-3xl font-black text-slate-900 mb-4 tracking-tight">{tab.label} Excellence</h3>
                   <p className="text-slate-600 font-medium text-lg leading-relaxed mb-8">
                     {tab.description}
@@ -123,7 +123,7 @@ const InteractiveStack = () => {
                     </div>
                     <span className="text-xs font-black uppercase tracking-widest text-slate-400">Pillar Specialization</span>
                   </div>
-                </div>
+                </div> */}
 
                 {/* Icons Grid */}
                 <div className="lg:col-span-7">
