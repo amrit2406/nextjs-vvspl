@@ -2,7 +2,7 @@
 import { useState, useEffect } from "react";
 import Link from "next/link";
 import { motion, AnimatePresence } from "framer-motion";
-import { HiMenuAlt4, HiOutlineX } from "react-icons/hi";
+import { HiMenuAlt4, HiOutlineX, HiChevronDown } from "react-icons/hi";
 import {
   FiArrowUpRight,
   FiLayers,
@@ -11,13 +11,16 @@ import {
   FiActivity,
   FiLock,
   FiZap,
+  FiHelpCircle,
+  FiUsers,
+  FiImage,
+  FiEdit3,
 } from "react-icons/fi";
 
 const Navbar = () => {
   const [isScrolled, setIsScrolled] = useState(false);
-  const [hoveredService, setHoveredService] = useState<number | null>(null);
   const [isMenuOpen, setIsMenuOpen] = useState(false);
-  const [isServicesOpen, setIsServicesOpen] = useState(false);
+  const [isMoreOpen, setIsMoreOpen] = useState(false);
 
   useEffect(() => {
     const handleScroll = () => setIsScrolled(window.scrollY > 50);
@@ -25,13 +28,11 @@ const Navbar = () => {
     return () => window.removeEventListener("scroll", handleScroll);
   }, []);
 
-  const services = [
-    { name: "Neural AI", icon: <FiZap />, color: "#6366f1", desc: "Custom LLM training and integration." },
-    { name: "Web Systems", icon: <FiCode />, color: "#0ea5e9", desc: "High-performance Next.js architectures." },
-    { name: "Mobile Core", icon: <FiSmartphone />, color: "#f59e0b", desc: "Native experiences for iOS & Android." },
-    { name: "Cyber Armor", icon: <FiLock />, color: "#ef4444", desc: "Penetration testing & encryption." },
-    { name: "Cloud Mesh", icon: <FiLayers />, color: "#8b5cf6", desc: "Scalable AWS/Azure infrastructure." },
-    { name: "Analytics", icon: <FiActivity />, color: "#10b981", desc: "Real-time data visualization." },
+  const moreLinks = [
+    { name: "FAQ", href: "/faq", icon: <FiHelpCircle />, desc: "Common questions" },
+    { name: "Leadership", href: "/leadership", icon: <FiUsers />, desc: "Meet the team" },
+    { name: "Gallery", href: "/gallery", icon: <FiImage />, desc: "Our workspace" },
+    { name: "Blogs", href: "/blogs", icon: <FiEdit3 />, desc: "Latest insights" },
   ];
 
   return (
@@ -49,9 +50,6 @@ const Navbar = () => {
           }
         `}
       >
-        {/* Glow Effect */}
-        <div className="absolute inset-0 rounded-2xl bg-white/40 opacity-0 hover:opacity-100 transition duration-500 blur-xl pointer-events-none" />
-
         {/* Brand */}
         <Link href="/" className="relative flex items-center gap-2 group z-10">
           <div className="w-8 h-8 bg-gradient-to-tr from-[#FF7E00] to-[#FFB800] rounded-lg rotate-45 group-hover:rotate-90 transition-transform duration-500 shadow-md" />
@@ -135,6 +133,52 @@ const Navbar = () => {
               )}
             </AnimatePresence>
           </div> */}
+
+          {/* More Dropdown */}
+          <div
+            className="relative"
+            onMouseEnter={() => setIsMoreOpen(true)}
+            onMouseLeave={() => setIsMoreOpen(false)}
+          >
+            <button
+              className={`px-4 py-2 text-sm font-medium transition-colors flex items-center gap-1 ${
+                isMoreOpen ? "text-black" : "text-slate-700"
+              }`}
+            >
+              More
+              <HiChevronDown className={`transition-transform duration-300 ${isMoreOpen ? "rotate-180" : ""}`} />
+            </button>
+
+            <AnimatePresence>
+              {isMoreOpen && (
+                <motion.div
+                  initial={{ opacity: 0, y: 10, scale: 0.95 }}
+                  animate={{ opacity: 1, y: 0, scale: 1 }}
+                  exit={{ opacity: 0, y: 10, scale: 0.95 }}
+                  transition={{ duration: 0.2 }}
+                  className="absolute left-1/2 -translate-x-1/2 top-full pt-4 w-64"
+                >
+                  <div className="bg-white border border-black/10 rounded-2xl p-2 shadow-2xl overflow-hidden">
+                    {moreLinks.map((link) => (
+                      <Link
+                        key={link.name}
+                        href={link.href}
+                        className="flex items-center gap-3 p-3 rounded-xl hover:bg-black/5 transition-colors group"
+                      >
+                        <div className="w-8 h-8 flex items-center justify-center rounded-lg bg-slate-100 text-slate-600 group-hover:bg-[#FF7E00] group-hover:text-white transition-colors">
+                          {link.icon}
+                        </div>
+                        <div>
+                          <div className="text-sm font-bold text-black">{link.name}</div>
+                          <div className="text-[10px] text-slate-500">{link.desc}</div>
+                        </div>
+                      </Link>
+                    ))}
+                  </div>
+                </motion.div>
+              )}
+            </AnimatePresence>
+          </div>
         </div>
 
         {/* CTA + Mobile Toggle */}
@@ -165,19 +209,19 @@ const Navbar = () => {
             exit={{ opacity: 0 }}
             className="fixed inset-0 bg-white z-[90] p-8 flex flex-col justify-center items-center pointer-events-auto"
           >
-            <div className="flex flex-col space-y-6 text-center">
-              {["Home", "Expertise", "Portfolio", "Company", "Contact"].map(
+            <div className="flex flex-col space-y-4 text-center">
+              {["Home", "About", "Services", "Industries", "Careers", ...moreLinks.map(l => l.name), "Contact"].map(
                 (link, i) => (
                   <motion.div
                     initial={{ y: 20, opacity: 0 }}
                     animate={{ y: 0, opacity: 1 }}
-                    transition={{ delay: i * 0.1 }}
+                    transition={{ delay: i * 0.05 }}
                     key={link}
                   >
                     <Link
                       href="#"
                       onClick={() => setIsMenuOpen(false)}
-                      className="text-5xl font-black text-black hover:text-[#FF7E00] transition-colors"
+                      className="text-3xl font-black text-black hover:text-[#FF7E00] transition-colors"
                     >
                       {link}
                     </Link>
