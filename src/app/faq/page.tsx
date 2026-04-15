@@ -3,186 +3,178 @@ import React, { useState } from "react";
 import { motion, AnimatePresence } from "framer-motion";
 import { 
   FiPlus, FiMinus, FiSearch, FiMessageCircle, 
-  FiArrowRight, FiZap, FiShield, FiGlobe, FiCode 
+  FiMail, FiHelpCircle ,FiBookOpen, FiArrowRight
 } from "react-icons/fi";
 
-const faqs = [
-  {
-    category: "Services",
-    icon: FiZap,
-    questions: [
-      {
-        q: "What digital transformation services do you provide?",
-        a: "VVSPL Tech specializes in full-stack custom software development, AI integration, cloud architecture, and UI/UX modernization. We don't just build apps; we architect scalable digital ecosystems."
-      },
-      {
-        q: "Do you offer post-launch support?",
-        a: "Absolutely. We provide 24/7 monitoring, security patching, and iterative updates through our Managed Evolution program to ensure your tech remains cutting-edge."
-      }
-    ]
-  },
-  {
-    category: "Technical",
-    icon: FiCode,
-    questions: [
-      {
-        q: "Which technology stack do you specialize in?",
-        a: "We are platform-agnostic but excel in high-performance stacks including React/Next.js, Node.js, Python for AI/ML, and AWS/Azure for cloud infrastructure."
-      },
-      {
-        q: "How do you handle data security and compliance?",
-        a: "Security is baked into our 'DevSecOps' workflow. We implement end-to-end encryption, SOC2 compliance standards, and regular penetration testing for all enterprise projects."
-      }
-    ]
-  },
-  {
-    category: "Partnership",
-    icon: FiShield,
-    questions: [
-      {
-        q: "What is your typical project timeline?",
-        a: "MVP (Minimum Viable Product) development typically spans 8-12 weeks, while full-scale enterprise digital transformations are scoped in phased sprints based on complexity."
-      },
-      {
-        q: "How do you handle intellectual property (IP)?",
-        a: "Upon project completion and final payment, 100% of the source code and IP rights are transferred to your organization. We believe in total client ownership."
-      }
-    ]
-  }
-];
-
-const FAQItem = ({ question, answer }: { question: string, answer: string }) => {
-  const [isOpen, setIsOpen] = useState(false);
-
-  return (
-    <div className="border-b border-slate-100 last:border-0">
-      <button
-        onClick={() => setIsOpen(!isOpen)}
-        className="w-full py-6 flex items-center justify-between text-left group"
-      >
-        <span className={`text-lg font-black tracking-tight transition-colors ${isOpen ? 'text-[#FF7E00]' : 'text-slate-900'}`}>
-          {question}
-        </span>
-        <div className={`flex-shrink-0 w-8 h-8 rounded-full flex items-center justify-center transition-all ${isOpen ? 'bg-[#FF7E00] text-white rotate-180' : 'bg-slate-100 text-slate-500'}`}>
-          {isOpen ? <FiMinus /> : <FiPlus />}
-        </div>
-      </button>
-      <AnimatePresence>
-        {isOpen && (
-          <motion.div
-            initial={{ height: 0, opacity: 0 }}
-            animate={{ height: "auto", opacity: 1 }}
-            exit={{ height: 0, opacity: 0 }}
-            transition={{ duration: 0.3, ease: "easeInOut" }}
-            className="overflow-hidden"
-          >
-            <p className="pb-6 text-slate-600 font-medium leading-relaxed max-w-3xl">
+// --- Sub-Component: Accordion Item ---
+const FAQItem = ({ question, answer, isOpen, onClick }: any) => (
+  <motion.div 
+    layout
+    className={`mb-4 rounded-3xl border transition-all duration-300 overflow-hidden ${
+      isOpen ? "bg-white border-[#FF7E00] shadow-lg shadow-orange-500/10" : "bg-white border-slate-100 hover:border-slate-200"
+    }`}
+  >
+    <button
+      onClick={onClick}
+      className="w-full flex items-center justify-between p-8 text-left outline-none group"
+    >
+      <span className={`text-lg md:text-xl font-bold tracking-tight transition-colors ${isOpen ? "text-[#FF7E00]" : "text-slate-900 group-hover:text-[#FF7E00]"}`}>
+        {question}
+      </span>
+      <div className={`flex-shrink-0 ml-6 w-10 h-10 rounded-full flex items-center justify-center transition-all duration-300 ${isOpen ? "bg-[#FF7E00] text-white rotate-180" : "bg-slate-50 text-slate-400 group-hover:bg-slate-100"}`}>
+        {isOpen ? <FiMinus size={20} /> : <FiPlus size={20} />}
+      </div>
+    </button>
+    <AnimatePresence>
+      {isOpen && (
+        <motion.div
+          initial={{ height: 0, opacity: 0 }}
+          animate={{ height: "auto", opacity: 1 }}
+          exit={{ height: 0, opacity: 0 }}
+          transition={{ duration: 0.3, ease: [0.22, 1, 0.36, 1] }}
+        >
+          <div className="px-8 pb-8 pt-0">
+            <p className="text-slate-600 font-medium leading-relaxed max-w-3xl border-t border-slate-100 pt-6">
               {answer}
             </p>
-          </motion.div>
-        )}
-      </AnimatePresence>
-    </div>
-  );
-};
+          </div>
+        </motion.div>
+      )}
+    </AnimatePresence>
+  </motion.div>
+);
 
 const FAQPage = () => {
+  const [openIndex, setOpenIndex] = useState<number | null>(0);
+  const [activeTab, setActiveTab] = useState("All");
+
+  const categories = ['All', 'Product', 'Process', 'Security'];
+  
+  const faqs = [
+    { category: "Product", question: "How does the 'Proprietary Revolution' impact your tech stack?", answer: "We build everything from the ground up to ensure zero dependencies on legacy bottlenecks. This means you'll be working with custom-tuned Rust engines and Next.js frameworks designed for hyper-scale performance." },
+    { category: "Process", question: "What is the typical project timeline for enterprise clients?", answer: "While every build is unique, our agile infrastructure allows us to move from blueprint to deployment in 45-60 days. We prioritize high-velocity shipping without compromising code integrity." },
+    { category: "Security", question: "How do you handle data sovereignty and privacy?", answer: "Security is baked into our DNA. We implement end-to-end encryption and decentralized data storage protocols that exceed standard ISO requirements, ensuring your data stays yours." },
+    { category: "General", question: "Do you offer post-deployment maintenance?", answer: "Yes. Our 'Squad-as-a-Service' model includes 24/7 technical monitoring and bi-weekly optimization sprints to keep your digital infrastructure ahead of the curve." }
+  ];
+
   return (
-    <div className="bg-white min-h-screen">
-      {/* --- Header Section --- */}
-      <section className="pt-40 pb-20 bg-slate-50">
-        <div className="max-w-7xl mx-auto px-6 lg:px-8">
-          <motion.div 
-            initial={{ opacity: 0, y: 20 }}
-            animate={{ opacity: 1, y: 0 }}
-            className="text-center md:text-left"
-          >
-            <div className="flex items-center justify-center md:justify-start gap-3 text-[#FF7E00] font-black mb-6">
-              <div className="w-8 h-[2px] bg-[#FF7E00]" />
-              <span className="uppercase tracking-[0.3em] text-[10px]">Support Center</span>
-            </div>
-            <h1 className="text-5xl md:text-7xl font-black text-slate-900 tracking-tight mb-8">
-              Frequently Asked <span className="text-[#FF7E00]">Questions.</span>
+    <div className="bg-white min-h-screen text-slate-900">
+      {/* --- Page Hero --- */}
+      <section className="pt-40 pb-20 bg-slate-50 border-b border-slate-100">
+        <div className="max-w-7xl mx-auto px-6 lg:px-8 text-center">
+          <motion.div initial={{ opacity: 0, y: 20 }} animate={{ opacity: 1, y: 0 }}>
+            {/* <div className="flex justify-center mb-6">
+               <span className="px-4 py-2 bg-white rounded-full border border-slate-200 text-xs font-black uppercase tracking-widest text-slate-400">
+                 FAQ
+               </span>
+            </div> */}
+            <h1 className="text-5xl md:text-7xl font-black text-slate-900 tracking-tight">
+              Got Questions<span className="text-[#FF7E00]">?</span>
             </h1>
-            <div className="relative max-w-xl">
-              <FiSearch className="absolute left-5 top-1/2 -translate-y-1/2 text-slate-400 size-5" />
-              <input 
-                type="text" 
-                placeholder="Search for a topic (e.g. security, pricing, tech stack)"
-                className="w-full pl-14 pr-6 py-5 bg-white border border-slate-200 rounded-2xl shadow-sm focus:outline-none focus:ring-2 focus:ring-[#FF7E00]/20 transition-all font-medium"
-              />
-            </div>
+            <p className="mt-6 text-xl text-slate-500 max-w-2xl mx-auto font-medium leading-relaxed">
+              Find answers to common inquiries about our tech, process, and how we're reshaping the digital landscape.
+            </p>
           </motion.div>
+
         </div>
       </section>
 
-      {/* --- FAQ Content --- */}
+      {/* --- FAQ Accordion Section --- */}
       <section className="py-24">
-        <div className="max-w-7xl mx-auto px-6 lg:px-8">
-          <div className="grid grid-cols-1 lg:grid-cols-12 gap-16">
-            
-            {/* Sidebar Categories */}
-            <div className="lg:col-span-4 space-y-4">
-              <div className="sticky top-32">
-                <h3 className="text-xs font-black uppercase tracking-[0.3em] text-slate-400 mb-6">Categories</h3>
-                {faqs.map((cat, i) => (
-                  <button 
-                    key={i}
-                    className="w-full flex items-center gap-4 p-4 rounded-xl hover:bg-slate-50 transition-all group border border-transparent hover:border-slate-100"
-                  >
-                    <div className="w-10 h-10 rounded-lg bg-white shadow-sm flex items-center justify-center text-slate-600 group-hover:text-[#FF7E00] transition-colors">
-                      <cat.icon size={20} />
-                    </div>
-                    <span className="font-black text-slate-900 uppercase tracking-wider text-sm">{cat.category}</span>
-                  </button>
-                ))}
-                
-                {/* Contact Card */}
-                <div className="mt-12 p-8 bg-gradient-to-br from-slate-900 to-slate-800 rounded-[2rem] text-white relative overflow-hidden">
-                  <div className="relative z-10">
-                    <FiMessageCircle className="text-[#FF7E00] size-10 mb-4" />
-                    <h4 className="text-xl font-black mb-2">Still have questions?</h4>
-                    <p className="text-slate-400 text-sm mb-6 leading-relaxed">Can't find what you're looking for? Our team is ready to help.</p>
-                    <button className="flex items-center gap-2 text-[#FF7E00] font-black uppercase text-xs tracking-widest hover:gap-3 transition-all">
-                      Contact Support <FiArrowRight />
-                    </button>
-                  </div>
-                  <div className="absolute top-0 right-0 w-32 h-32 bg-[#FF7E00] opacity-10 blur-[60px] rounded-full translate-x-10 -translate-y-10" />
-                </div>
-              </div>
-            </div>
+        <div className="max-w-6xl mx-auto px-6">
+          {/* <div className="mb-12 flex flex-wrap gap-3 justify-center">
+            {categories.map((tab) => (
+              <button 
+                key={tab} 
+                onClick={() => setActiveTab(tab)}
+                className={`px-8 py-3 rounded-full border text-sm font-bold transition-all ${
+                  activeTab === tab 
+                  ? "bg-slate-900 text-white border-slate-900" 
+                  : "bg-white border-slate-200 text-slate-600 hover:border-slate-300"
+                }`}
+              >
+                {tab}
+              </button>
+            ))}
+          </div> */}
 
-            {/* Questions Accordion */}
-            <div className="lg:col-span-8">
-              {faqs.map((category, idx) => (
-                <div key={idx} className="mb-16 last:mb-0">
-                  <div className="flex items-center gap-4 mb-8">
-                    <h2 className="text-2xl font-black text-slate-900 tracking-tight">{category.category}</h2>
-                    <div className="h-[1px] flex-grow bg-slate-100" />
-                  </div>
-                  <div className="bg-white rounded-3xl border border-slate-100 shadow-sm px-8">
-                    {category.questions.map((item, qIdx) => (
-                      <FAQItem key={qIdx} question={item.q} answer={item.a} />
-                    ))}
-                  </div>
-                </div>
-              ))}
-            </div>
-
+          <div className="space-y-2">
+            {faqs.map((faq, index) => (
+              <FAQItem
+                key={index}
+                question={faq.question}
+                answer={faq.answer}
+                isOpen={openIndex === index}
+                onClick={() => setOpenIndex(openIndex === index ? null : index)}
+              />
+            ))}
           </div>
         </div>
       </section>
 
-      {/* --- Final CTA --- */}
-      <section className="py-24 bg-slate-900 text-white overflow-hidden relative">
-        <div className="max-w-5xl mx-auto px-6 text-center relative z-10">
-          <h2 className="text-3xl md:text-5xl font-black tracking-tighter mb-6">
-            Ready to start <br /> 
-            <span className="text-[#FF7E00]">your transformation?</span>
-          </h2>
-          <button className="mt-4 px-12 py-5 bg-[#FF7E00] text-white rounded-2xl font-black hover:scale-105 transition-all shadow-xl shadow-[#FF7E00]/20 flex items-center gap-2 mx-auto group">
-            Start a Project <FiArrowRight className="group-hover:translate-x-1 transition-transform" />
-          </button>
+      {/* --- NEW Help Cards Section --- */}
+      {/* <section className="py-24 bg-white">
+        <div className="max-w-7xl mx-auto px-6">
+          <div className="grid grid-cols-1 md:grid-cols-3 gap-6">
+            {[
+              { icon: FiMessageCircle, title: "Live Chat", desc: "Instantly connect with our engineering team.", action: "Start Chat", color: "blue" },
+              { icon: FiMail, title: "Email Support", desc: "Preferred for detailed technical inquiries.", action: "Send Email", color: "orange" },
+              { icon: FiBookOpen, title: "Documentation", desc: "Explore our API logs and integration guides.", action: "View Docs", color: "slate" },
+            ].map((card, i) => (
+              <motion.div 
+                whileHover={{ y: -8 }}
+                key={i} 
+                className="group p-1 bg-gradient-to-b from-slate-100 to-transparent rounded-[2.5rem] transition-all hover:shadow-2xl hover:shadow-slate-200/50"
+              >
+                <div className="bg-white p-10 rounded-[2.4rem] h-full flex flex-col items-start border border-slate-50">
+                  <div className={`w-14 h-14 rounded-2xl flex items-center justify-center mb-8 transition-transform group-hover:scale-110 duration-500 bg-slate-50 text-slate-900 group-hover:bg-[#FF7E00] group-hover:text-white`}>
+                    <card.icon size={26} />
+                  </div>
+                  <h4 className="text-2xl font-bold mb-3 text-slate-900">{card.title}</h4>
+                  <p className="text-slate-500 font-medium leading-relaxed mb-8">{card.desc}</p>
+                  <button className="mt-auto flex items-center gap-2 font-bold text-sm uppercase tracking-widest text-[#044DB6] group-hover:text-[#FF7E00] transition-colors">
+                    {card.action} <FiArrowRight size={16} />
+                  </button>
+                </div>
+              </motion.div>
+            ))}
+          </div>
+        </div>
+      </section> */}
+
+      {/* --- NEW Professional CTA Section --- */}
+      <section className="py-12 px-6">
+        <div className="max-w-7xl mx-auto">
+          <div className="relative rounded-xl overflow-hidden bg-black">
+            {/* Background Decorative Elements */}
+            <div className="absolute top-0 right-0 w-[50%] h-full bg-[#044DB6]/20 blur-[120px] rounded-full -translate-y-1/2 translate-x-1/4" />
+            <div className="absolute bottom-0 left-0 w-[30%] h-full bg-[#FF7E00]/10 blur-[100px] rounded-full translate-y-1/2 -translate-x-1/4" />
+            
+            <div className="relative z-10 px-8 py-16 md:p-16 flex flex-col items-center text-center">
+              <h2 className="text-5xl font-black text-white tracking-tighter leading-tight max-w-4xl">
+                Ready to build the <span className="text-transparent bg-clip-text bg-gradient-to-r from-orange-400 to-[#FF7E00] pr-2">next big thing?</span>
+              </h2>
+              <p className="text-slate-400 mt-6 text-lg md:text-xl font-medium max-w-xl">
+                Our support squad is standing by. Let’s discuss your architecture and scale your vision.
+              </p>
+              
+              <div className="mt-12 flex flex-col sm:flex-row gap-4">
+                <motion.button 
+                  whileHover={{ scale: 1.05 }}
+                  whileTap={{ scale: 0.95 }}
+                  className="px-10 py-5 bg-[#FF7E00] text-white rounded-2xl font-black text-lg shadow-xl shadow-orange-500/20 hover:bg-[#ff912b] transition-colors"
+                >
+                  Contact Support
+                </motion.button>
+                <motion.button 
+                  whileHover={{ backgroundColor: "rgba(255,255,255,0.1)" }}
+                  className="px-10 py-5 bg-white/5 border border-white/10 text-white rounded-2xl font-black text-lg transition-colors backdrop-blur-md"
+                >
+                  Schedule a Demo
+                </motion.button>
+              </div>
+            </div>
+          </div>
         </div>
       </section>
     </div>

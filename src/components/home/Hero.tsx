@@ -15,9 +15,8 @@ const Hero = () => {
       <div className="absolute bottom-1/4 -right-20 w-96 h-96 bg-orange-400 rounded-full mix-blend-multiply filter blur-[128px] opacity-20 animate-blob animation-delay-2000" /> */}
 
       <div className="max-w-7xl mx-auto px-6 lg:px-8 grid grid-cols-1 lg:grid-cols-2 gap-16 items-center z-10">
-        
         {/* Left Content */}
-        <motion.div 
+        <motion.div
           initial={{ opacity: 0, y: 20 }}
           animate={{ opacity: 1, y: 0 }}
           transition={{ duration: 0.6 }}
@@ -36,7 +35,8 @@ const Hero = () => {
 
           {/* Headline */}
           <h1 className="text-5xl font-black text-slate-900 leading-[0.95] mb-8 tracking-tighter">
-            Build Fast.<br />
+            Build Fast.
+            <br />
             <span className="text-transparent bg-clip-text bg-gradient-to-r from-[#FF7E00] via-orange-500 to-[#e67300]">
               Scale Smarter.
             </span>
@@ -44,8 +44,10 @@ const Hero = () => {
 
           {/* Subheadline */}
           <p className="text-xl text-slate-600 mb-10 max-w-lg leading-relaxed font-medium">
-            VVSPL TECH engineers high-performance <span className="text-[#044DB6] font-bold">AI architectures</span> and 
-            cloud-native software that turns operational bottlenecks into competitive advantages.
+            VVSPL TECH engineers high-performance{" "}
+            <span className="text-[#044DB6] font-bold">AI architectures</span>{" "}
+            and cloud-native software that turns operational bottlenecks into
+            competitive advantages.
           </p>
 
           {/* Buttons */}
@@ -57,7 +59,7 @@ const Hero = () => {
             </button>
 
             {/* Secondary (Minimal) */}
-           <button className="flex items-center justify-center space-x-2 px-6 py-4 rounded-xl font-semibold text-[#044DB6] border border-[#044DB6]/25 bg-white hover:bg-gradient-to-r hover:from-[#044DB6] hover:to-[#2A6BFF] hover:text-white hover:border-transparent transition-all duration-300 shadow-sm hover:shadow-md">
+            <button className="flex items-center justify-center space-x-2 px-6 py-4 rounded-xl font-semibold text-[#044DB6] border border-[#044DB6]/25 bg-white hover:bg-gradient-to-r hover:from-[#044DB6] hover:to-[#2A6BFF] hover:text-white hover:border-transparent transition-all duration-300 shadow-sm hover:shadow-md">
               <span>Our Work</span>
             </button>
           </div>
@@ -76,7 +78,7 @@ const Hero = () => {
         </motion.div>
 
         {/* Right Content - IMAGE SECTION */}
-        <motion.div 
+        <motion.div
           initial={{ opacity: 0, scale: 0.9, x: 20 }}
           animate={{ opacity: 1, scale: 1, x: 0 }}
           transition={{ duration: 0.8, delay: 0.2, ease: "easeOut" }}
@@ -85,12 +87,11 @@ const Hero = () => {
         >
           {/* Image Container with depth effects */}
           <div className="relative overflow-hidden group">
-            
             {/* Aspect Ratio Box (prevents layout shift and forces image shape) */}
             <div className="relative aspect-[4/5] w-full overflow-hidden rounded-[2.5rem]">
               {/* REPLACE THIS PLACEHOLDER URL WITH YOUR ACTUAL IMAGE */}
-              <img 
-                src="https://img.freepik.com/free-vector/teem-discussing-project-kanban-board_1262-19963.jpg?semt=ais_hybrid&w=740&q=80" 
+              <img
+                src="https://img.freepik.com/free-vector/teem-discussing-project-kanban-board_1262-19963.jpg?semt=ais_hybrid&w=740&q=80"
                 alt="Tech engineer working on advanced systems"
                 className="absolute inset-0 w-full h-full object-contain group-hover:scale-105 transition-transform duration-700 ease-in-out"
               />
@@ -99,7 +100,7 @@ const Hero = () => {
               {/* <div className="absolute inset-0 bg-gradient-to-t from-slate-900/30 to-transparent" /> */}
             </div>
           </div>
-          
+
           {/* Floating Floating Microservices Tag (Modern visual anchor) */}
           {/* <motion.div 
             animate={{ y: [0, -20, 0] }}
@@ -115,8 +116,19 @@ const Hero = () => {
               <p className="text-xs text-slate-400 mt-1">v3.1 Stable Release</p>
             </div>
           </motion.div> */}
-
         </motion.div>
+      </div>
+      <div className="absolute bottom-0 left-0 w-full pointer-events-none z-30">
+        <svg
+          viewBox="0 0 1440 120"
+          preserveAspectRatio="none"
+          className="w-full h-[60px] lg:h-[120px]"
+        >
+          <path
+            d="M0,0 C360,120 1080,120 1440,0 L1440,120 L0,120 Z"
+            fill="#ffffff" // match next section bg
+          />
+        </svg>
       </div>
     </section>
   );
