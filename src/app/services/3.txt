@@ -1,0 +1,178 @@
+"use client";
+import React, { useState } from "react";
+import { motion, AnimatePresence } from "framer-motion";
+import Link from "next/link";
+import { FiArrowRight, FiCode, FiBriefcase, FiLayers } from "react-icons/fi";
+
+// --- Types ---
+interface ServiceItem {
+  slug: string;
+  title: string;
+  desc: string;
+  image: string;
+  color: string;
+}
+
+// --- Data ---
+const SERVICES_DATA = {
+  software: {
+    label: "Software Solutions",
+    icon: <FiCode />,
+    items: [
+      {
+        slug: "eddva",
+        title: "Eddva",
+        desc: "High-performance SaaS platforms engineered for global scalability and data integrity.",
+        image: "https://images.unsplash.com/photo-1460925895917-afdab827c52f?q=80&w=500",
+        color: "from-blue-600 to-cyan-500",
+      },
+      {
+        slug: "hrms",
+        title: "HRMS & Workforce",
+        desc: "Intelligent workforce management systems designed to automate complex HR workflows.",
+        image: "https://images.unsplash.com/photo-1454165833767-027ffea9e77b?q=80&w=500",
+        color: "from-indigo-600 to-purple-500",
+      },
+      {
+        slug: "erp",
+        title: "Enterprise ERP",
+        desc: "Unified resource planning systems that synchronize your entire business ecosystem.",
+        image: "https://images.unsplash.com/photo-1551288049-bebda4e38f71?q=80&w=500",
+        color: "from-orange-500 to-amber-400",
+      },
+    ],
+  },
+  consulting: {
+    label: "Consulting & Allied",
+    icon: <FiBriefcase />,
+    items: [
+      {
+        slug: "digital-marketing",
+        title: "Digital Marketing",
+        desc: "Strategic conversion engines powered by data analytics and performance marketing.",
+        image: "https://images.unsplash.com/photo-1432888622747-4eb9a8f2c26d?q=80&w=500",
+        color: "from-emerald-600 to-teal-400",
+      },
+      {
+        slug: "it-staffing",
+        title: "IT Staffing",
+        desc: "Elite technical talent vetted to integrate seamlessly with your existing engineering teams.",
+        image: "https://images.unsplash.com/photo-1522071820081-009f0129c71c?q=80&w=500",
+        color: "from-rose-600 to-pink-500",
+      },
+    ],
+  },
+};
+
+const ServicePage = () => {
+  const [activeTab, setActiveTab] = useState<keyof typeof SERVICES_DATA>("software");
+
+  return (
+    <div className="bg-[#fcfcfd] min-h-screen pb-20">
+      {/* --- Minimal Hero --- */}
+      <section className="pt-32 pb-16 px-6">
+        <div className="max-w-7xl mx-auto text-center">
+          <motion.span 
+            initial={{ opacity: 0 }}
+            animate={{ opacity: 1 }}
+            className="text-sm font-black uppercase tracking-[0.4em] text-slate-400 mb-4 block"
+          >
+            Expertise
+          </motion.span>
+          <h1 className="text-5xl md:text-7xl font-black text-slate-900 tracking-tight mb-12">
+            Our Pillars<span className="text-[#FF7E00]">.</span>
+          </h1>
+
+          {/* --- Creative Accordion/Tab Switcher --- */}
+          <div className="flex flex-wrap justify-center gap-4 mb-16">
+            {(Object.keys(SERVICES_DATA) as Array<keyof typeof SERVICES_DATA>).map((key) => (
+              <button
+                key={key}
+                onClick={() => setActiveTab(key)}
+                className={`group relative flex items-center gap-3 px-8 py-4 rounded-2xl font-bold transition-all duration-500 ${
+                  activeTab === key 
+                  ? "bg-slate-900 text-white shadow-2xl scale-105" 
+                  : "bg-white text-slate-500 hover:bg-slate-50 border border-slate-100"
+                }`}
+              >
+                <span className={`text-xl ${activeTab === key ? "text-[#FF7E00]" : "text-slate-400"}`}>
+                  {SERVICES_DATA[key].icon}
+                </span>
+                {SERVICES_DATA[key].label}
+                {activeTab === key && (
+                  <motion.div 
+                    layoutId="activeGlow"
+                    className="absolute -inset-1 bg-[#FF7E00]/20 blur-xl rounded-2xl -z-10"
+                  />
+                )}
+              </button>
+            ))}
+          </div>
+        </div>
+      </section>
+
+      {/* --- Grid Content Area --- */}
+      <section className="px-6 lg:px-8">
+        <div className="max-w-7xl mx-auto">
+          <AnimatePresence mode="wait">
+            <motion.div
+              key={activeTab}
+              initial={{ opacity: 0, y: 20 }}
+              animate={{ opacity: 1, y: 0 }}
+              exit={{ opacity: 0, y: -20 }}
+              transition={{ duration: 0.4, ease: "circOut" }}
+              className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8 justify-center"
+              style={{
+                // This magic bit ensures that 2 items look centered and professional
+                gridTemplateColumns: `repeat(auto-fit, minmax(320px, 1fr))`,
+                maxWidth: SERVICES_DATA[activeTab].items.length < 3 ? "900px" : "1280px",
+                margin: "0 auto"
+              }}
+            >
+              {SERVICES_DATA[activeTab].items.map((item) => (
+                <ServiceCard key={item.slug} {...item} />
+              ))}
+            </motion.div>
+          </AnimatePresence>
+        </div>
+      </section>
+    </div>
+  );
+};
+
+// --- Professional Service Card ---
+const ServiceCard = ({ title, desc, slug, image, color }: ServiceItem) => (
+  <div className="group bg-white rounded-[2.5rem] p-4 border border-slate-100 shadow-sm hover:shadow-2xl hover:-translate-y-2 transition-all duration-500 flex flex-col h-full">
+    {/* Image Wrap */}
+    <div className="relative aspect-square overflow-hidden rounded-[2rem] mb-8">
+      <img 
+        src={image} 
+        alt={title} 
+        className="w-full h-full object-cover grayscale-[0.5] group-hover:grayscale-0 transition-all duration-700 scale-105 group-hover:scale-110" 
+      />
+      <div className={`absolute inset-0 bg-gradient-to-t ${color} opacity-20 group-hover:opacity-40 transition-opacity duration-500`} />
+    </div>
+
+    {/* Content */}
+    <div className="px-4 pb-6 flex flex-col flex-grow">
+      <h3 className="text-2xl font-black text-slate-900 mb-4 tracking-tight">
+        {title}
+      </h3>
+      <p className="text-slate-500 font-medium leading-relaxed mb-8 flex-grow">
+        {desc}
+      </p>
+      
+      <Link 
+        href={`/services/${slug}`}
+        className="inline-flex items-center gap-3 text-sm font-black uppercase tracking-widest text-slate-900 group-hover:text-[#FF7E00] transition-colors"
+      >
+        Explore Service 
+        <div className="w-10 h-10 rounded-full border border-slate-200 flex items-center justify-center group-hover:bg-[#FF7E00] group-hover:border-[#FF7E00] group-hover:text-white transition-all duration-300">
+          <FiArrowRight size={18} />
+        </div>
+      </Link>
+    </div>
+  </div>
+);
+
+export default ServicePage;

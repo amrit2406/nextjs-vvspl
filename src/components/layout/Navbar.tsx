@@ -165,12 +165,12 @@ const Navbar = () => {
                         href={link.href}
                         className="flex items-center gap-3 p-3 rounded-xl hover:bg-black/5 transition-colors group"
                       >
-                        <div className="w-8 h-8 flex items-center justify-center rounded-lg bg-slate-100 text-slate-600 group-hover:bg-[#FF7E00] group-hover:text-white transition-colors">
+                        {/* <div className="w-8 h-8 flex items-center justify-center rounded-lg bg-slate-100 text-slate-600 group-hover:bg-[#FF7E00] group-hover:text-white transition-colors">
                           {link.icon}
-                        </div>
+                        </div> */}
                         <div>
                           <div className="text-sm font-bold text-black">{link.name}</div>
-                          <div className="text-[10px] text-slate-500">{link.desc}</div>
+                          {/* <div className="text-[10px] text-slate-500">{link.desc}</div> */}
                         </div>
                       </Link>
                     ))}

@@ -119,17 +119,46 @@ const Hero = () => {
         </motion.div>
       </div>
       <div className="absolute bottom-0 left-0 w-full pointer-events-none z-30">
-        <svg
-          viewBox="0 0 1440 120"
-          preserveAspectRatio="none"
-          className="w-full h-[60px] lg:h-[120px]"
-        >
-          <path
-            d="M0,0 C360,120 1080,120 1440,0 L1440,120 L0,120 Z"
-            fill="#ffffff" // match next section bg
-          />
-        </svg>
-      </div>
+      <svg
+        viewBox="0 0 1440 120"
+        preserveAspectRatio="none"
+        className="w-full h-[80px] lg:h-[150px]"
+      >
+        <defs>
+          {/* A soft gradient to make it look modern */}
+          <linearGradient id="wave-gradient" x1="0%" y1="0%" x2="100%" y2="0%">
+            <stop offset="0%" stopColor="#0478fd" stopOpacity="0.8" />
+            <stop offset="50%" stopColor="#ff9810" stopOpacity="1" />
+            <stop offset="100%" stopColor="#ffffff" stopOpacity="0.8" />
+          </linearGradient>
+        </defs>
+
+        {/* Animated Path using Framer Motion */}
+        <motion.path
+          initial={{ d: "M0,0 C360,120 1080,120 1440,0 L1440,120 L0,120 Z" }}
+          animate={{
+            d: [
+              "M0,20 C360,100 1080,140 1440,20 L1440,120 L0,120 Z", // Slight shift up/down
+              "M0,0 C400,150 1000,80 1440,0 L1440,120 L0,120 Z",   // Curve morph
+              "M0,20 C360,100 1080,140 1440,20 L1440,120 L0,120 Z"  // Back to start
+            ]
+          }}
+          transition={{
+            duration: 8,
+            repeat: Infinity,
+            ease: "easeInOut"
+          }}
+          fill="url(#wave-gradient)"
+        />
+        
+        {/* A second static path behind it for a layered depth effect */}
+        <path
+          d="M0,30 C360,130 1080,130 1440,30 L1440,120 L0,120 Z"
+          fill="#ffffff"
+          opacity="0.5"
+        />
+      </svg>
+    </div>
     </section>
   );
 };
