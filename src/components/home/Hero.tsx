@@ -14,7 +14,7 @@ const Hero = () => {
       {/* <div className="absolute top-1/4 -left-20 w-96 h-96 bg-blue-400 rounded-full mix-blend-multiply filter blur-[128px] opacity-20 animate-blob" />
       <div className="absolute bottom-1/4 -right-20 w-96 h-96 bg-orange-400 rounded-full mix-blend-multiply filter blur-[128px] opacity-20 animate-blob animation-delay-2000" /> */}
 
-      <div className="max-w-7xl mx-auto px-6 lg:px-8 grid grid-cols-1 lg:grid-cols-2 gap-16 items-center z-10">
+      <div className="max-w-7xl mx-auto px-6 lg:px-8 grid grid-cols-1 lg:grid-cols-2 gap-16 items-center z-10 mb-8">
         {/* Left Content */}
         <motion.div
           initial={{ opacity: 0, y: 20 }}
@@ -118,47 +118,94 @@ const Hero = () => {
           </motion.div> */}
         </motion.div>
       </div>
-      <div className="absolute bottom-0 left-0 w-full pointer-events-none z-30">
-      <svg
-        viewBox="0 0 1440 120"
-        preserveAspectRatio="none"
-        className="w-full h-[80px] lg:h-[150px]"
-      >
-        <defs>
-          {/* A soft gradient to make it look modern */}
-          <linearGradient id="wave-gradient" x1="0%" y1="0%" x2="100%" y2="0%">
-            <stop offset="0%" stopColor="#0478fd" stopOpacity="0.8" />
-            <stop offset="50%" stopColor="#ff9810" stopOpacity="1" />
-            <stop offset="100%" stopColor="#ffffff" stopOpacity="0.8" />
-          </linearGradient>
-        </defs>
+      {/* original */}
+      {/* <div className="absolute bottom-0 left-0 w-full pointer-events-none z-30">
+        <svg
+          viewBox="0 0 1440 120"
+          preserveAspectRatio="none"
+          className="w-full h-[80px] lg:h-[150px]"
+        >
+          <defs>
+            <linearGradient
+              id="wave-gradient"
+              x1="0%"
+              y1="0%"
+              x2="100%"
+              y2="0%"
+            >
+              <stop offset="0%" stopColor="#0478fd" stopOpacity="0.8" />
+              <stop offset="50%" stopColor="#ff9810" stopOpacity="1" />
+              <stop offset="100%" stopColor="#ffffff" stopOpacity="0.8" />
+            </linearGradient>
+          </defs>
 
-        {/* Animated Path using Framer Motion */}
-        <motion.path
-          initial={{ d: "M0,0 C360,120 1080,120 1440,0 L1440,120 L0,120 Z" }}
-          animate={{
-            d: [
-              "M0,20 C360,100 1080,140 1440,20 L1440,120 L0,120 Z", // Slight shift up/down
-              "M0,0 C400,150 1000,80 1440,0 L1440,120 L0,120 Z",   // Curve morph
-              "M0,20 C360,100 1080,140 1440,20 L1440,120 L0,120 Z"  // Back to start
-            ]
-          }}
-          transition={{
-            duration: 8,
-            repeat: Infinity,
-            ease: "easeInOut"
-          }}
-          fill="url(#wave-gradient)"
-        />
-        
-        {/* A second static path behind it for a layered depth effect */}
-        <path
-          d="M0,30 C360,130 1080,130 1440,30 L1440,120 L0,120 Z"
-          fill="#ffffff"
-          opacity="0.5"
-        />
-      </svg>
-    </div>
+          <motion.path
+            initial={{ d: "M0,0 C360,120 1080,120 1440,0 L1440,120 L0,120 Z" }}
+            animate={{
+              d: [
+                "M0,20 C360,100 1080,140 1440,20 L1440,120 L0,120 Z",
+                "M0,0 C400,150 1000,80 1440,0 L1440,120 L0,120 Z",
+                "M0,20 C360,100 1080,140 1440,20 L1440,120 L0,120 Z",
+              ],
+            }}
+            transition={{
+              duration: 8,
+              repeat: Infinity,
+              ease: "easeInOut",
+            }}
+            fill="url(#wave-gradient)"
+          />
+
+          <path
+            d="M0,30 C360,130 1080,130 1440,30 L1440,120 L0,120 Z"
+            fill="#ffffff"
+            opacity="0.5"
+          />
+        </svg>
+      </div> */}
+      {/* random */}
+      {/* <div className="absolute bottom-0 left-0 w-full overflow-hidden leading-none z-30">
+        <svg
+          viewBox="0 0 1200 120"
+          preserveAspectRatio="none"
+          className="w-full h-[50px] lg:h-[80px] rotate-180"
+        >
+          <defs>
+            <linearGradient id="bgGradient" x1="0%" y1="0%" x2="100%" y2="0%">
+              <stop offset="0%" stopColor="#FF7E00" />
+              <stop offset="100%" stopColor="#044DB6" />
+            </linearGradient>
+          </defs>
+
+          <rect width="100%" height="100%" fill="url(#bgGradient)" />
+
+          <path
+            d="M0,0V7.23C0,65.52,268.63,112.77,600,112.77S1200,65.52,1200,7.23V0Z"
+            fill="white"
+          />
+        </svg>
+      </div> */}
+      <div className="absolute bottom-0 left-0 w-full overflow-hidden leading-none z-30">
+        <svg
+          viewBox="0 0 1200 120"
+          preserveAspectRatio="none"
+          className="w-full h-[80px] lg:h-[140px]"
+        >
+          {/* Optional: background fill (remove if you don’t want it) */}
+          <path
+            d="M0,120V7.23C0,65.52,268.63,112.77,600,112.77S1200,65.52,1200,7.23V120Z"
+            className="fill-white"
+          />
+
+          {/* Curve border line */}
+          <path
+            d="M0,7.23C0,65.52,268.63,112.77,600,112.77S1200,65.52,1200,7.23"
+            fill="none"
+            stroke="orange"
+            strokeWidth="1"
+          />
+        </svg>
+      </div>
     </section>
   );
 };

@@ -24,11 +24,22 @@ const WarpField = () => {
   }, [mouseX, mouseY]);
 
   return (
-    <div className="absolute inset-0 z-0 overflow-hidden pointer-events-none opacity-40">
+    <div className="absolute inset-0 z-0 overflow-hidden pointer-events-none opacity-90">
       <svg className="w-full h-full">
         <defs>
-          <pattern id="warp-grid" width="60" height="60" patternUnits="userSpaceOnUse">
-            <path d="M 60 0 L 0 0 0 60" fill="none" stroke="currentColor" strokeWidth="0.5" className="text-blue-200" />
+          <pattern
+            id="warp-grid"
+            width="60"
+            height="60"
+            patternUnits="userSpaceOnUse"
+          >
+            <path
+              d="M 60 0 L 0 0 0 60"
+              fill="none"
+              stroke="currentColor"
+              strokeWidth="0.5"
+              className="text-blue-900"
+            />
           </pattern>
         </defs>
         <motion.rect
@@ -56,7 +67,8 @@ const MissionVision = () => {
       icon: <FiTarget size={24} />,
       color: "from-[#FF7E00] to-[#e67300]",
       accent: "bg-orange-50 text-[#FF7E00]",
-      description: "To empower global enterprises by delivering high-precision technical solutions. We simplify complexity through innovative AI and robust cloud architectures.",
+      description:
+        "To design and deploy defence-grade, AI-enabled digital architectures that enhance national capability and enterprise competitiveness — delivered with precision engineering and globally competitive cost discipline.",
       features: ["Technical Integrity", "Scalable Excellence"],
     },
     {
@@ -64,7 +76,8 @@ const MissionVision = () => {
       icon: <FiEye size={24} />,
       color: "from-[#044DB6] to-[#2A6BFF]",
       accent: "bg-blue-50 text-[#044DB6]",
-      description: "To become the world's most trusted architectural partner, setting the gold standard for how deep technology serves humanity.",
+      description:
+        "We envision a digitally sovereign ecosystem where national infrastructure is intelligent, industries operate autonomously, governance is decisively data-driven, and security is structural rather than reactive.",
       features: ["Global Leadership", "Future-Ready Tech"],
     },
   ];
@@ -73,12 +86,13 @@ const MissionVision = () => {
     <section className="relative py-24 bg-slate-50/30 overflow-hidden">
       {/* --- The Background Layer --- */}
       <WarpField />
-      
+
       {/* Subtle Grid - Kept from original */}
       <div
         className="absolute inset-0 z-0 opacity-20 [mask-image:linear-gradient(to_bottom,white,transparent)]"
         style={{
-          backgroundImage: "url(\"data:image/svg+xml,%3Csvg width='60' height='60' viewBox='0' 0' 60' 60' xmlns='http://www.w3.org/2000/svg'%3E%3Cg fill='none' fill-rule='evenodd'%3E%3Cg fill='%239C92AC' fill-opacity='0.2'%3E%3Cpath d='M36 34v-4h-2v4h-4v2h4v4h2v-4h4v-2h-4zm0-30V0h-2v4h-4v2h4v4h2V6h4V4h-4zM6 34v-4H4v4H0v2h4v4h2v-4h4v-2H6zM6 4V0H4v4H0v2h4v4h2V6h4V4H6z'/%3E%3C/g%3E%3C/g%3E%3C/svg%3E\")",
+          backgroundImage:
+            "url(\"data:image/svg+xml,%3Csvg width='60' height='60' viewBox='0' 0' 60' 60' xmlns='http://www.w3.org/2000/svg'%3E%3Cg fill='none' fill-rule='evenodd'%3E%3Cg fill='%239C92AC' fill-opacity='0.2'%3E%3Cpath d='M36 34v-4h-2v4h-4v2h4v4h2v-4h4v-2h-4zm0-30V0h-2v4h-4v2h4v4h2V6h4V4h-4zM6 34v-4H4v4H0v2h4v4h2v-4h4v-2H6zM6 4V0H4v4H0v2h4v4h2V6h4V4H6z'/%3E%3C/g%3E%3C/g%3E%3C/svg%3E\")",
         }}
       />
 
@@ -88,7 +102,7 @@ const MissionVision = () => {
 
       <div className="max-w-7xl mx-auto px-6 relative z-10">
         <div className="flex flex-col items-center text-center mb-16">
-          <motion.div 
+          <motion.div
             initial={{ opacity: 0, y: 20 }}
             whileInView={{ opacity: 1, y: 0 }}
             viewport={{ once: true }}
@@ -104,55 +118,90 @@ const MissionVision = () => {
             Purpose Beyond <span></span>
             <span className="text-transparent bg-clip-text bg-gradient-to-r from-[#FF7E00] via-orange-500 to-[#e67300] pr-2">
               Code
-            </span>.
+            </span>
+            .
           </h3>
           <p className="text-xl text-slate-600 font-medium max-w-2xl leading-relaxed">
-            Engineering the digital backbone of tomorrow with precision, 
+            Engineering the digital backbone of tomorrow with precision,
             passion, and a focus on long-term scalability.
           </p>
         </div>
 
-        <div className="grid grid-cols-1 md:grid-cols-2 gap-8 lg:gap-12">
-          {data.map((item, index) => (
-            <motion.div
-              key={index}
-              initial={{ opacity: 0, y: 30 }}
-              whileInView={{ opacity: 1, y: 0 }}
-              viewport={{ once: true }}
-              transition={{ duration: 0.6, delay: index * 0.2 }}
-              className="group relative bg-white/80 backdrop-blur-sm border border-slate-100 p-10 rounded-[3rem] shadow-sm hover:shadow-2xl hover:shadow-slate-200/50 transition-all duration-500"
-            >
-              {/* Re-integrated Icon Header for better visual weight */}
-              {/* <div className="flex items-center justify-between mb-8">
-                <div className={`p-4 rounded-2xl bg-gradient-to-br ${item.color} text-white shadow-lg group-hover:scale-110 transition-transform duration-300`}>
-                  {item.icon}
-                </div>
-                <div className={`px-4 py-1 rounded-full text-[10px] font-black uppercase tracking-widest ${item.accent}`}>
-                  Architectural Standard
-                </div>
-              </div> */}
+        <div className="grid grid-cols-1 lg:grid-cols-2 gap-10 max-w-7xl mx-auto px-6">
+          {data.map((item, index) => {
+            const isVision = item.title.toLowerCase().includes("vision");
+            const themeColor = isVision ? "text-orange-600" : "text-blue-700";
+            const bgColor = isVision ? "bg-orange-500" : "bg-blue-600";
 
-              <h4 className="text-3xl font-black text-center text-slate-900 tracking-tighter mb-6">
-                {item.title}
-              </h4>
-              <p className="text-lg text-slate-600 leading-relaxed mb-10 font-medium">
-                {item.description}
-              </p>
+            return (
+              <motion.div
+                key={index}
+                initial={{ opacity: 0, y: 20 }}
+                whileInView={{ opacity: 1, y: 0 }}
+                viewport={{ once: true }}
+                // Using flex-row-reverse for Vision to put color on the right
+                className={`group relative flex flex-col md:flex-row ${
+                  isVision ? "md:flex-row-reverse" : "md:flex-row"
+                } bg-white rounded-[2rem] overflow-hidden shadow-2xl shadow-slate-200/50 border border-slate-100 min-h-[350px]`}
+              >
+                {/* 1. THE COLOR ACCENT BLOCK */}
+                <div
+                  className={`relative w-full md:w-2/5 ${bgColor} p-10 flex flex-col justify-between overflow-hidden`}
+                >
+                  {/* Animated Glass Pattern */}
+                  <div
+                    className="absolute inset-0 opacity-20 pointer-events-none group-hover:scale-110 transition-transform duration-700"
+                    style={{
+                      backgroundImage: `radial-gradient(circle at 2px 2px, white 1px, transparent 0)`,
+                      backgroundSize: "24px 24px",
+                    }}
+                  />
 
-              {/* <div className="grid grid-cols-1 sm:grid-cols-2 gap-4">
-                {item.features.map((feature, i) => (
-                  <div key={i} className="flex items-center space-x-3">
-                    <div className={`p-1 rounded-full ${item.accent}`}>
-                      <FiCheck size={14} strokeWidth={3} />
-                    </div>
-                    <span className="text-sm font-bold text-slate-800 tracking-tight">
-                      {feature}
-                    </span>
+                  <div className="relative z-10 self-start bg-white/10 backdrop-blur-xl p-4 rounded-2xl text-white border border-white/20 shadow-2xl group-hover:rotate-6 transition-transform">
+                    {item.icon}
                   </div>
-                ))}
-              </div> */}
-            </motion.div>
-          ))}
+
+                  <div className="relative z-10">
+                    {/* <span className="text-white/50 text-[10px] font-black uppercase tracking-[0.4em] block mb-2">
+                      {isVision ? "Objective 02" : "Objective 01"}
+                    </span> */}
+                    <h4 className="text-3xl font-black text-white leading-[0.8] uppercase tracking-tighter">
+                      {isVision ? "Vision" : "Mission"}
+                    </h4>
+                  </div>
+                </div>
+
+                {/* 2. THE READABLE CONTENT BLOCK */}
+                <div
+                  className={`w-full md:w-3/5 p-10 md:p-12 flex flex-col justify-center bg-white ${isVision ? "text-right items-end" : "text-left items-start"}`}
+                >
+                  <div className="relative z-10 max-w-sm">
+                    {/* The "Anchor" Line */}
+                    <div
+                      className={`w-16 h-1.5 ${bgColor} mb-8 rounded-full ${isVision ? "ml-auto" : "mr-auto"}`}
+                    />
+
+                    {/* <h3
+                      className={`text-[11px] font-black uppercase tracking-[0.25em] ${themeColor} mb-4`}
+                    >
+                      {isVision ? "Global Aspiration" : "Technical Execution"}
+                    </h3> */}
+
+                    <p className="text-lg text-slate-700 font-semibold leading-relaxed tracking-tight">
+                      {item.description}
+                    </p>
+
+                    {/* <div
+                      className={`mt-8 flex items-center gap-3 font-bold text-[10px] uppercase tracking-widest text-slate-400 group-hover:text-slate-900 transition-colors cursor-pointer ${isVision ? "flex-row-reverse" : ""}`}
+                    >
+                      <span className="h-[1px] w-8 bg-slate-200 group-hover:w-12 transition-all group-hover:bg-slate-900" />
+                      View Standards
+                    </div> */}
+                  </div>
+                </div>
+              </motion.div>
+            );
+          })}
         </div>
       </div>
     </section>
