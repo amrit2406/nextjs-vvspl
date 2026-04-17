@@ -20,48 +20,42 @@ const SOFTWARE_SOLUTIONS: ServiceItem[] = [
     slug: "eddva",
     title: "Edu tech",
     desc: "Building proprietary digital assets that scale. We engineer SaaS platforms and ERPs designed for high concurrency.",
-    image:
-      "https://images.unsplash.com/photo-1460925895917-afdab827c52f?q=80&w=2426&auto=format&fit=crop",
+    image: "https://images.unsplash.com/photo-1460925895917-afdab827c52f?q=80&w=2426&auto=format&fit=crop",
     color: "from-[#FF7E00] to-orange-400",
   },
   {
     slug: "hrms",
     title: "HRMS & Workforce",
     desc: "Streamlined workforce management solutions for modern enterprises to handle scaling human capital.",
-    image:
-      "https://images.unsplash.com/photo-1454165833767-027ffea9e77b?q=80&w=2070&auto=format&fit=crop",
+    image: "https://images.unsplash.com/photo-1454165833767-027ffea9e77b?q=80&w=2070&auto=format&fit=crop",
     color: "from-[#FF7E00] to-orange-400",
   },
   {
     slug: "erp",
     title: "ERP Systems",
     desc: "Integrated resource planning that unifies your back-office and frontline operations.",
-    image:
-      "https://images.unsplash.com/photo-1551288049-bebda4e38f71?q=80&w=2070&auto=format&fit=crop",
+    image: "https://images.unsplash.com/photo-1551288049-bebda4e38f71?q=80&w=2070&auto=format&fit=crop",
     color: "from-[#FF7E00] to-orange-400",
   },
   {
     slug: "crm",
     title: "CRM",
     desc: "Deep customer relationship management logic to drive sales and retention through data.",
-    image:
-      "https://images.unsplash.com/photo-1552664730-d307ca884978?q=80&w=2070&auto=format&fit=crop",
+    image: "https://images.unsplash.com/photo-1552664730-d307ca884978?q=80&w=2070&auto=format&fit=crop",
     color: "from-[#FF7E00] to-orange-400",
   },
   {
     slug: "ui-ux-design",
     title: "UI/UX Design",
     desc: "Human-centric design systems that bridge the gap between complex engineering and usability.",
-    image:
-      "https://images.unsplash.com/photo-1586717791821-3f44a563eb4c?q=80&w=2070&auto=format&fit=crop",
+    image: "https://images.unsplash.com/photo-1586717791821-3f44a563eb4c?q=80&w=2070&auto=format&fit=crop",
     color: "from-[#FF7E00] to-orange-400",
   },
   {
     slug: "back-office-automation",
     title: "Back Office Automation",
     desc: "Modernizing legacy systems with cloud-native backends and deep-tech logic.",
-    image:
-      "https://images.unsplash.com/photo-1555066931-4365d14bab8c?q=80&w=2070&auto=format&fit=crop",
+    image: "https://images.unsplash.com/photo-1555066931-4365d14bab8c?q=80&w=2070&auto=format&fit=crop",
     color: "from-[#FF7E00] to-orange-400",
   },
 ];
@@ -71,84 +65,59 @@ const CONSULTING_SERVICES: ServiceItem[] = [
     slug: "digital-marketing",
     title: "Digital Marketing",
     desc: "Data-driven conversion engines ranging from technical SEO to high-impact performance marketing.",
-    image:
-      "https://images.unsplash.com/photo-1432888622747-4eb9a8f2c26d?q=80&w=2074&auto=format&fit=crop",
+    image: "https://images.unsplash.com/photo-1432888622747-4eb9a8f2c26d?q=80&w=2074&auto=format&fit=crop",
     color: "from-[#044DB6] to-blue-500",
   },
   {
     slug: "it-staffing",
     title: "IT Staffing",
     desc: "Project-ready, vetted technical talent that integrates seamlessly into your company culture.",
-    image:
-      "https://images.unsplash.com/photo-1522071820081-009f0129c71c?q=80&w=2070&auto=format&fit=crop",
+    image: "https://images.unsplash.com/photo-1522071820081-009f0129c71c?q=80&w=2070&auto=format&fit=crop",
     color: "from-indigo-600 to-[#044DB6]",
   },
 ];
 
 const TABS = [
-  {
-    key: "software",
-    label: "Software Solutions",
-    count: SOFTWARE_SOLUTIONS.length,
-    pillar: "Pillar 01",
-    data: SOFTWARE_SOLUTIONS,
-  },
-  {
-    key: "consulting",
-    label: "Consulting & Allied",
-    count: CONSULTING_SERVICES.length,
-    pillar: "Pillar 02",
-    data: CONSULTING_SERVICES,
-  },
+  { key: "software", label: "Software Solutions", count: SOFTWARE_SOLUTIONS.length, pillar: "Pillar 01", data: SOFTWARE_SOLUTIONS },
+  { key: "consulting", label: "Consulting & Allied", count: CONSULTING_SERVICES.length, pillar: "Pillar 02", data: CONSULTING_SERVICES },
 ] as const;
-
+ 
 type TabKey = (typeof TABS)[number]["key"];
 
 // --- Sub-Component: Grid Card ---
 const ServiceCard = ({ title, desc, slug, image, color }: ServiceItem) => (
-  <motion.div
+  <motion.div 
     initial={{ opacity: 0, y: 20 }}
     whileInView={{ opacity: 1, y: 0 }}
     viewport={{ once: true }}
-    className="group relative flex flex-col h-full justify-between bg-white rounded-[2.5rem] overflow-hidden border border-slate-100 shadow-sm hover:shadow-xl transition-all duration-500"
+    className="group relative flex flex-col h-full bg-white rounded-[2rem] overflow-hidden border border-slate-100 shadow-sm hover:shadow-2xl transition-all duration-500"
   >
-    {/* Image Container - Simplified and cleaner */}
-    <div className="relative h-44 overflow-hidden">
-      <img
-        src={image}
-        alt={title}
-        className="w-full h-40 object-cover transition-transform duration-1000 group-hover:scale-105"
+    {/* Image Container */}
+    <div className="relative aspect-[4/3] overflow-hidden">
+      <img 
+        src={image} 
+        alt={title} 
+        className="w-full h-full object-cover transition-transform duration-700 group-hover:scale-110" 
       />
-      {/* Subtle overlay gradient */}
-      <div className="absolute inset-0 bg-gradient-to-t from-white/20 to-transparent" />
+      
+      {/* Hover Overlay with Button */}
+      <div className="absolute inset-0 bg-slate-900/60 opacity-0 group-hover:opacity-100 transition-opacity duration-300 flex items-center justify-center">
+        <Link 
+          href={`/services/${slug}`}
+          className="translate-y-8 group-hover:translate-y-0 transition-transform duration-500 px-7 py-3.5 bg-white text-black rounded-full flex items-center gap-2 hover:bg-[#FF7E00] hover:text-white shadow-xl"
+        >
+          Explore Service <FiArrowRight className="transition-transform group-hover/btn:translate-x-1" />
+        </Link>
+      </div>
     </div>
 
     {/* Content Section */}
-    <div className="p-6 flex flex-col flex-grow">
-      {/* Accent Line */}
-      <div className={`w-12 h-1.5 rounded-full mb-2 bg-gradient-to-r ${color}`} />
-      
-      <h4 className="text-xl font-bold text-slate-900 mb-3 tracking-tight group-hover:text-[#FF7E00] transition-colors duration-300">
-        {title}
-      </h4>
-      
-      <p className="text-slate-700 text-[0.65rem] leading-relaxed  mb-6 flex-grow">
+    <div className="p-8 flex flex-col flex-grow">
+      <div className={`w-12 h-1.5 rounded-full mb-6 bg-gradient-to-r ${color}`} />
+      <h4 className="text-2xl font-black text-slate-900 mb-4 tracking-tight group-hover:text-[#FF7E00] transition-colors">{title}</h4>
+      <p className="text-slate-500 text-sm leading-relaxed font-medium">
         {desc}
       </p>
-
-      {/* Moved CTA Button - Integrated at the bottom */}
-      <Link
-        href={`/services/${slug}`}
-        className="inline-flex items-center gap-2 text-sm font-bold uppercase tracking-wider text-slate-900 group/btn"
-      >
-        <span className="relative">
-          Explore Service
-          <span className="absolute -bottom-1 left-0 w-0 h-0.5 bg-[#FF7E00] transition-all duration-300 group-hover/btn:w-full" />
-        </span>
-        <div className="flex items-center justify-center w-8 h-8 rounded-full bg-slate-50 group-hover/btn:bg-[#FF7E00] group-hover/btn:text-white transition-all duration-300">
-          <FiArrowRight className="transition-transform group-hover/btn:translate-x-0.5" />
-        </div>
-      </Link>
     </div>
   </motion.div>
 );
@@ -161,16 +130,12 @@ const ServicePage = () => {
       {/* --- Page Hero --- */}
       <section className="pt-40 pb-20 bg-slate-50 border-b border-slate-100">
         <div className="max-w-7xl mx-auto px-6 lg:px-8 text-center">
-          <motion.div
-            initial={{ opacity: 0, y: 20 }}
-            animate={{ opacity: 1, y: 0 }}
-          >
+          <motion.div initial={{ opacity: 0, y: 20 }} animate={{ opacity: 1, y: 0 }}>
             <h1 className="text-5xl md:text-7xl font-black text-slate-900 tracking-tight">
               Services<span className="text-[#FF7E00]">.</span>
             </h1>
             <p className="mt-6 text-lg text-slate-500 max-w-2xl mx-auto font-medium leading-relaxed">
-              We bridge the gap between complex engineering and human-centric
-              design across specialized pillars.
+              We bridge the gap between complex engineering and human-centric design across specialized pillars.
             </p>
           </motion.div>
         </div>
@@ -179,54 +144,43 @@ const ServicePage = () => {
       {/* Tabbed Section */}
       <section className="py-24">
         <div className="max-w-7xl mx-auto px-6 lg:px-8">
+ 
           {/* Tab Bar */}
           <div className="flex justify-center mb-16">
-            <div className="flex items-center gap-1 bg-white/80 backdrop-blur-xl border border-slate-200 rounded-3xl p-2 shadow-xl shadow-slate-200/50">
+            <div className="flex items-center gap-1 bg-slate-100 border border-slate-200 rounded-2xl p-1.5">
               {TABS.map((tab) => (
                 <button
                   key={tab.key}
                   onClick={() => setActiveTab(tab.key)}
-                  className={`relative px-8 py-3 rounded-2xl text-sm font-semibold transition-all duration-500 flex items-center gap-2 group overflow-hidden ${
+                  className={`relative px-7 py-2.5 rounded-xl text-sm font-semibold transition-all duration-300 flex items-center gap-2 ${
                     activeTab === tab.key
-                      ? "text-white shadow-lg"
-                      : "text-slate-600 hover:text-slate-900"
+                      ? "bg-white text-slate-900 shadow-sm border border-slate-200"
+                      : "text-slate-500 hover:text-slate-700"
                   }`}
                 >
-                  {/* Background with Orange Gradient */}
-                  <div
-                    className={`absolute inset-0 transition-all duration-500 ${
+                  {tab.label}
+                  <span
+                    className={`text-[10px] font-bold px-1.5 py-0.5 rounded-full transition-colors ${
                       activeTab === tab.key
-                        ? "bg-gradient-to-r from-orange-500 to-[#FF7E00] scale-100 opacity-100"
-                        : "bg-transparent scale-95 opacity-0 group-hover:bg-slate-100 group-hover:scale-100 group-hover:opacity-100"
+                        ? "bg-[#FF7E00] text-white"
+                        : "bg-slate-200 text-slate-500"
                     }`}
-                  />
-
-                  {/* Content */}
-                  <span className="relative z-10 flex items-center gap-2">
-                    {tab.label}
-
-                    {/* Badge / Indicator */}
-                    <span
-                      className={`text-[10px] font-bold px-2.5 py-0.5 rounded-full transition-all duration-300 ${
-                        activeTab === tab.key
-                          ? "bg-white/30 text-white backdrop-blur-sm"
-                          : "bg-slate-200 text-slate-500 group-hover:bg-slate-300"
-                      }`}
-                    >
-                      {/* You can put a number or label here if needed */}
-                    </span>
+                  >
+                    {tab.count}
                   </span>
-
-                  {/* Subtle shine effect on active tab */}
-                  {activeTab === tab.key && (
-                    <div className="absolute inset-0 bg-gradient-to-r from-transparent via-white/30 to-transparent -skew-x-12 animate-[shimmer_2s_infinite]" />
-                  )}
                 </button>
               ))}
             </div>
           </div>
-
-
+ 
+          {/* Section Label */}
+          <div className="flex items-center gap-4 mb-12">
+            <span className="text-[10px] font-black uppercase tracking-[0.25em] text-slate-400 whitespace-nowrap">
+              {current.pillar} — {current.label}
+            </span>
+            <div className="flex-1 h-px bg-slate-100" />
+          </div>
+ 
           {/* Cards Grid */}
           <AnimatePresence mode="wait">
             <motion.div
@@ -251,7 +205,7 @@ const ServicePage = () => {
       <section className="py-32 bg-slate-50">
         <div className="max-w-5xl mx-auto px-6 text-center">
           <h2 className="text-5xl font-black text-slate-900 tracking-tighter mb-10">
-            Let's build your <br />
+            Let's build your <br /> 
             <span className="text-[#FF7E00]">competitive edge.</span>
           </h2>
           <div className="flex flex-col sm:flex-row gap-4 justify-center">

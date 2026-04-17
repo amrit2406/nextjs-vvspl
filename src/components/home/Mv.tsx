@@ -1,127 +1,52 @@
 "use client";
-import { motion, useMotionValue } from "framer-motion";
-import { useEffect, useRef } from "react";
-import {
-  FiEye,
-  FiTarget,
-  FiCheck
-} from "react-icons/fi";
+import { motion, useMotionValue, useSpring, useTransform } from "framer-motion";
+import { useEffect, useRef, useState } from "react";
+import { FiEye, FiTarget, FiArrowRight } from "react-icons/fi";
 
-// --- The Interactive Particle Background ---
-const ParticleNetwork = () => {
-  const canvasRef = useRef<HTMLCanvasElement>(null);
-  const mouseX = useMotionValue(-1000); // Start far away
-  const mouseY = useMotionValue(-1000);
+// --- The Interactive Warp Field ---
+// This creates a mesh grid that reacts to mouse movement with a magnetic pull
+const WarpField = () => {
+  const mouseX = useMotionValue(0);
+  const mouseY = useMotionValue(0);
+
+  // Smooth out the movement
+  const springX = useSpring(mouseX, { stiffness: 50, damping: 20 });
+  const springY = useSpring(mouseY, { stiffness: 50, damping: 20 });
 
   useEffect(() => {
-    const canvas = canvasRef.current;
-    if (!canvas) return;
-    const ctx = canvas.getContext("2d");
-    if (!ctx) return;
-
-    let animationFrameId: number;
-    let particles: Particle[] = [];
-    const particleCount = 60; 
-    const connectionDistance = 140; 
-
-    const resize = () => {
-      canvas.width = window.innerWidth;
-      canvas.height = window.innerHeight;
-    };
-
-    window.addEventListener("resize", resize);
-    resize();
-
-    class Particle {
-      x: number; y: number; baseX: number; baseY: number;
-      vx: number; vy: number; size: number;
-
-      constructor() {
-        this.x = Math.random() * canvas!.width;
-        this.y = Math.random() * canvas!.height;
-        this.baseX = this.x;
-        this.baseY = this.y;
-        this.vx = (Math.random() - 0.5) * 0.4;
-        this.vy = (Math.random() - 0.5) * 0.4;
-        this.size = 3.0;
-      }
-
-      update() {
-        this.baseX += this.vx;
-        this.baseY += this.vy;
-        if (this.baseX > canvas!.width || this.baseX < 0) this.vx *= -1;
-        if (this.baseY > canvas!.height || this.baseY < 0) this.vy *= -1;
-
-        const dx = mouseX.get() - this.x;
-        const dy = mouseY.get() - this.y;
-        const distance = Math.sqrt(dx * dx + dy * dy);
-        
-        // Interaction: push/pull effect
-        if (distance < 200) {
-          this.x = this.baseX - dx * 0.05;
-          this.y = this.baseY - dy * 0.05;
-        } else {
-          this.x = this.baseX;
-          this.y = this.baseY;
-        }
-      }
-
-      draw() {
-        if (!ctx) return;
-        ctx.beginPath();
-        ctx.arc(this.x, this.y, this.size, 0, Math.PI * 2);
-        ctx.fillStyle = "rgb(255, 126, 5)";
-        ctx.fill();
-      }
-    }
-
-    const init = () => {
-      particles = [];
-      for (let i = 0; i < particleCount; i++) particles.push(new Particle());
-    };
-
-    const drawLines = () => {
-      for (let i = 0; i < particles.length; i++) {
-        for (let j = i + 1; j < particles.length; j++) {
-          const dx = particles[i].x - particles[j].x;
-          const dy = particles[i].y - particles[j].y;
-          const distance = Math.sqrt(dx * dx + dy * dy);
-          if (distance < connectionDistance) {
-            ctx.beginPath();
-            ctx.moveTo(particles[i].x, particles[i].y);
-            ctx.lineTo(particles[j].x, particles[j].y);
-            ctx.strokeStyle = `rgba(66, 145, 234, ${1 - distance / connectionDistance * 0.2})`;
-            ctx.lineWidth = 0.5;
-            ctx.stroke();
-          }
-        }
-      }
-    };
-
-    const animate = () => {
-      ctx.clearRect(0, 0, canvas.width, canvas.height);
-      particles.forEach(p => { p.update(); p.draw(); });
-      drawLines();
-      animationFrameId = requestAnimationFrame(animate);
-    };
-
-    init();
-    animate();
-
     const handleMouseMove = (e: MouseEvent) => {
-      mouseX.set(e.clientX);
-      mouseY.set(e.clientY);
+      const { clientX, clientY } = e;
+      mouseX.set(clientX);
+      mouseY.set(clientY);
     };
-
     window.addEventListener("mousemove", handleMouseMove);
-    return () => {
-      window.removeEventListener("resize", resize);
-      window.removeEventListener("mousemove", handleMouseMove);
-      cancelAnimationFrame(animationFrameId);
-    };
+    return () => window.removeEventListener("mousemove", handleMouseMove);
   }, [mouseX, mouseY]);
 
-  return <canvas ref={canvasRef} className="absolute inset-0 z-0 pointer-events-none opacity-99" />;
+  return (
+    <div className="absolute inset-0 z-0 overflow-hidden pointer-events-none opacity-40">
+      <svg className="w-full h-full">
+        <defs>
+          <pattern id="warp-grid" width="60" height="60" patternUnits="userSpaceOnUse">
+            <path d="M 60 0 L 0 0 0 60" fill="none" stroke="currentColor" strokeWidth="0.5" className="text-blue-200" />
+          </pattern>
+        </defs>
+        <motion.rect
+          width="120%"
+          height="120%"
+          fill="url(#warp-grid)"
+          style={{
+            x: useTransform(springX, (v) => -v * 0.05),
+            y: useTransform(springY, (v) => -v * 0.05),
+            skewX: useTransform(springX, (v) => (v - 1000) * 0.01),
+            skewY: useTransform(springY, (v) => (v - 500) * 0.01),
+          }}
+        />
+      </svg>
+      {/* Radial Gradient Overlay to fade edges */}
+      <div className="absolute inset-0 bg-[radial-gradient(circle_at_center,transparent_0%,white_90%)]" />
+    </div>
+  );
 };
 
 const MissionVision = () => {
@@ -147,7 +72,7 @@ const MissionVision = () => {
   return (
     <section className="relative py-24 bg-slate-50/30 overflow-hidden">
       {/* --- The Background Layer --- */}
-      <ParticleNetwork />
+      <WarpField />
       
       {/* Subtle Grid - Kept from original */}
       <div

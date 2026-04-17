@@ -36,9 +36,9 @@ const About = () => {
                 className="relative z-10 rounded-[2.5rem] overflow-hidden shadow-2xl border-[12px] border-slate-50"
               >
                 <img
-                  src="https://images.unsplash.com/photo-1552664730-d307ca884978?q=80&w=1000&auto=format&fit=crop"
+                  src="https://img.freepik.com/premium-vector/collab-concept-illustration_114360-3995.jpg"
                   alt="Team collaboration"
-                  className="w-full h-[550px] object-cover"
+                  className="w-full h-[480px] object-contain"
                 />
 
               </motion.div>

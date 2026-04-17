@@ -91,7 +91,7 @@ const Hero = () => {
             <div className="relative aspect-[4/5] w-full overflow-hidden rounded-[2.5rem]">
               {/* REPLACE THIS PLACEHOLDER URL WITH YOUR ACTUAL IMAGE */}
               <img
-                src="https://img.freepik.com/free-vector/teem-discussing-project-kanban-board_1262-19963.jpg?semt=ais_hybrid&w=740&q=80"
+                src="https://img.freepik.com/free-vector/teamwork-concept-landing-page_52683-20165.jpg"
                 alt="Tech engineer working on advanced systems"
                 className="absolute inset-0 w-full h-full object-contain group-hover:scale-105 transition-transform duration-700 ease-in-out"
               />
