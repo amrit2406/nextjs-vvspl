@@ -1,5 +1,6 @@
 "use client";
-import { motion } from "framer-motion";
+import { motion, useScroll, useTransform } from "framer-motion";
+import { useRef } from "react";
 import {
   FiArrowRight,
   FiCpu,
@@ -9,6 +10,17 @@ import {
 } from "react-icons/fi";
 
 const EddvaProduct = () => {
+  const containerRef = useRef(null);
+  const { scrollYProgress } = useScroll({
+    target: containerRef,
+    offset: ["start end", "end start"],
+  });
+
+  // Parallax offsets for the creative UI elements
+  const y1 = useTransform(scrollYProgress, [0, 1], [0, -80]);
+  const y2 = useTransform(scrollYProgress, [0, 1], [0, 40]);
+  const rotate = useTransform(scrollYProgress, [0, 1], [0, 5]);
+
   const features = [
     {
       icon: <FiCpu />,
@@ -34,8 +46,8 @@ const EddvaProduct = () => {
   ];
 
   return (
-    <section className="relative py-24 bg-white overflow-hidden">
-      {/* 1. Signature Grid Background - Matching Hero */}
+    <section ref={containerRef} className="relative py-24 bg-white overflow-hidden">
+      {/* 1. Signature Grid Background - Restored from your original */}
       <div
         className="absolute inset-0 z-0 opacity-10 [mask-image:linear-gradient(to_bottom,white,transparent)]"
         style={{
@@ -47,39 +59,59 @@ const EddvaProduct = () => {
       <div className="max-w-7xl mx-auto px-6 lg:px-8 relative z-10">
         <div className="grid grid-cols-1 lg:grid-cols-2 gap-20 items-center">
           
-          {/* Left: Image Section - The "Tech-Frame" */}
-          <motion.div
-            initial={{ opacity: 0, scale: 0.95 }}
-            whileInView={{ opacity: 1, scale: 1 }}
-            viewport={{ once: true }}
-            transition={{ duration: 0.8 }}
-            className="relative order-2 lg:order-1"
-          >
-            {/* Main Image Frame - Match Hero Radius */}
-            <div className="relative rounded-[3rem] overflow-hidden bg-slate-50 p-4 border border-slate-100 shadow-2xl shadow-slate-200/50 group">
-              <div className="relative aspect-square overflow-hidden rounded-[2.2rem]">
+          {/* Left: Creative Parallax Image Section */}
+          <div className="relative order-2 lg:order-1 flex justify-center">
+            <motion.div
+              style={{ rotate }}
+              className="relative rounded-[3rem] overflow-hidden bg-slate-50 p-4 border border-slate-100 shadow-2xl shadow-slate-200/50 group z-20"
+            >
+              <div className="relative aspect-square overflow-hidden rounded-[2.2rem] w-full max-w-[450px]">
                 <img
                   src="https://img.freepik.com/premium-photo/ai-education-chatbot_944525-86140.jpg?w=1480"
                   alt="EDDVA Interface"
                   className="w-full h-full object-cover group-hover:scale-105 transition-transform duration-700"
                 />
                 
-                {/* Floating UI Tag - Matches Hero status vibe */}
-                {/* <div className="absolute top-6 left-6 bg-white/90 backdrop-blur-md px-6 py-4 rounded-2xl shadow-xl border border-white/20">
-                  <p className="text-[10px] font-black uppercase tracking-[0.2em] text-[#FF7E00] mb-1">
-                    Flagship Product
-                  </p>
-                  <p className="text-2xl font-black text-slate-900 leading-none">
-                    EDDVA <span className="text-[#044DB6]">v4.0</span>
-                  </p>
-                </div> */}
+                {/* AI Scanning Animation Line - Original Orange */}
+                <motion.div 
+                  animate={{ top: ["0%", "100%", "0%"] }}
+                  transition={{ duration: 6, repeat: Infinity, ease: "easeInOut" }}
+                  className="absolute left-0 right-0 h-[2px] bg-[#FF7E00] z-30 shadow-[0_0_15px_#FF7E00] opacity-50"
+                />
               </div>
-            </div>
+            </motion.div>
 
-            {/* Decorative Floating Blobs */}
-            <div className="absolute -top-10 -left-10 w-64 h-64 bg-blue-100 rounded-full blur-[100px] opacity-40 z-[-1]" />
-            <div className="absolute -bottom-10 -right-10 w-64 h-64 bg-orange-100 rounded-full blur-[100px] opacity-40 z-[-1]" />
-          </motion.div>
+            {/* Floating Status Card - Original Blue theme */}
+            <motion.div 
+              style={{ y: y1 }}
+              className="absolute -top-4 -right-2 lg:-right-8 z-30 bg-white/90 backdrop-blur-md p-5 rounded-2xl shadow-xl border border-slate-100 hidden sm:block"
+            >
+              <p className="text-[10px] font-black uppercase tracking-[0.2em] text-[#FF7E00] mb-1">
+                Flagship Product
+              </p>
+              <p className="text-xl font-black text-slate-900">
+                EDDVA <span className="text-[#044DB6]">v4.0</span>
+              </p>
+            </motion.div>
+
+            {/* Floating Pulse Card - Original Orange theme */}
+            <motion.div 
+              style={{ y: y2 }}
+              className="absolute -bottom-6 -left-2 lg:-left-8 z-30 bg-white/90 backdrop-blur-md px-6 py-4 rounded-2xl shadow-xl border border-slate-100 hidden sm:block"
+            >
+              <div className="flex items-center gap-3">
+                <div className="flex gap-1">
+                  <div className="w-1.5 h-1.5 rounded-full bg-[#FF7E00] animate-ping" />
+                  <div className="w-1.5 h-1.5 rounded-full bg-[#FF7E00]" />
+                </div>
+                <span className="text-xs font-bold text-slate-700">AI Engine Active</span>
+              </div>
+            </motion.div>
+
+            {/* Original Decorative Blobs */}
+            <div className="absolute -top-10 -left-10 w-64 h-64 bg-blue-100 rounded-full blur-[100px] opacity-40 z-0" />
+            <div className="absolute -bottom-10 -right-10 w-64 h-64 bg-orange-100 rounded-full blur-[100px] opacity-40 z-0" />
+          </div>
 
           {/* Right: Content Section */}
           <motion.div
@@ -89,24 +121,12 @@ const EddvaProduct = () => {
             transition={{ duration: 0.8 }}
             className="order-1 lg:order-2"
           >
-            {/* Dark Badge - Matching Hero's secondary style */}
-            {/* <div className="inline-flex items-center space-x-2 bg-slate-900 px-4 py-2 rounded-full mb-8">
-               <FiLayers className="text-[#FF7E00]" size={14} />
-               <span className="text-white text-[10px] font-black uppercase tracking-[0.2em]">
-                Proprietary SaaS
-              </span>
-            </div> */}
-            <motion.div 
-              initial={{ opacity: 0, y: 20 }}
-              whileInView={{ opacity: 1, y: 0 }}
-              viewport={{ once: true }}
-              className="flex items-center gap-3 mb-6"
-            >
+            <div className="flex items-center gap-3 mb-6">
               <div className="w-10 h-[1px] bg-[#FF7E00]" />
               <span className="text-[#FF7E00] font-bold uppercase tracking-[0.3em] text-[10px]">
                 The Product
               </span>
-            </motion.div>
+            </div>
 
             <h2 className="text-5xl font-black text-slate-900 tracking-tighter leading-[0.9] mb-8">
               Meet <span></span>
@@ -119,11 +139,15 @@ const EddvaProduct = () => {
               The AI-powered learning companion engineered by <span className="text-[#044DB6] font-bold">VVSPL TECH</span> to help students study smarter, not harder.
             </p>
 
-            {/* Feature Mini-Grid - High Contrast Styling */}
+            {/* Feature Mini-Grid - Original Styling with hover-slide */}
             <div className="grid grid-cols-1 gap-6 mb-12">
               {features.map((f, i) => (
-                <div key={i} className="flex items-center space-x-5 group">
-                  <div className={`w-14 h-14 rounded-2xl ${f.bg} ${f.color} flex items-center justify-center shrink-0 shadow-sm group-hover:scale-110 transition-transform duration-300`}>
+                <motion.div 
+                  key={i} 
+                  whileHover={{ x: 10 }}
+                  className="flex items-center space-x-5 group cursor-default"
+                >
+                  <div className={`w-14 h-14 rounded-2xl ${f.bg} ${f.color} flex items-center justify-center shrink-0 shadow-sm transition-transform duration-300`}>
                     <div className="text-2xl">{f.icon}</div>
                   </div>
                   <div>
@@ -134,20 +158,20 @@ const EddvaProduct = () => {
                       {f.desc}
                     </p>
                   </div>
-                </div>
+                </motion.div>
               ))}
             </div>
 
-            {/* Product CTA - Match Hero Buttons */}
+            {/* Product CTA - Match Original Buttons */}
             <div className="flex flex-col sm:flex-row gap-4">
-              <button className="flex items-center justify-center space-x-3 px-6 py-4 rounded-2xl font-black text-white bg-gradient-to-r from-[#FF7E00] to-[#e67300] hover:shadow-orange-500/20 hover:shadow-2xl transition-all duration-300 group">
+              <button className="flex items-center justify-center space-x-3 px-8 py-4 rounded-2xl font-black text-white bg-gradient-to-r from-[#FF7E00] to-[#e67300] hover:shadow-orange-500/20 hover:shadow-2xl transition-all duration-300 group">
                 <span>Request Demo</span>
                 <FiArrowRight className="group-hover:translate-x-1 transition-transform" />
               </button>
               
-              <button className="flex items-center justify-center space-x-2 px-6 py-4 rounded-xl font-semibold text-[#044DB6] border border-[#044DB6]/25 bg-white hover:bg-gradient-to-r hover:from-[#044DB6] hover:to-[#2A6BFF] hover:text-white hover:border-transparent transition-all duration-300 shadow-sm hover:shadow-md">
-  <span>Download Brochure</span>
-</button>
+              <button className="flex items-center justify-center space-x-2 px-8 py-4 rounded-2xl font-semibold text-[#044DB6] border border-[#044DB6]/25 bg-white hover:bg-gradient-to-r hover:from-[#044DB6] hover:to-[#2A6BFF] hover:text-white hover:border-transparent transition-all duration-300 shadow-sm">
+                <span>Download Brochure</span>
+              </button>
             </div>
           </motion.div>
         </div>
