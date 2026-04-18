@@ -142,7 +142,7 @@ const Navbar = () => {
           >
             <button
               className={`px-4 py-2 text-sm font-medium transition-colors flex items-center gap-1 ${
-                isMoreOpen ? "text-black" : "text-slate-700"
+                isMoreOpen ? "text-black" : "text-slate-900"
               }`}
             >
               More
@@ -169,7 +169,7 @@ const Navbar = () => {
                           {link.icon}
                         </div> */}
                         <div>
-                          <div className="text-sm font-bold text-black">{link.name}</div>
+                          <div className="text-sm font-medium text-black">{link.name}</div>
                           {/* <div className="text-[10px] text-slate-500">{link.desc}</div> */}
                         </div>
                       </Link>

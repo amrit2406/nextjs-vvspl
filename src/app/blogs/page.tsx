@@ -1,5 +1,6 @@
 "use client";
 import React, { useState } from "react";
+import Link from "next/link";
 import { motion } from "framer-motion";
 import {
   FiArrowUpRight,
@@ -10,12 +11,13 @@ import {
 } from "react-icons/fi";
 
 // --- Sub-Component: Blog Card ---
-const BlogCard = ({ category, title, date, readTime, image }: any) => (
+const BlogCard = ({ category, title, date, readTime, image, slug }: any) => (
   <motion.div
     whileHover={{ y: -6 }}
     className="group cursor-pointer bg-white border border-slate-200 rounded-2xl overflow-hidden hover:shadow-lg transition-all duration-300"
   >
-    {/* Image */}
+    <Link href={`/blogs/${slug}`} className="block">
+    {/* Image Container */}
     <div className="relative aspect-[16/10] overflow-hidden">
       <img
         src={image}
@@ -54,6 +56,7 @@ const BlogCard = ({ category, title, date, readTime, image }: any) => (
         <FiChevronRight className="ml-1 transition-transform group-hover:translate-x-1" />
       </div>
     </div>
+    </Link>
   </motion.div>
 );
 
@@ -62,6 +65,7 @@ const BlogPage = () => {
 
   const posts = [
     {
+      slug: "rust-migration-throughput",
       category: "Engineering",
       title: "Why we migrated our core engine to Rust for 10x throughput",
       date: "Oct 12, 2025",
@@ -78,6 +82,7 @@ const BlogPage = () => {
     //     "https://images.unsplash.com/photo-1558655146-d09347e92766?q=80&w=1964&auto=format&fit=crop",
     // },
     {
+      slug: "proprietary-ai-security-risk",
       category: "Future",
       title: "Proprietary AI: Why third-party LLMs are a security risk",
       date: "Sep 28, 2025",
@@ -86,6 +91,7 @@ const BlogPage = () => {
         "https://images.unsplash.com/photo-1677442136019-21780ecad995?q=80&w=1932&auto=format&fit=crop",
     },
     {
+      slug: "scaling-nationalities-culture",
       category: "Culture",
       title: "Scaling to 20 nationalities without losing our soul",
       date: "Sep 15, 2025",

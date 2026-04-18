@@ -1,25 +1,29 @@
 "use client";
+import Link from "next/link";
 import { motion } from "framer-motion";
 import { FiArrowRight, FiClock, FiCalendar } from "react-icons/fi";
 
 const blogs = [
   {
-    title: "Engineering Custom LLMs for Private Enterprise Data",
-    category: "AI Solutions",
+    slug: "rust-migration-throughput",
+    title: "Why we migrated our core engine to Rust for 10x throughput",
+    category: "Engineering",
     date: "April 02, 2026",
     readTime: "6 min read",
     image: "https://images.unsplash.com/photo-1677442136019-21780ecad995?q=80&w=800&auto=format&fit=crop",
   },
   {
-    title: "Zero Trust Architecture: Securing Modern Cloud Nets",
-    category: "Cyber Security",
+    slug: "proprietary-ai-security-risk",
+    title: "Proprietary AI: Why third-party LLMs are a security risk",
+    category: "Future",
     date: "March 28, 2026",
     readTime: "4 min read",
     image: "https://images.unsplash.com/photo-1550751827-4bd374c3f58b?q=80&w=800&auto=format&fit=crop",
   },
   {
-    title: "Optimizing Next.js for Global Scale Performance",
-    category: "Web Apps",
+    slug: "scaling-nationalities-culture",
+    title: "Scaling to 20 nationalities without losing our soul",
+    category: "Culture",
     date: "March 15, 2026",
     readTime: "5 min read",
     image: "https://images.unsplash.com/photo-1460925895917-afdab827c52f?q=80&w=800&auto=format&fit=crop",
@@ -56,19 +60,19 @@ const BlogSection = () => {
             </h3>
           </div>
           
-          <button className="mt-6 md:mt-0 flex items-center space-x-3 text-xs font-black uppercase tracking-widest text-slate-900 group">
+          <Link href="/blogs" className="mt-6 md:mt-0 flex items-center space-x-3 text-xs font-black uppercase tracking-widest text-slate-900 group">
             <span>View All Articles</span>
             <div className="w-10 h-10 rounded-full border border-slate-200 flex items-center justify-center group-hover:bg-slate-900 group-hover:text-white transition-all">
               <FiArrowRight />
             </div>
-          </button>
+          </Link>
         </div>
 
         {/* 3-Card Grid */}
         <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
           {blogs.map((post, index) => (
+            <Link key={index} href={`/blogs/${post.slug}`}>
             <motion.article
-              key={index}
               initial={{ opacity: 0, y: 20 }}
               whileInView={{ opacity: 1, y: 0 }}
               viewport={{ once: true }}
@@ -110,12 +114,13 @@ const BlogSection = () => {
 
                 <div className="mt-auto pt-6 border-t border-slate-100 flex items-center justify-between">
                   <span className="text-xs font-black uppercase tracking-widest text-slate-900">Read Full Story</span>
-                  <div className="w-8 h-8 rounded-lg bg-slate-100 text-slate-900 flex items-center justify-center group-hover:bg-[#FF7E00] group-hover:text-white transition-all transform group-hover:rotate-45">
+                  <div className="w-8 h-8 rounded-lg bg-slate-100 text-slate-900 flex items-center justify-center group-hover:bg-[#FF7E00] group-hover:text-white transition-all transform group-hover:-rotate-45">
                     <FiArrowRight size={16} />
                   </div>
                 </div>
               </div>
             </motion.article>
+            </Link>
           ))}
         </div>
       </div>

@@ -3,3 +3,16 @@
 :root {
   --background: #ffffff;
 }
+
+@keyframes waveMove {
+  0% {
+    stroke-dashoffset: 0;
+  }
+  100% {
+    stroke-dashoffset: -1200;
+  }
+}
+
+.animate-wave {
+  animation: waveMove 3s linear infinite;
+}

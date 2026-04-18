@@ -11,6 +11,7 @@ import MissionVision from "@/components/home/Mv";
 import EddvaProduct from "@/components/home/Products";
 import Services from "@/components/home/Service";
 import WhyChooseUs from "@/components/home/Why";
+import CTA from "@/components/home/CTA";
 // import TechStackSection from "@/components/layout/TechStack";
 
 
@@ -25,10 +26,11 @@ export default function Home() {
       <WhyChooseUs />
       {/* <TechStackSection /> */}
       <SisterCompany />
+      <CTA />
       <Leaders />
       <FAQ />
-      <BlogSection />
       <Contact />
+      <BlogSection />
     </>
   );
 }

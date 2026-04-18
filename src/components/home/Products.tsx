@@ -89,8 +89,8 @@ const EddvaProduct = () => {
               <p className="text-[10px] font-black uppercase tracking-[0.2em] text-[#FF7E00] mb-1">
                 Flagship Product
               </p>
-              <p className="text-xl font-black text-slate-900">
-                EDDVA <span className="text-[#044DB6]">v4.0</span>
+              <p className="text-md font-black text-slate-900">
+                <span className="text-[#044DB6]">Learn with AI</span>
               </p>
             </motion.div>
 

@@ -1,186 +1,204 @@
 "use client";
-import React from "react";
+import React, { use } from "react";
 import { motion, useScroll, useSpring } from "framer-motion";
-import { 
-  FiArrowLeft, FiShare2, FiTwitter, FiLinkedin, 
-  FiClock, FiUser, FiChevronRight, FiCopy 
-} from "react-icons/fi";
+import { FiTwitter, FiLinkedin, FiLink, FiArrowLeft, FiArrowRight, FiClock } from "react-icons/fi";
 
-const BlogDetailsPage = () => {
-  // Reading Progress Bar logic
+// --- Mock Data (Should ideally come from a shared lib or CMS) ---
+const posts = [
+  {
+    slug: "rust-migration-throughput",
+    category: "Engineering",
+    title: "Why we migrated our core engine to Rust for 10x throughput",
+    date: "Oct 12, 2025",
+    readTime: "8 min read",
+    image: "https://images.unsplash.com/photo-1550751827-4bd374c3f58b?q=80&w=2070&auto=format&fit=crop",
+    authorImage: "https://images.unsplash.com/photo-1507003211169-0a1dd7228f2d?q=80&w=100",
+    author: "Marcus Thorne",
+    authorRole: "Lead Architect",
+    figCaption: "Fig 1.0 — Distributed System Architecture and Rust Integration",
+    intro: "Legacy systems are often held together by hope and technical debt. At VVSPL, we realized that our high-scale Node.js infrastructure was hitting a performance ceiling at 100k+ concurrent requests, necessitating a shift to a more memory-safe and performant language.",
+    sections: [
+      {
+        title: "The Memory Bottleneck",
+        content: "The primary challenge was Garbage Collection (GC) pauses. In high-throughput environments, even a 50ms pause can lead to significant latency spikes. We needed a language that offered memory safety without a garbage collector to ensure deterministic performance."
+      }
+    ],
+    quote: "Predictability is a feature. In the world of high-scale backend, deterministic execution is the difference between a stable system and a cascade failure.",
+    conclusionTitle: "Outcome & Metrics",
+    conclusion: "After six months of incremental migration, the results were undeniable. Not only did throughput increase by 10x, but our operational overhead and infrastructure costs dropped significantly."
+  },
+  {
+    slug: "proprietary-ai-security-risk",
+    category: "Future",
+    title: "Proprietary AI: Why third-party LLMs are a security risk",
+    date: "Sep 28, 2025",
+    readTime: "12 min read",
+    image: "https://images.unsplash.com/photo-1677442136019-21780ecad995?q=80&w=1932&auto=format&fit=crop",
+    authorImage: "https://images.unsplash.com/photo-1494790108377-be9c29b29330?q=80&w=100",
+    author: "Sarah Chen",
+    authorRole: "AI Security Lead",
+    figCaption: "Fig 2.0 — Potential attack vectors in third-party LLM integrations",
+    intro: "As organizations rush to integrate generative AI, many are overlooking the fundamental security risks associated with sending sensitive proprietary data to third-party providers.",
+    sections: [
+      {
+        title: "The Data Leakage Reality",
+        content: "Every prompt sent to a public LLM potentially becomes training data for future iterations. For enterprises with trade secrets or sensitive PII, this represents an unacceptable risk to intellectual property and regulatory compliance."
+      }
+    ],
+    quote: "If you don't control the weights, you don't control the security. Localized, private AI models are the only path forward for secure enterprise intelligence.",
+    conclusionTitle: "Building a Private AI Moat",
+    conclusion: "Transitioning to self-hosted or VPC-isolated models allows businesses to leverage AI's power while maintaining 100% data sovereignty and reducing reliance on external black-box providers."
+  },
+  {
+    slug: "scaling-nationalities-culture",
+    category: "Culture",
+    title: "Scaling to 20 nationalities without losing our soul",
+    date: "Sep 15, 2025",
+    readTime: "6 min read",
+    image: "https://images.unsplash.com/photo-1522202176988-66273c2fd55f?q=80&w=2071&auto=format&fit=crop",
+    authorImage: "https://images.unsplash.com/photo-1438761681033-6461ffad8d80?q=80&w=100",
+    author: "Elena Rodriguez",
+    authorRole: "Head of People",
+    figCaption: "Fig 3.0 — Our distributed team across 4 continents",
+    intro: "Hyper-growth is often the enemy of culture. At VVSPL, we've scaled our team to over 20 nationalities while intentionally protecting the values that made us successful from day one.",
+    sections: [
+      {
+        title: "Async-First Communication",
+        content: "When your team spans 12 time zones, synchronous meetings become a bottleneck. We shifted our entire workflow to documentation-first, ensuring that knowledge is accessible regardless of when a team member logs in."
+      }
+    ],
+    quote: "Culture isn't about office perks or happy hours; it's about the systems and behaviors that empower people to do their best work, regardless of where they were born.",
+    conclusionTitle: "The Resulting Synergy",
+    conclusion: "By embracing diversity as a technical asset rather than just a HR metric, we've built a more resilient organization capable of solving global problems with local insights."
+  },
+];
+
+const ProfessionalBlog = ({ params }: { params: Promise<{ slug: string }> }) => {
+  const { slug } = use(params);
+  const post = posts.find((p) => p.slug === slug);
+
   const { scrollYProgress } = useScroll();
-  const scaleX = useSpring(scrollYProgress, {
-    stiffness: 100,
-    damping: 30,
-    restDelta: 0.001
-  });
+  const scaleX = useSpring(scrollYProgress, { stiffness: 150, damping: 30 });
+
+  if (!post) return <div className="min-h-screen flex items-center justify-center font-bold">Post Not Found</div>;
 
   return (
-    <div className="bg-white min-h-screen">
-      {/* Progress Bar */}
-      <motion.div
-        className="fixed top-0 left-0 right-0 h-1 bg-[#FF7E00] origin-left z-50"
-        style={{ scaleX }}
+    <div className="bg-white min-h-screen text-slate-900 font-sans antialiased">
+      {/* Subtle Progress Bar */}
+      <motion.div 
+        className="fixed top-0 left-0 right-0 h-[3px] bg-indigo-600 origin-left z-50" 
+        style={{ scaleX }} 
       />
 
-      {/* --- Navigation Bar (Simplified for Reading) --- */}
-      <nav className="fixed top-0 w-full bg-white/80 backdrop-blur-md z-40 border-b border-slate-100">
-        <div className="max-w-7xl mx-auto px-6 h-20 flex items-center justify-between">
-          <button className="flex items-center gap-2 font-black text-xs uppercase tracking-widest text-slate-400 hover:text-slate-900 transition-colors">
-            <FiArrowLeft /> Back to Journal
-          </button>
-          <div className="flex items-center gap-4">
-            <button className="w-10 h-10 rounded-full border border-slate-200 flex items-center justify-center text-slate-400 hover:text-[#FF7E00] transition-all">
-              <FiShare2 size={16} />
-            </button>
-          </div>
-        </div>
-      </nav>
-
-      {/* --- Article Header --- */}
-      <header className="pt-40 pb-16 bg-slate-50">
-        <div className="max-w-4xl mx-auto px-6">
-          <motion.div 
-            initial={{ opacity: 0, y: 20 }}
-            animate={{ opacity: 1, y: 0 }}
-          >
-            <span className="px-4 py-1.5 bg-[#FF7E00]/10 text-[#FF7E00] text-[10px] font-black uppercase tracking-widest rounded-full border border-[#FF7E00]/20">
-              Engineering
+      {/* --- Article Hero --- */}
+      <header className="pt-24 pb-12 px-6">
+        <div className="max-w-3xl mx-auto">
+          <div className="flex items-center gap-4 mb-8">
+            <span className="text-[11px] font-bold tracking-[0.2em] uppercase px-3 py-1 bg-slate-100 rounded text-slate-600">
+              {post.category}
             </span>
-            <h1 className="mt-8 text-4xl md:text-6xl font-black text-slate-900 tracking-tighter leading-tight">
-              Why we migrated our core engine to Rust for 10x throughput.
-            </h1>
-            
-            <div className="mt-10 flex flex-wrap items-center gap-8 border-t border-slate-200 pt-8">
-              <div className="flex items-center gap-3">
-                <div className="w-12 h-12 rounded-full bg-slate-200 overflow-hidden">
-                  <img src="https://images.unsplash.com/photo-1507003211169-0a1dd7228f2d?q=80&w=150&h=150&fit=crop" alt="Author" />
-                </div>
-                <div>
-                  <p className="text-sm font-black text-slate-900">Marcus Thorne</p>
-                  <p className="text-[10px] font-bold text-slate-400 uppercase tracking-widest">Founder & CEO</p>
-                </div>
-              </div>
-              <div className="flex gap-6">
-                <div className="flex items-center gap-2 text-slate-400">
-                  <FiClock size={16} />
-                  <span className="text-xs font-bold uppercase tracking-widest">8 Min Read</span>
-                </div>
-                <div className="flex items-center gap-2 text-slate-400">
-                  <FiUser size={16} />
-                  <span className="text-xs font-bold uppercase tracking-widest">Oct 12, 2025</span>
-                </div>
+            <span className="text-sm text-slate-400">{post.readTime}</span>
+          </div>
+
+          <h1 className="text-4xl md:text-6xl font-bold tracking-tight leading-[1.1] mb-8">
+            {post.title}
+          </h1>
+
+          <div className="flex items-center justify-between py-6 border-b border-slate-100">
+            <div className="flex items-center gap-3">
+              <img 
+                src={post.authorImage} 
+                className="w-10 h-10 rounded-full grayscale" 
+                alt={post.author} 
+              />
+              <div>
+                <span className="text-sm font-bold block">{post.author}</span>
+                <span className="text-[10px] text-slate-400 uppercase tracking-widest">{post.date}</span>
               </div>
             </div>
-          </motion.div>
+            <div className="flex gap-4 text-slate-400">
+              <FiTwitter className="hover:text-indigo-600 cursor-pointer transition-colors" />
+              <FiLinkedin className="hover:text-indigo-600 cursor-pointer transition-colors" />
+              <FiLink className="hover:text-indigo-600 cursor-pointer transition-colors" />
+            </div>
+          </div>
         </div>
       </header>
 
-      {/* --- Main Content Section --- */}
-      <div className="max-w-7xl mx-auto px-6 grid grid-cols-1 lg:grid-cols-12 gap-16 py-20">
-        
-        {/* Sidebar Left: Socials */}
-        <aside className="hidden lg:block lg:col-span-1 sticky top-32 h-fit">
-          <div className="flex flex-col gap-4">
-            <button className="w-12 h-12 rounded-2xl border border-slate-100 flex items-center justify-center text-slate-400 hover:bg-slate-900 hover:text-white transition-all shadow-sm">
-              <FiTwitter size={20} />
-            </button>
-            <button className="w-12 h-12 rounded-2xl border border-slate-100 flex items-center justify-center text-slate-400 hover:bg-[#044DB6] hover:text-white transition-all shadow-sm">
-              <FiLinkedin size={20} />
-            </button>
-            <button className="w-12 h-12 rounded-2xl border border-slate-100 flex items-center justify-center text-slate-400 hover:bg-[#FF7E00] hover:text-white transition-all shadow-sm">
-              <FiCopy size={20} />
-            </button>
-          </div>
-        </aside>
+      {/* --- Main Content --- */}
+      <main className="max-w-3xl mx-auto px-6 pb-32">
+        <figure className="mb-12">
+          <img 
+            src={post.image} 
+            alt={post.title}
+            className="rounded-2xl w-full object-cover aspect-video shadow-2xl shadow-slate-200"
+          />
+          <figcaption className="text-center text-xs text-slate-400 mt-4 font-medium uppercase tracking-widest">
+            {post.figCaption}
+          </figcaption>
+        </figure>
 
-        {/* Center: Article Content */}
-        <main className="lg:col-span-8">
-          <article className="prose prose-slate prose-lg max-w-none">
-            <div className="rounded-[3rem] overflow-hidden mb-12 border border-slate-200">
-              <img 
-                src="https://images.unsplash.com/photo-1550751827-4bd374c3f58b?q=80&w=2070&auto=format&fit=crop" 
-                alt="Main Article"
-                className="w-full" 
-              />
+        <article className="prose prose-slate prose-lg max-w-none">
+          <p className="text-xl leading-relaxed text-slate-700">
+            {post.intro}
+          </p>
+
+          {post.sections.map((section, idx) => (
+            <div key={idx}>
+              <h3 className="text-2xl font-bold mt-12 mb-4">{section.title}</h3>
+              <p>{section.content}</p>
             </div>
+          ))}
 
-            <p className="text-xl text-slate-600 font-medium leading-relaxed mb-8">
-              Legacy systems are often held together by hope and technical debt. At the Squad, we realized that our Node.js infrastructure, while efficient for the early stages, was hitting a wall as we scaled to handle 100k+ concurrent requests per second.
+          <blockquote className="border-l-4 border-indigo-600 pl-6 py-2 my-10 not-italic">
+            <p className="text-2xl font-serif text-slate-800 italic">
+              "{post.quote}"
             </p>
+          </blockquote>
 
-            <h2 className="text-3xl font-black text-slate-900 tracking-tight mt-12 mb-6">The Memory Bottleneck</h2>
-            <p className="text-slate-600 mb-6">
-              The primary challenge was Garbage Collection (GC) pauses. In high-throughput environments, even a 50ms pause can lead to significant latency spikes. We needed a language that offered <strong>memory safety without a garbage collector</strong>.
-            </p>
+          <h3 className="text-2xl font-bold mt-12 mb-4">{post.conclusionTitle}</h3>
+          <p>{post.conclusion}</p>
+        </article>
 
-            <blockquote className="border-l-4 border-[#FF7E00] bg-slate-50 p-8 rounded-r-3xl my-10">
-              <p className="text-2xl font-black text-slate-900 tracking-tight italic">
-                "We didn't just want faster code; we wanted predictable performance. Rust provided the deterministic execution our enterprise clients demand."
-              </p>
-            </blockquote>
+        {/* --- Post-Article Navigation --- */}
+        {/* <div className="mt-24 pt-12 border-t border-slate-100">
+          <div className="flex flex-col md:flex-row justify-between items-start md:items-center gap-8">
+            <button className="flex items-center gap-3 text-slate-400 hover:text-slate-900 transition-colors font-semibold group">
+              <div className="p-2 rounded-full bg-slate-50 group-hover:bg-slate-100">
+                <FiArrowLeft />
+              </div>
+              Back to all articles
+            </button>
 
-            <h2 className="text-3xl font-black text-slate-900 tracking-tight mt-12 mb-6">Key Performance Gains</h2>
-            <ul className="list-none space-y-4 p-0">
-              {[
-                "85% reduction in tail latency (p99)",
-                "Zero data races thanks to the Borrow Checker",
-                "Reduced server costs by 40% due to memory efficiency"
-              ].map((item, i) => (
-                <li key={i} className="flex items-center gap-4 text-slate-700 font-bold">
-                  <span className="w-2 h-2 bg-[#FF7E00] rounded-full" /> {item}
-                </li>
-              ))}
-            </ul>
-
-            <div className="my-16 p-10 bg-slate-900 rounded-[2.5rem] text-white">
-              <h4 className="text-[#FF7E00] font-black uppercase tracking-[0.2em] text-xs mb-4">Pro Tip</h4>
-              <p className="text-slate-300 font-medium leading-relaxed">
-                When migrating from TypeScript to Rust, start by offloading your most compute-intensive functions via WebAssembly or FFI rather than rewriting the entire codebase at once.
-              </p>
+            <div className="flex flex-col items-end text-right">
+              <span className="text-[10px] font-bold text-indigo-600 uppercase tracking-widest mb-1">Next Article</span>
+              <a href="#" className="text-lg font-bold hover:underline flex items-center gap-2">
+                Neo-Brutalist UI Trends <FiArrowRight />
+              </a>
             </div>
-          </article>
-
-          {/* Tags */}
-          <div className="mt-16 pt-8 border-t border-slate-100 flex flex-wrap gap-2">
-            {["Rust", "Performance", "Backend", "Scalability"].map(tag => (
-              <span key={tag} className="px-4 py-2 bg-slate-50 text-slate-400 text-[10px] font-black uppercase tracking-widest rounded-lg">
-                #{tag}
-              </span>
-            ))}
           </div>
-        </main>
+        </div> */}
+      </main>
 
-        {/* Sidebar Right: TOC or Related */}
-        <div className="lg:col-span-3 hidden lg:block sticky top-32 h-fit">
-          <div className="bg-slate-50 rounded-[2rem] p-8 border border-slate-100">
-            <h4 className="text-xs font-black uppercase tracking-[0.3em] text-slate-900 mb-6">In this article</h4>
-            <nav className="flex flex-col gap-4">
-              <a href="#" className="text-sm font-bold text-[#FF7E00]">01. Introduction</a>
-              <a href="#" className="text-sm font-bold text-slate-400 hover:text-slate-900 transition-colors">02. Memory Management</a>
-              <a href="#" className="text-sm font-bold text-slate-400 hover:text-slate-900 transition-colors">03. The Result</a>
-              <a href="#" className="text-sm font-bold text-slate-400 hover:text-slate-900 transition-colors">04. Conclusion</a>
-            </nav>
+      {/* --- Professional Newsletter Footer --- */}
+      <footer className="bg-slate-50 py-20 px-6">
+        <div className="max-w-3xl mx-auto text-center">
+          <h4 className="text-2xl font-bold mb-4">Deep dives, delivered.</h4>
+          <p className="text-slate-500 mb-8 text-sm">Join 5,000+ engineers receiving our monthly technical briefs.</p>
+          <div className="flex gap-2 max-w-md mx-auto">
+            <input 
+              type="email" 
+              placeholder="Work email" 
+              className="flex-1 px-4 py-3 rounded-lg border border-slate-200 focus:outline-none focus:ring-2 focus:ring-indigo-500/20"
+            />
+            <button className="px-6 py-3 bg-slate-900 text-white font-bold rounded-lg hover:bg-black transition-all">
+              Subscribe
+            </button>
           </div>
         </div>
-      </div>
-
-      {/* --- Next Article Footer --- */}
-      <section className="bg-slate-50 py-20 border-y border-slate-100">
-        <div className="max-w-4xl mx-auto px-6 flex flex-col md:flex-row items-center justify-between gap-10">
-          <div>
-            <p className="text-[10px] font-black text-[#FF7E00] uppercase tracking-[0.3em] mb-2">Next up</p>
-            <h3 className="text-2xl md:text-3xl font-black text-slate-900 tracking-tighter max-w-sm">
-              The psychology of 'Neo-Brutalist' UI in enterprise software.
-            </h3>
-          </div>
-          <button className="group w-20 h-20 rounded-full bg-white border border-slate-200 flex items-center justify-center text-slate-900 hover:bg-[#FF7E00] hover:text-white transition-all hover:scale-110">
-            <FiChevronRight size={32} />
-          </button>
-        </div>
-      </section>
+      </footer>
     </div>
   );
 };
 
-export default BlogDetailsPage;
+export default ProfessionalBlog;

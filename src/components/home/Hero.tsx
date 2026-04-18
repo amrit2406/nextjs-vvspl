@@ -191,18 +191,28 @@ const Hero = () => {
           preserveAspectRatio="none"
           className="w-full h-[80px] lg:h-[140px]"
         >
-          {/* Optional: background fill (remove if you don’t want it) */}
+          {/* Background */}
           <path
             d="M0,120V7.23C0,65.52,268.63,112.77,600,112.77S1200,65.52,1200,7.23V120Z"
             className="fill-white"
           />
 
-          {/* Curve border line */}
+          {/* Base line */}
           <path
             d="M0,7.23C0,65.52,268.63,112.77,600,112.77S1200,65.52,1200,7.23"
             fill="none"
             stroke="orange"
             strokeWidth="1"
+          />
+
+          {/* Animated darker segment */}
+          <path
+            d="M0,7.23C0,65.52,268.63,112.77,600,112.77S1200,65.52,1200,7.23"
+            fill="none"
+            stroke="darkorange"
+            strokeWidth="2"
+            strokeDasharray="150 1000"
+            className="animate-wave"
           />
         </svg>
       </div>
