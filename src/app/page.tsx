@@ -12,6 +12,7 @@ import EddvaProduct from "@/components/home/Products";
 import Services from "@/components/home/Service";
 import WhyChooseUs from "@/components/home/Why";
 import CTA from "@/components/home/CTA";
+import SocialSidebar from "@/components/layout/SideBtn";
 // import TechStackSection from "@/components/layout/TechStack";
 
 
@@ -25,6 +26,7 @@ export default function Home() {
       <EddvaProduct />
       <WhyChooseUs />
       {/* <TechStackSection /> */}
+      <SocialSidebar />
       <SisterCompany />
       <CTA />
       <Leaders />
