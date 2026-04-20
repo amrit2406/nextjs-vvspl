@@ -33,10 +33,10 @@ const About = () => {
                 whileInView={{ opacity: 1, x: 0 }}
                 viewport={{ once: true }}
                 transition={{ duration: 0.8 }}
-                className="relative z-10 rounded-[2.5rem] overflow-hidden shadow-2xl border-[12px] border-slate-50"
+                className="relative z-10 rounded-[2.5rem] overflow-hidden"
               >
                 <img
-                  src="https://img.freepik.com/premium-vector/collab-concept-illustration_114360-3995.jpg"
+                  src="/assets/about2.png"
                   alt="Team collaboration"
                   className="w-full h-[480px] object-contain"
                 />
@@ -71,7 +71,7 @@ const About = () => {
               className="text-5xl font-black text-slate-900 leading-[0.95] mb-8 tracking-tighter"
             >
               Architecting <span></span>
-              <span className="text-transparent bg-clip-text bg-gradient-to-r from-[#FF7E00] via-orange-500 to-[#e67300]">
+              <span className="text-transparent bg-clip-text bg-gradient-to-r from-[#FF7E00] via-orange-500 to-[#e67300] italic">
                 Futures, 
               </span><br />
               Not Just Features.

@@ -95,7 +95,7 @@ const BlogSection = () => {
               </div>
 
               {/* Content */}
-              <div className="p-8 flex flex-col flex-grow">
+              <div className="p-4 flex flex-col flex-grow">
                 {/* <div className="flex items-center space-x-4 text-[10px] font-bold uppercase tracking-widest text-slate-400 mb-4">
                   <div className="flex items-center space-x-1.5">
                     <FiCalendar className="text-[#FF7E00]" />
@@ -108,7 +108,7 @@ const BlogSection = () => {
                   </div>
                 </div> */}
 
-                <h4 className="text-2xl font-black text-slate-900 tracking-tight leading-tight group-hover:text-[#FF7E00] transition-colors mb-6">
+                <h4 className="text-xl font-black text-slate-900 tracking-tight leading-tight group-hover:text-[#FF7E00] transition-colors mb-6">
                   {post.title}
                 </h4>
 

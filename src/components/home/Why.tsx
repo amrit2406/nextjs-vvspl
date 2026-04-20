@@ -77,7 +77,7 @@ const WhyChooseUs = () => {
                 
               <h2 className="text-5xl lg:text-6xl font-black text-white mb-8 leading-[1.1] tracking-tight">
                 Why partner <br />
-                <span className="text-transparent pr-2 bg-clip-text bg-gradient-to-r from-slate-300 to-slate-100">
+                <span className="pr-2 text-transparent bg-clip-text bg-gradient-to-r from-[#FF7E00] via-orange-500 to-[#e67300] italic">
                   with us?
                 </span>
               </h2>

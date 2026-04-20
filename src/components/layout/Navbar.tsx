@@ -29,19 +29,39 @@ const Navbar = () => {
   }, []);
 
   const moreLinks = [
-    { name: "FAQ", href: "/faq", icon: <FiHelpCircle />, desc: "Common questions" },
-    { name: "Leadership", href: "/leadership", icon: <FiUsers />, desc: "Meet the team" },
-    { name: "Gallery", href: "/gallery", icon: <FiImage />, desc: "Our workspace" },
-    { name: "Blogs", href: "/blogs", icon: <FiEdit3 />, desc: "Latest insights" },
+    {
+      name: "FAQ",
+      href: "/faq",
+      icon: <FiHelpCircle />,
+      desc: "Common questions",
+    },
+    {
+      name: "Leadership",
+      href: "/leadership",
+      icon: <FiUsers />,
+      desc: "Meet the team",
+    },
+    {
+      name: "Gallery",
+      href: "/gallery",
+      icon: <FiImage />,
+      desc: "Our workspace",
+    },
+    {
+      name: "Blogs",
+      href: "/blogs",
+      icon: <FiEdit3 />,
+      desc: "Latest insights",
+    },
   ];
 
   return (
-    <div className="fixed top-0 left-0 w-full z-[100] flex justify-center p-4 lg:p-6 pointer-events-none">
+    <div className="fixed top-0 left-0 w-full z-[100] flex justify-center p-2 pointer-events-none">
       <motion.nav
         initial={{ y: -20, opacity: 0 }}
         animate={{ y: 0, opacity: 1 }}
         className={`
-          relative pointer-events-auto flex items-center justify-between px-6 py-3 rounded-2xl
+          relative pointer-events-auto flex items-center justify-between px-4 py-2 rounded-2xl
           transition-all duration-500 border
           ${
             isScrolled
@@ -52,16 +72,22 @@ const Navbar = () => {
       >
         {/* Brand */}
         <Link href="/" className="relative flex items-center gap-2 group z-10">
-          <div className="w-8 h-8 bg-gradient-to-tr from-[#FF7E00] to-[#FFB800] rounded-lg rotate-45 group-hover:rotate-90 transition-transform duration-500 shadow-md" />
-          <span className="text-xl font-black tracking-tighter text-black">
-            VVSPLTECH<span className="opacity-50">.</span>
+          {/* <div className="w-8 h-8 bg-gradient-to-tr from-[#FF7E00] to-[#FFB800] rounded-lg rotate-45 group-hover:rotate-90 transition-transform duration-500 shadow-md" /> */}
+          <img
+            src="/assets/logo.svg"
+            alt="VVSPLTECH Logo"
+            className="w-14 h-14 object-contain transition-transform duration-500 group-hover:scale-110"
+          />
+          <span className="text-xl font-black tracking-tight text-black">
+            VVSPL
+            {/* <span className="opacity-50">.</span> */}
           </span>
         </Link>
 
         {/* Desktop Navigation */}
         <div className="hidden lg:flex items-center gap-2 z-10">
           {["About", "Services", "Industries", "Careers"].map((item) => (
-          // {["Home", "About", "Services", "Industries", "Careers"].map((item) => (
+            // {["Home", "About", "Services", "Industries", "Careers"].map((item) => (
             <Link
               key={item}
               href={`/${item.toLowerCase()}`}
@@ -146,7 +172,9 @@ const Navbar = () => {
               }`}
             >
               More
-              <HiChevronDown className={`transition-transform duration-300 ${isMoreOpen ? "rotate-180" : ""}`} />
+              <HiChevronDown
+                className={`transition-transform duration-300 ${isMoreOpen ? "rotate-180" : ""}`}
+              />
             </button>
 
             <AnimatePresence>
@@ -169,7 +197,9 @@ const Navbar = () => {
                           {link.icon}
                         </div> */}
                         <div>
-                          <div className="text-sm font-medium text-black">{link.name}</div>
+                          <div className="text-sm font-medium text-black">
+                            {link.name}
+                          </div>
                           {/* <div className="text-[10px] text-slate-500">{link.desc}</div> */}
                         </div>
                       </Link>
@@ -210,24 +240,30 @@ const Navbar = () => {
             className="fixed inset-0 bg-white z-[90] p-8 flex flex-col justify-center items-center pointer-events-auto"
           >
             <div className="flex flex-col space-y-4 text-center">
-              {["Home", "About", "Services", "Industries", "Careers", ...moreLinks.map(l => l.name), "Contact"].map(
-                (link, i) => (
-                  <motion.div
-                    initial={{ y: 20, opacity: 0 }}
-                    animate={{ y: 0, opacity: 1 }}
-                    transition={{ delay: i * 0.05 }}
-                    key={link}
+              {[
+                "Home",
+                "About",
+                "Services",
+                "Industries",
+                "Careers",
+                ...moreLinks.map((l) => l.name),
+                "Contact",
+              ].map((link, i) => (
+                <motion.div
+                  initial={{ y: 20, opacity: 0 }}
+                  animate={{ y: 0, opacity: 1 }}
+                  transition={{ delay: i * 0.05 }}
+                  key={link}
+                >
+                  <Link
+                    href="#"
+                    onClick={() => setIsMenuOpen(false)}
+                    className="text-3xl font-black text-black hover:text-[#FF7E00] transition-colors"
                   >
-                    <Link
-                      href="#"
-                      onClick={() => setIsMenuOpen(false)}
-                      className="text-3xl font-black text-black hover:text-[#FF7E00] transition-colors"
-                    >
-                      {link}
-                    </Link>
-                  </motion.div>
-                )
-              )}
+                    {link}
+                  </Link>
+                </motion.div>
+              ))}
             </div>
           </motion.div>
         )}

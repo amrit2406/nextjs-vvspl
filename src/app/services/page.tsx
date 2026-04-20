@@ -117,14 +117,14 @@ const ServiceCard = ({ title, desc, slug, image, color }: ServiceItem) => (
       <img
         src={image}
         alt={title}
-        className="w-full h-40 object-cover transition-transform duration-1000 group-hover:scale-105"
+        className="w-full h-full object-cover transition-transform duration-1000 group-hover:scale-105"
       />
       {/* Subtle overlay gradient */}
       <div className="absolute inset-0 bg-gradient-to-t from-white/20 to-transparent" />
     </div>
 
     {/* Content Section */}
-    <div className="p-6 flex flex-col flex-grow">
+    <div className="p-4 flex flex-col flex-grow">
       {/* Accent Line */}
       <div className={`w-12 h-1.5 rounded-full mb-2 bg-gradient-to-r ${color}`} />
       
@@ -132,7 +132,7 @@ const ServiceCard = ({ title, desc, slug, image, color }: ServiceItem) => (
         {title}
       </h4>
       
-      <p className="text-slate-700 text-[0.65rem] leading-relaxed  mb-6 flex-grow">
+      <p className="text-slate-700 text-md leading-relaxed  mb-6 flex-grow">
         {desc}
       </p>
 

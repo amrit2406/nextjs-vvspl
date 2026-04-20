@@ -1,26 +1,19 @@
 "use client";
 import React, { useState } from "react";
 import { motion, AnimatePresence } from "framer-motion";
-import { 
-  SiReact, SiNextdotjs, SiTypescript, SiTailwindcss, 
-  SiNodedotjs, SiPython, SiPostgresql, SiDocker,  SiGooglecloud, SiKubernetes, SiMongodb,
-  SiSpringboot, SiFlutter, SiOpenai, SiRust, SiGo, 
-  SiTerraform, SiFigma, SiKotlin, SiSwift
-} from "react-icons/si";
-import { FaAws } from "react-icons/fa";
 
-// --- Tech Data ---
+// --- Tech Data with Image Paths ---
 const techData = [
   {
     id: "frontend",
     label: "Frontend",
     description: "Building immersive, high-performance user interfaces with modern reactivity.",
     items: [
-      { icon: SiReact, name: "React JS", color: "text-[#61DAFB]" },
-      { icon: SiNextdotjs, name: "Next.js", color: "text-black" },
-      { icon: SiTypescript, name: "TypeScript", color: "text-[#3178C6]" },
-      { icon: SiTailwindcss, name: "Tailwind", color: "text-[#06B6D4]" },
-      { icon: SiFigma, name: "Figma", color: "text-[#F24E1E]" },
+      { src: "/tech/react.png", name: "React JS" },
+      { src: "/tech/nextjs.png", name: "Next.js" },
+      { src: "/tech/typescript.png", name: "TypeScript" },
+      { src: "/tech/tailwind.png", name: "Tailwind" },
+      { src: "/tech/figma.png", name: "Figma" },
     ]
   },
   {
@@ -28,11 +21,11 @@ const techData = [
     label: "Backend",
     description: "Robust, distributed server-side logic designed for maximum uptime and security.",
     items: [
-      { icon: SiNodedotjs, name: "Node.js", color: "text-[#339933]" },
-      { icon: SiPython, name: "Python", color: "text-[#3776AB]" },
-      { icon: SiSpringboot, name: "Java Spring", color: "text-[#6DB33F]" },
-      { icon: SiRust, name: "Rust", color: "text-black" },
-      { icon: SiGo, name: "Golang", color: "text-[#00ADD8]" },
+      { src: "/tech/node.png", name: "Node.js" },
+      { src: "/tech/python.png", name: "Python" },
+      { src: "/tech/springboot.png", name: "Java Spring" },
+      { src: "/tech/rust.png", name: "Rust" },
+      { src: "/tech/go.png", name: "Golang" },
     ]
   },
   {
@@ -40,10 +33,10 @@ const techData = [
     label: "Mobile",
     description: "Native and cross-platform mobile ecosystems for iOS and Android.",
     items: [
-      { icon: SiFlutter, name: "Flutter", color: "text-[#02569B]" },
-      { icon: SiReact, name: "React Native", color: "text-[#61DAFB]" },
-      { icon: SiKotlin, name: "Kotlin", color: "text-[#7F52FF]" },
-      { icon: SiSwift, name: "Swift", color: "text-[#F05138]" },
+      { src: "/tech/flutter.png", name: "Flutter" },
+      { src: "/tech/react-native.png", name: "React Native" },
+      { src: "/tech/kotlin.png", name: "Kotlin" },
+      { src: "/tech/swift.png", name: "Swift" },
     ]
   },
   {
@@ -51,11 +44,11 @@ const techData = [
     label: "Infra & AI",
     description: "Cloud-native scaling and intelligent automation for modern enterprises.",
     items: [
-      { icon: FaAws, name: "AWS", color: "text-[#FF9900]" },
-      { icon: SiDocker, name: "Docker", color: "text-[#2496ED]" },
-      { icon: SiKubernetes, name: "K8s", color: "text-[#326CE5]" },
-      { icon: SiPostgresql, name: "PostgreSQL", color: "text-[#4169E1]" },
-      { icon: SiOpenai, name: "OpenAI/LLM", color: "text-[#412991]" },
+      { src: "/tech/aws.png", name: "AWS" },
+      { src: "/tech/docker.png", name: "Docker" },
+      { src: "/tech/k8s.png", name: "K8s" },
+      { src: "/tech/postgres.png", name: "PostgreSQL" },
+      { src: "/tech/openai.png", name: "OpenAI/LLM" },
     ]
   }
 ];
@@ -64,8 +57,9 @@ const InteractiveStack = () => {
   const [activeTab, setActiveTab] = useState("frontend");
 
   return (
-    <section className="py-24 bg-white">
-      <div className="max-w-6xl mx-auto px-6 lg:px-8">
+    <section className="py-18 bg-white">
+      {/* Increased max-width to 7xl to cover more screen width properly */}
+      <div className="max-w-7xl mx-auto px-6 lg:px-8">
         
         {/* Section Header */}
         <div className="text-center mb-16">
@@ -109,40 +103,32 @@ const InteractiveStack = () => {
                 animate={{ opacity: 1, y: 0 }}
                 exit={{ opacity: 0, y: -20 }}
                 transition={{ duration: 0.3 }}
-                className="grid lg:grid-cols-12 gap-6 items-center"
+                className="w-full"
               >
-                {/* Text Content */}
-                {/* <div className="lg:col-span-5">
-                  <h3 className="text-3xl font-black text-slate-900 mb-4 tracking-tight">{tab.label} Excellence</h3>
-                  <p className="text-slate-600 font-medium text-lg leading-relaxed mb-8">
-                    {tab.description}
-                  </p>
-                  <div className="flex items-center gap-4 py-6 border-t border-slate-100">
-                    <div className="w-12 h-12 rounded-full bg-[#FF7E00]/10 flex items-center justify-center text-[#FF7E00]">
-                        <span className="font-black">0{techData.indexOf(tab) + 1}</span>
-                    </div>
-                    <span className="text-xs font-black uppercase tracking-widest text-slate-400">Pillar Specialization</span>
-                  </div>
-                </div> */}
-
-                {/* Icons Grid */}
-                <div className="lg:col-span-7">
-                  <div className="grid grid-cols-2 sm:grid-cols-3 gap-6">
-                    {tab.items.map((item, idx) => (
-                      <motion.div
-                        key={idx}
-                        initial={{ opacity: 0, scale: 0.9 }}
-                        animate={{ opacity: 1, scale: 1 }}
-                        transition={{ delay: idx * 0.1 }}
-                        className="bg-slate-50 border border-slate-100 p-8 rounded-[2.5rem] flex flex-col items-center justify-center gap-4 hover:bg-white hover:shadow-xl hover:shadow-slate-200/50 transition-all group"
-                      >
-                        <item.icon className={`text-4xl ${item.color} transition-transform group-hover:scale-110`} />
-                        <span className="text-[10px] font-black uppercase tracking-widest text-slate-900">
-                          {item.name}
-                        </span>
-                      </motion.div>
-                    ))}
-                  </div>
+                {/* Updated Grid: 2 columns mobile, 3 tablet, 4/5 desktop to balance width */}
+                <div className="grid grid-cols-2 sm:grid-cols-3 lg:grid-cols-4 xl:grid-cols-6 gap-4">
+                  {tab.items.map((item, idx) => (
+                    <motion.div
+                      key={idx}
+                      initial={{ opacity: 0, scale: 0.9 }}
+                      animate={{ opacity: 1, scale: 1 }}
+                      transition={{ delay: idx * 0.1 }}
+                      className="bg-slate-50 border border-slate-100 p-4 rounded-[2.5rem] flex flex-col items-center justify-center gap-4 hover:bg-white hover:shadow-xl hover:shadow-slate-200/50 transition-all group"
+                    >
+                      {/* Image replacement for Icon */}
+                      <div className="w-10 h-10 flex items-center justify-center">
+                        <img 
+                          src={item.src} 
+                          alt={item.name} 
+                          className="max-w-full max-h-full object-contain grayscale group-hover:grayscale-0 transition-all duration-300 transform group-hover:scale-110"
+                        />
+                      </div>
+                      
+                      <span className="text-[10px] font-black uppercase tracking-widest text-slate-900">
+                        {item.name}
+                      </span>
+                    </motion.div>
+                  ))}
                 </div>
               </motion.div>
             ))}

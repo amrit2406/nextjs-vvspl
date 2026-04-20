@@ -73,7 +73,7 @@ const FAQItem = ({
       {/* Left Accent Bar */}
       <motion.div
         layout
-        className="absolute left-0 top-0 h-full w-1.5 bg-[#FF7E00]"
+        className="absolute left-0 top-0 h-full w-1 bg-[#FF7E00]"
         initial={false}
         animate={{ 
           opacity: isOpen ? 1 : 0,
@@ -84,7 +84,7 @@ const FAQItem = ({
 
       <button
         onClick={toggle}
-        className="relative w-full px-6 py-7 flex items-center justify-between text-left focus:outline-none z-10"
+        className="relative w-full px-4 py-4 flex items-center justify-between text-left focus:outline-none z-10"
       >
         <div className="flex items-start gap-5">
           <span
@@ -170,7 +170,7 @@ const FAQ = () => {
       <div className="max-w-7xl mx-auto px-6 lg:px-8">
         <div className="grid grid-cols-1 lg:grid-cols-12 gap-16 lg:gap-24">
           {/* Left Side: Sticky Branding Content */}
-          <div className="lg:col-span-5 lg:sticky lg:top-40 h-fit">
+          <div className="lg:col-span-5 lg:sticky h-fit">
             <motion.div
               initial={{ opacity: 0, y: 20 }}
               whileInView={{ opacity: 1, y: 0 }}
@@ -190,7 +190,7 @@ const FAQ = () => {
 
               <h2 className="text-5xl font-black text-slate-900 leading-[0.95] mb-8 tracking-tighter">
                 Your questions, <br />
-                <span className="text-transparent bg-clip-text bg-gradient-to-r from-[#FF7E00] via-orange-500 to-[#e67300]">
+                <span className="text-transparent bg-clip-text bg-gradient-to-r from-[#FF7E00] via-orange-500 to-[#e67300] italic">
                   Answered.
                 </span>
               </h2>

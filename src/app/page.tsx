@@ -27,9 +27,9 @@ export default function Home() {
       <WhyChooseUs />
       {/* <TechStackSection /> */}
       <SocialSidebar />
-      <SisterCompany />
-      <CTA />
+      {/* <SisterCompany /> */}
       <Leaders />
+      <CTA />
       <FAQ />
       <Contact />
       <BlogSection />

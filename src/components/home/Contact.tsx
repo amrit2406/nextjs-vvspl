@@ -104,22 +104,22 @@ const Contact = () => {
                   {[
                     {
                       icon: <FaLinkedinIn />,
-                      link: "#",
+                      link: "https://www.linkedin.com/company/112707331/admin/dashboard/",
                       color: "hover:bg-[#0077B5] hover:text-white", // LinkedIn
                     },
                     {
                       icon: <FaWhatsapp />,
-                      link: "#",
+                      link: "https://wa.me/917894689818",
                       color: "hover:bg-[#25D366] hover:text-white", // WhatsApp
                     },
                     {
                       icon: <FiInstagram />,
-                      link: "#",
-                      color: "hover:bg-[#E4405F] hover:text-white", // Instagram
+                      link: "https://www.instagram.com/vvspltech?igsh=cjcyczloZWNuaGZx",
+                      color: "hover:bg-gradient-to-tr from-[#f9ce34] via-[#ee2a7b] to-[#6228d7] hover:text-white", // Instagram
                     },
                     {
                       icon: <FaFacebook />,
-                      link: "#",
+                      link: "https://www.facebook.com/share/1D4x5YWeff/",
                       color: "hover:bg-[#1877F2] hover:text-white", // Facebook
                     },
                   ].map((social, i) => (

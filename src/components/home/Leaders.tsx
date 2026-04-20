@@ -10,8 +10,7 @@ const leaders = [
     name: "LT. Col. Anil Tripathi, Sena Medal (Retd.)",
     role: "Chairman cum Founder Director",
     bio: "Visionary in distributed systems and high-scale cloud infrastructure.",
-    image:
-      "https://i.pinimg.com/originals/8b/16/7a/8b167af653c2399dd93b952a48740620.jpg",
+    image: "/assets/img11.png",
     linkedin: "https://in.linkedin.com/in/anil-tripathi-13887819?utm_source=share&utm_medium=member_mweb&utm_campaign=share_via&utm_content=profile",
   },
   {
@@ -19,8 +18,7 @@ const leaders = [
     name: "Ankit Tripathi",
     role: "Additional Director",
     bio: "Specializing in minimalist industrial tech aesthetics and immersive UI.",
-    image:
-      "https://i.pinimg.com/originals/8b/16/7a/8b167af653c2399dd93b952a48740620.jpg",
+    image: "/assets/img22.png",
     linkedin: "#",
   },
   {
@@ -28,8 +26,7 @@ const leaders = [
     name: "Dattavi Jariwala Tripathi",
     role: "Founder Director",
     bio: "Expert in GSAP, Three.js, and creating high-end 3D web experiences.",
-    image:
-      "https://i.pinimg.com/originals/8b/16/7a/8b167af653c2399dd93b952a48740620.jpg",
+    image: "/assets/img33.png",
     linkedin: "https://in.linkedin.com/in/dattavii?utm_source=share&utm_medium=member_mweb&utm_campaign=share_via&utm_content=profile",
   },
   {
@@ -37,8 +34,7 @@ const leaders = [
     name: "Priyanka Tripathi Kriech",
     role: "Executive Director",
     bio: "Expert in GSAP, Three.js, and creating high-end 3D web experiences.",
-    image:
-      "https://i.pinimg.com/originals/8b/16/7a/8b167af653c2399dd93b952a48740620.jpg",
+    image: "/assets/img44.png",
     linkedin: "https://ch.linkedin.com/in/priyankatripathi91?utm_source=share&utm_medium=member_mweb&utm_campaign=share_via&utm_content=profile",
   },
 ];
@@ -101,11 +97,11 @@ const Leaders = () => {
               className="group"
             >
               {/* Image Container */}
-              <div className="relative aspect-[4/4] p-2 overflow-hidden rounded-[2rem] bg-slate-100 mb-4">
+              <div className="relative aspect-[4/4] overflow-hidden rounded-[2rem] bg-slate-100 border border-blue-400 mb-4">
                 <img
                   src={leader.image}
                   alt={leader.name}
-                  className="w-full h-full object-contain group-hover:grayscale-0 group-hover:scale-102 transition-all duration-700 ease-out"
+                  className="w-full h-full object-cover group-hover:grayscale-0 transition-all duration-700 ease-out"
                 />
 
                 {/* Float Social Overlay */}
@@ -123,14 +119,14 @@ const Leaders = () => {
 
               {/* Info Section */}
               <div className="px-2">
-                <div className="flex items-start justify-between mb-3 min-h-[60px]">
+                <div className="flex items-start justify-center mb-3 min-h-[60px]">
                   <h4 className="text-2xl font-bold text-slate-900 tracking-tight leading-snug">
                     {leader.name}
                   </h4>
-                  <div className="h-[1px] flex-grow mx-4 bg-slate-100 self-center" />
+                  {/* <div className="h-[1px] flex-grow mx-4 bg-slate-100 self-center" /> */}
                 </div>
 
-                <p className="text-[#FF7E00] font-bold uppercase tracking-widest text-[10px]">
+                <p className="text-[#FF7E00] text-center font-bold uppercase tracking-widest text-[10px]">
                   {leader.role}
                 </p>
               </div>

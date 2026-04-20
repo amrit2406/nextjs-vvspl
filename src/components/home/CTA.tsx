@@ -48,10 +48,10 @@ const CompactCTA = () => {
 
               {/* Secondary */}
               <Link
-                href="/contact"
+                href="/about"
                 className="w-full sm:w-auto px-8 py-4 rounded-full text-xs font-bold tracking-widest uppercase text-slate-500 hover:text-slate-900 transition-colors"
               >
-                Learn More
+                About Us
               </Link>
             </div>
           </div>

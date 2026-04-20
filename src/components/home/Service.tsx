@@ -124,7 +124,7 @@ const Services = () => {
               className="text-4xl md:text-5xl font-black text-slate-900 mt-2 tracking-tighter"
             >
               Solutions that drive{" "}
-              <span className="text-transparent bg-clip-text bg-gradient-to-r from-[#FF7E00] via-orange-500 to-[#e67300]">
+              <span className="text-transparent bg-clip-text bg-gradient-to-r from-[#FF7E00] via-orange-500 to-[#e67300] italic">
                 innovation.
               </span>
             </motion.h3>
@@ -152,7 +152,7 @@ const Services = () => {
               prevEl: ".swiper-prev-btn",
               nextEl: ".swiper-next-btn",
             }}
-            pagination={{ clickable: true, dynamicBullets: true }}
+            // pagination={{ clickable: true, dynamicBullets: true }}
             autoplay={{ delay: 4000, disableOnInteraction: false }}
             freeMode={true}
             breakpoints={{
@@ -166,7 +166,7 @@ const Services = () => {
               <SwiperSlide key={service.slug}>
                 <div className="group flex flex-col h-full bg-white rounded-[2rem] border border-slate-100 shadow-sm hover:shadow-2xl transition-all duration-500 overflow-hidden">
                   {/* 1. Fixed Aspect Ratio Image Container */}
-                  <div className="relative aspect-video overflow-hidden">
+                  <div className="relative h-50 overflow-hidden">
                     <img
                       src={service.image}
                       alt={service.title}
@@ -177,14 +177,14 @@ const Services = () => {
                   </div>
 
                   {/* 2. Content Wrapper with flex-grow */}
-                  <div className="flex flex-col flex-grow p-8">
-                    <h4 className="text-2xl font-bold text-slate-900 mb-3 tracking-tight">
+                  <div className="flex flex-col flex-grow p-6">
+                    <h4 className="text-xl font-bold text-slate-900 mb-3 tracking-tight">
                       {service.title}
                     </h4>
                     <p className="text-slate-600 text-sm leading-relaxed line-clamp-4 flex-grow">
                       {service.description}
                     </p>
-                    <div className="mt-8 pt-6 border-t border-slate-50">
+                    <div className="mt-6 pt-6 border-t border-slate-50">
                       <Link
                         href={`/services/${service.slug}`}
                         className="inline-flex items-center gap-2 text-[#FF7E00] font-bold group/link"
@@ -211,10 +211,10 @@ const Services = () => {
           {/* Card Stack */}
           <div className="relative w-full max-w-7xl">
             {/* Back Card */}
-            <div className="absolute inset-0 translate-x-6 translate-y-6 rounded-[2.5rem] bg-blue-100/60" />
+            <div className="absolute -inset-4 rounded-[2.5rem] bg-blue-100/60" />
 
             {/* Middle Card */}
-            <div className="absolute inset-0 translate-x-3 translate-y-3 rounded-[2.5rem] bg-blue-50/80 border border-blue-100" />
+            <div className="absolute -inset-2 rounded-[2.5rem] bg-blue-50/80 border border-blue-100" />
 
             {/* Main Card */}
             <div className="relative rounded-[2rem] bg-white border border-slate-100 shadow-[0_10px_30px_rgba(0,0,0,0.08)] px-8 py-10 flex flex-col md:flex-row items-center justify-between gap-6">

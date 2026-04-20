@@ -1,6 +1,7 @@
 "use client";
 import { motion } from "framer-motion";
 import { FiArrowRight, FiCheckCircle, FiLayers } from "react-icons/fi";
+import Link from "next/link";
 
 const Hero = () => {
   return (
@@ -37,7 +38,7 @@ const Hero = () => {
           <h1 className="text-5xl font-black text-slate-900 leading-[0.95] mb-8 tracking-tighter">
             Build Fast.
             <br />
-            <span className="text-transparent bg-clip-text bg-gradient-to-r from-[#FF7E00] via-orange-500 to-[#e67300]">
+            <span className="text-transparent bg-clip-text bg-gradient-to-r from-[#FF7E00] via-orange-500 to-[#e67300] italic">
               Scale Smarter.
             </span>
           </h1>
@@ -52,16 +53,22 @@ const Hero = () => {
 
           {/* Buttons */}
           <div className="flex flex-col sm:flex-row gap-4">
-            {/* Primary (Blue Gradient) */}
-            <button className="flex items-center justify-center space-x-3 px-6 py-4 rounded-2xl font-bold text-white bg-gradient-to-r from-[#FF7E00] to-[#e67300] hover:from-[#e67300] hover:to-[#cc6600] transition-all duration-300 shadow-lg shadow-orange-500/20 group">
+            {/* Primary (Orange Gradient) */}
+            <Link
+              href="/contact"
+              className="flex items-center justify-center space-x-3 px-6 py-4 rounded-2xl font-bold text-white bg-gradient-to-r from-[#FF7E00] to-[#e67300] hover:from-[#e67300] hover:to-[#cc6600] transition-all duration-300 shadow-lg shadow-orange-500/20 group"
+            >
               <span>Start Your Project</span>
               <FiArrowRight className="group-hover:translate-x-1 transition-transform" />
-            </button>
+            </Link>
 
             {/* Secondary (Minimal) */}
-            <button className="flex items-center justify-center space-x-2 px-6 py-4 rounded-xl font-semibold text-[#044DB6] border border-[#044DB6]/25 bg-white hover:bg-gradient-to-r hover:from-[#044DB6] hover:to-[#2A6BFF] hover:text-white hover:border-transparent transition-all duration-300 shadow-sm hover:shadow-md">
-              <span>Our Work</span>
-            </button>
+            <Link
+              href="/services"
+              className="flex items-center justify-center space-x-2 px-6 py-4 rounded-xl font-semibold text-[#044DB6] border border-[#044DB6]/25 bg-white hover:bg-gradient-to-r hover:from-[#044DB6] hover:to-[#2A6BFF] hover:text-white hover:border-transparent transition-all duration-300 shadow-sm hover:shadow-md"
+            >
+              <span>Services</span>
+            </Link>
           </div>
 
           {/* Trust Badges */}
@@ -91,7 +98,7 @@ const Hero = () => {
             <div className="relative aspect-[4/5] w-full overflow-hidden rounded-[2.5rem]">
               {/* REPLACE THIS PLACEHOLDER URL WITH YOUR ACTUAL IMAGE */}
               <img
-                src="/assets/hero.png"
+                src="/assets/hero2.png"
                 alt="Tech engineer working on advanced systems"
                 className="absolute inset-0 w-full h-full object-contain group-hover:scale-105 transition-transform duration-700 ease-in-out"
               />
@@ -191,10 +198,41 @@ const Hero = () => {
           preserveAspectRatio="none"
           className="w-full h-[80px] lg:h-[140px]"
         >
+          <defs>
+            <filter
+              id="waveShadow"
+              x="-10%"
+              y="-10%"
+              width="120%"
+              height="140%"
+            >
+              <feGaussianBlur
+                in="SourceGraphic"
+                stdDeviation="3"
+                result="blur"
+              />
+
+              <feOffset in="blur" dy="4" result="offsetBlur" />
+
+              <feMerge>
+                <feMergeNode in="offsetBlur" />
+              </feMerge>
+            </filter>
+          </defs>
+
           {/* Background */}
           <path
             d="M0,120V7.23C0,65.52,268.63,112.77,600,112.77S1200,65.52,1200,7.23V120Z"
             className="fill-white"
+          />
+
+          {/* Shadow (blurred stroke behind) */}
+          <path
+            d="M0,7.23C0,65.52,268.63,112.77,600,112.77S1200,65.52,1200,7.23"
+            fill="none"
+            stroke="rgba(255, 166, 0, 0.28)"
+            strokeWidth="4"
+            filter="url(#waveShadow)"
           />
 
           {/* Base line */}

@@ -70,7 +70,7 @@ const MissionVision = () => {
             className="text-5xl md:text-6xl font-black text-white tracking-tighter leading-[0.95] mb-6"
           >
             Purpose Beyond <span></span>
-            <span className="text-transparent bg-clip-text bg-gradient-to-r from-[#FF7E00] via-orange-500 to-[#e67300] pr-2">
+            <span className="text-transparent bg-clip-text bg-gradient-to-r from-[#FF7E00] via-orange-500 to-[#e67300] pr-2 italic">
               Code
             </span>
             .
@@ -98,7 +98,7 @@ const MissionVision = () => {
                 whileInView={{ opacity: 1, x: 0 }}
                 viewport={{ once: true }}
                 transition={{ duration: 0.6, ease: "easeOut" }}
-                className={`group relative flex flex-col md:flex-row ${
+                className={`group relative flex flex-col md:flex-row shadow-[0_0_25px_rgba(255,246,235,0.6)] ${
                   isVision ? "md:flex-row-reverse" : "md:flex-row"
                 } bg-white backdrop-blur-md rounded-[2.5rem] overflow-hidden min-h-[350px]`}
               >
@@ -119,7 +119,7 @@ const MissionVision = () => {
                   </div>
 
                   <div className="relative z-10">
-                    <h4 className="text-3xl font-black text-white leading-[0.8] uppercase tracking-tighter">
+                    <h4 className="text-2xl font-black text-white leading-[0.8] uppercase tracking-tighter">
                       {isVision ? "Vision" : "Mission"}
                     </h4>
                   </div>
@@ -127,13 +127,13 @@ const MissionVision = () => {
 
                 {/* 2. THE READABLE CONTENT BLOCK */}
                 <div
-                  className={`w-full md:w-3/5 p-10 md:p-12 flex flex-col justify-center ${isVision ? "text-right items-end" : "text-left items-start"}`}
+                  className={`w-full md:w-3/5 p-10 flex flex-col justify-center ${isVision ? "text-right items-end" : "text-left items-start"}`}
                 >
                   <div className="relative z-10 max-w-sm">
                     <div
                       className={`w-16 h-1.5 ${bgColor} mb-8 rounded-full ${isVision ? "ml-auto" : "mr-auto"}`}
                     />
-                    <p className="text-lg text-slate-700 font-semibold leading-relaxed tracking-tight">
+                    <p className="text-md text-slate-700 font-semibold leading-relaxed tracking-tight">
                       {item.description}
                     </p>
                   </div>
