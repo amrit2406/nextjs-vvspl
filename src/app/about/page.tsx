@@ -15,104 +15,9 @@ import {
   FiStar,
   FiLayers,
 } from "react-icons/fi";
+import Leaders from "@/components/home/Leaders";
 
-// --- New Component: Modern Value Card ---
-const ValueCard = ({ icon: Icon, title, content, index }: any) => (
-  <motion.div
-    initial={{ opacity: 0, y: 20 }}
-    whileInView={{ opacity: 1, y: 0 }}
-    transition={{ delay: index * 0.1 }}
-    className="group relative p-8 rounded-3xl bg-white border border-slate-100 shadow-sm hover:shadow-2xl transition-all duration-500 overflow-hidden"
-  >
-    <div className="absolute top-0 right-0 p-4 opacity-[0.03] group-hover:opacity-[0.07] transition-opacity">
-      <Icon size={120} />
-    </div>
-    <div className="relative z-10">
-      <div className="w-12 h-12 rounded-2xl bg-slate-900 text-white flex items-center justify-center mb-6 group-hover:bg-[#FF7E00] transition-colors duration-500">
-        <Icon size={24} />
-      </div>
-      <h4 className="text-xl font-black text-slate-900 mb-3 tracking-tight">
-        {title}
-      </h4>
-      <p className="text-slate-500 leading-relaxed font-medium">{content}</p>
-    </div>
-  </motion.div>
-);
 
-// --- Split-Shift Narrative Component ---
-const NarrativeRow = ({
-  title,
-  subtitle,
-  desc,
-  image,
-  isReversed,
-  tags,
-}: any) => (
-  <div className="py-24 border-b border-slate-100 last:border-0">
-    <div
-      className={`flex flex-col ${isReversed ? "lg:flex-row-reverse" : "lg:flex-row"} gap-16 items-start`}
-    >
-      {/* Text Content */}
-      <motion.div
-        initial={{ opacity: 0, y: 30 }}
-        whileInView={{ opacity: 1, y: 0 }}
-        viewport={{ once: true }}
-        className="w-full lg:w-5/12 sticky top-32"
-      >
-        <div className="flex items-center gap-3 mb-6">
-          <span className="h-[2px] w-12 bg-[#FF7E00]" />
-          <span className="text-[#FF7E00] font-black uppercase tracking-widest text-xs">
-            {subtitle}
-          </span>
-        </div>
-        <h3 className="text-4xl lg:text-6xl font-black text-slate-900 mb-8 leading-[0.9] tracking-tighter">
-          {title}
-        </h3>
-        <p className="text-slate-500 text-xl font-medium leading-relaxed mb-8">
-          {desc}
-        </p>
-        <div className="flex flex-wrap gap-2">
-          {tags.map((tag: string, i: number) => (
-            <span
-              key={i}
-              className="px-4 py-2 rounded-full border border-slate-200 text-slate-600 text-xs font-bold uppercase tracking-tight"
-            >
-              {tag}
-            </span>
-          ))}
-        </div>
-      </motion.div>
-
-      {/* Image Content */}
-      <motion.div
-        initial={{ opacity: 0, scale: 0.95 }}
-        whileInView={{ opacity: 1, scale: 1 }}
-        viewport={{ once: true }}
-        className="w-full lg:w-7/12"
-      >
-        <div className="relative group overflow-hidden rounded-[2rem] bg-slate-100 shadow-2xl">
-          <img
-            src={image}
-            alt={title}
-            className="w-full aspect-[16/10] object-cover filter grayscale hover:grayscale-0 transition-all duration-1000 scale-110 group-hover:scale-100"
-          />
-          <div className="absolute inset-0 bg-gradient-to-t from-slate-900/60 to-transparent opacity-60" />
-          <div className="absolute bottom-10 left-10 text-white">
-            <div className="flex items-center gap-2 mb-2">
-              <FiStar className="text-orange-400 fill-orange-400" />
-              <span className="text-xs font-black uppercase tracking-widest">
-                Industry Standard
-              </span>
-            </div>
-            <p className="text-2xl font-bold tracking-tight">
-              Delivering Excellence Since 2012
-            </p>
-          </div>
-        </div>
-      </motion.div>
-    </div>
-  </div>
-);
 
 const AboutPage = () => {
   return (
@@ -125,8 +30,8 @@ const AboutPage = () => {
             animate={{ opacity: 1, y: 0 }}
           >
             <h1 className="text-5xl md:text-7xl font-black text-slate-900 tracking-tight leading-[1.1]">
-              Pioneering the <br />
-              <span className="text-[#FF7E00]">VVSPL Tech</span> Era.
+              We Build What <br />
+              <span className="text-[#FF7E00]">Matters</span> .
             </h1>
             <p className="mt-8 text-xl text-slate-500 max-w-3xl mx-auto font-medium leading-relaxed">
               We aren't just building software; we're architecting the digital
@@ -137,78 +42,121 @@ const AboutPage = () => {
         </div>
       </section>
 
-      {/* --- Narrative Section --- */}
-      <section className="max-w-7xl mx-auto px-6 lg:px-8">
-        <NarrativeRow
-          subtitle="The Blueprint"
-          title="Architecting Bold Futures"
-          desc="We specialize in deep-tech integration where performance meets aesthetic. Our approach is surgical: we identify bottlenecks and deploy high-velocity code that scales without friction."
-          image="https://images.unsplash.com/photo-1497366216548-37526070297c?auto=format&fit=crop&q=80"
-          isReversed={false}
-          tags={["Scalability", "Next-Gen UI", "Secure Ops"]}
-        />
-      </section>
-
-      {/* --- Redesigned Values Grid --- */}
-      <section className="py-32 bg-slate-900 relative">
-        <div className="max-w-7xl mx-auto px-6 lg:px-8 relative z-10">
-          <div className="mb-20">
-            <h2 className="text-4xl md:text-6xl font-black text-white tracking-tighter mb-6">
-              Our <span className="text-[#FF7E00]">North Star</span> Principles
+      {/* --- overview Section --- */}
+      <section className="py-24 max-w-7xl mx-auto px-6 lg:px-8">
+        <div className="flex flex-col lg:flex-row gap-20 items-center">
+          <div className="w-full lg:w-1/2">
+            <div className="flex items-center gap-3 mb-8">
+              <span className="h-[2px] w-12 bg-orange-500" />
+              <span className="text-orange-500 font-bold uppercase tracking-widest text-xs">
+                The Blueprint
+              </span>
+            </div>
+            <h2 className="text-4xl lg:text-6xl font-black text-slate-900 mb-8 tracking-tighter">
+              Architecting <br /> Bold Futures
             </h2>
-            <p className="text-slate-400 text-lg max-w-2xl font-medium">
-              We operate under a strict set of internal mandates that ensure
-              every partner receives world-class delivery without compromise.
+            <p className="text-slate-600 text-lg lg:text-xl leading-relaxed mb-10">
+              We specialize in deep-tech integration where performance meets aesthetic. 
+              Our approach is surgical: we identify bottlenecks and deploy high-velocity 
+              code that scales without friction.
             </p>
+            <div className="grid grid-cols-2 gap-6">
+              {[
+                { label: "Scalability", val: "Enterprise Ready" },
+                { label: "Security", val: "Military Grade" },
+              ].map((item, i) => (
+                <div key={i} className="p-4 border-l-2 border-slate-100 bg-slate-50/50">
+                  <p className="text-[10px] font-black uppercase text-orange-600 tracking-widest mb-1">{item.label}</p>
+                  <p className="font-bold text-slate-800">{item.val}</p>
+                </div>
+              ))}
+            </div>
           </div>
-
-          <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-6">
-            <ValueCard
-              index={0}
-              icon={FiShield}
-              title="Integrity First"
-              content="Radical transparency in every line of code and business decision."
-            />
-            <ValueCard
-              index={1}
-              icon={FiGlobe}
-              title="Global Scale"
-              content="Built for performance across borders, cultures, and time zones."
-            />
-            <ValueCard
-              index={2}
-              icon={FiTrendingUp}
-              title="Continuous Growth"
-              content="Heavy investment in R&D to stay ahead of the digital curve."
-            />
-            <ValueCard
-              index={3}
-              icon={FiLayers}
-              title="Unified Systems"
-              content="Seamless integration between your legacy data and future tech."
+          <div className="w-full lg:w-1/2 relative group">
+            <div className="absolute -inset-4 bg-orange-500/5 rounded-[2.5rem] blur-2xl group-hover:bg-orange-500/10 transition duration-700" />
+            <img
+              src="https://images.unsplash.com/photo-1497366216548-37526070297c?auto=format&fit=crop&q=80"
+              alt="Workspace"
+              className="relative rounded-[2rem] shadow-2xl grayscale hover:grayscale-0 transition-all duration-1000 object-cover aspect-[4/3]"
             />
           </div>
         </div>
       </section>
 
+      <Leaders />
+
+      {/* --- Values Grid --- */}
+      <section className="py-32 bg-slate-50/50 border-y border-slate-100">
+        <div className="max-w-7xl mx-auto px-6 lg:px-8">
+          <div className="grid grid-cols-1 lg:grid-cols-12 gap-16 mb-20">
+            <div className="lg:col-span-5">
+              <h2 className="text-4xl md:text-5xl font-black text-slate-900 tracking-tighter mb-6">
+                Our Core <span className="text-orange-500">Mandates</span>
+              </h2>
+              <p className="text-slate-500 text-lg font-medium leading-relaxed">
+                Standardization is our strength. We follow a strict internal 
+                framework to ensure consistent delivery across every project.
+              </p>
+            </div>
+          </div>
+
+          <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-px bg-slate-200 border border-slate-200 rounded-2xl overflow-hidden shadow-sm">
+            {[
+              {
+                icon: FiShield,
+                title: "Total Integrity",
+                desc: "We prioritize radical transparency and ethical code above all else."
+              },
+              {
+                icon: FiGlobe,
+                title: "Global Standards",
+                desc: "Every system is built to comply with international performance benchmarks."
+              },
+              {
+                icon: FiTarget,
+                title: "Obsessive Precision",
+                desc: "Details aren't just details; they are the core of our technical DNA."
+              },
+              {
+                icon: FiLayers,
+                title: "Future Proofing",
+                desc: "Architecting systems that adapt to the next decade of tech evolution."
+              }
+            ].map((val, i) => (
+              <div key={i} className="bg-white p-10 hover:bg-slate-50 transition-colors group">
+                <div className="w-12 h-12 bg-slate-100 rounded-lg flex items-center justify-center text-slate-900 mb-8 group-hover:bg-orange-500 group-hover:text-white transition-all">
+                  <val.icon size={24} />
+                </div>
+                <h4 className="text-xl font-bold text-slate-900 mb-4 tracking-tight">{val.title}</h4>
+                <p className="text-slate-500 text-sm leading-relaxed font-medium">{val.desc}</p>
+              </div>
+            ))}
+          </div>
+        </div>
+      </section>
+
       {/* --- Final Modern CTA --- */}
-      <section className="py-32">
+      <section className="py-32 bg-white">
         <div className="max-w-7xl mx-auto px-6 lg:px-8 text-center">
           <motion.div
-            initial={{ opacity: 0, scale: 0.9 }}
-            whileInView={{ opacity: 1, scale: 1 }}
+            initial={{ opacity: 0, y: 20 }}
+            whileInView={{ opacity: 1, y: 0 }}
             viewport={{ once: true }}
-            className="flex flex-col items-center"
           >
-            <h2 className="text-5xl md:text-8xl font-black text-slate-900 tracking-tighter mb-12">
-              Let's <span className="text-slate-300">Build</span> The Next.
+            <h2 className="text-4xl md:text-6xl font-black text-slate-900 tracking-tighter mb-6">
+              Let's Build The <span className="text-orange-500">Next</span> .
             </h2>
-            <div className="flex flex-col sm:flex-row items-center gap-6">
-              <button className="h-20 px-12 bg-slate-900 text-white rounded-full font-black text-lg hover:bg-[#FF7E00] transition-colors duration-300 flex items-center gap-4">
-                Discuss Strategy <FiArrowRight />
+            <p className="text-slate-500 text-lg md:text-xl max-w-2xl mx-auto mb-10 font-medium">
+              Join industry leaders who trust VVSPL for their most critical 
+              digital infrastructure and software engineering needs.
+            </p>
+            
+            <div className="flex flex-col sm:flex-row items-center justify-center gap-4">
+              <button className="w-full sm:w-auto px-8 py-4 bg-slate-900 text-white rounded-lg font-bold text-lg hover:bg-orange-500 transition-colors flex items-center justify-center gap-2">
+                Get Started <FiArrowRight />
               </button>
-              <button className="h-20 px-12 bg-white border-2 border-slate-900 text-slate-900 rounded-full font-black text-lg hover:bg-slate-50 transition-colors">
-                Explore Careers
+              <button className="w-full sm:w-auto px-8 py-4 bg-white text-slate-900 border border-slate-200 rounded-lg font-bold text-lg hover:bg-slate-50 transition-colors">
+                Contact Sales
               </button>
             </div>
           </motion.div>

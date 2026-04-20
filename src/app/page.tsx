@@ -28,7 +28,7 @@ export default function Home() {
       {/* <TechStackSection /> */}
       <SocialSidebar />
       {/* <SisterCompany /> */}
-      <Leaders />
+      {/* <Leaders /> */}
       <CTA />
       <FAQ />
       <Contact />

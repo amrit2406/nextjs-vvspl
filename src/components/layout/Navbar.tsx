@@ -76,12 +76,12 @@ const Navbar = () => {
           <img
             src="/assets/logo.svg"
             alt="VVSPLTECH Logo"
-            className="w-14 h-14 object-contain transition-transform duration-500 group-hover:scale-110"
+            className="w-18 h-18 object-contain transition-transform duration-500 group-hover:scale-110"
           />
-          <span className="text-xl font-black tracking-tight text-black">
+          {/* <span className="text-xl font-black tracking-tight text-black">
             VVSPL
-            {/* <span className="opacity-50">.</span> */}
-          </span>
+            <span className="opacity-50">.</span>
+          </span> */}
         </Link>
 
         {/* Desktop Navigation */}

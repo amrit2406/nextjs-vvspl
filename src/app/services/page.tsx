@@ -124,7 +124,7 @@ const ServiceCard = ({ title, desc, slug, image, color }: ServiceItem) => (
     </div>
 
     {/* Content Section */}
-    <div className="p-4 flex flex-col flex-grow">
+    <div className="p-6 flex flex-col flex-grow">
       {/* Accent Line */}
       <div className={`w-12 h-1.5 rounded-full mb-2 bg-gradient-to-r ${color}`} />
       
