@@ -1,11 +1,8 @@
 "use client";
 import { motion } from "framer-motion";
 import { useRef } from "react";
-import {
-  FiCheckCircle,
-  FiArrowUpRight,
-  FiAward
-} from "react-icons/fi";
+import { FiCheckCircle, FiArrowUpRight, FiAward } from "react-icons/fi";
+import Link from "next/link";
 
 const About = () => {
   const containerRef = useRef(null);
@@ -22,8 +19,7 @@ const About = () => {
       className="py-24 bg-white overflow-hidden relative"
     >
       <div className="max-w-7xl mx-auto px-6 lg:px-8 relative z-10">
-        <div className="grid grid-cols-1 lg:grid-cols-12 gap-16 items-center">
-          
+        <div className="grid grid-cols-1 lg:grid-cols-12 gap-10 items-center">
           {/* LEFT: Visual & Stats */}
           <div className="lg:col-span-5 order-2 lg:order-1">
             <div className="relative">
@@ -40,7 +36,6 @@ const About = () => {
                   alt="Team collaboration"
                   className="w-full h-[480px] object-contain"
                 />
-
               </motion.div>
 
               {/* Decorative Blobs - Match Hero logic */}
@@ -52,7 +47,7 @@ const About = () => {
           {/* RIGHT: Content & Narrative */}
           <div className="lg:col-span-7 order-1 lg:order-2">
             {/* Status Badge Style Label */}
-            <motion.div 
+            <motion.div
               initial={{ opacity: 0, y: 20 }}
               whileInView={{ opacity: 1, y: 0 }}
               viewport={{ once: true }}
@@ -70,44 +65,51 @@ const About = () => {
               transition={{ duration: 0.6 }}
               className="text-5xl font-black text-slate-900 leading-[0.95] mb-8 tracking-tighter"
             >
-              Architecting <span></span>
-              <span className="text-transparent bg-clip-text bg-gradient-to-r from-[#FF7E00] via-orange-500 to-[#e67300] italic">
-                Futures, 
-              </span><br />
-              Not Just Features.
+             We don't just use technology <span></span>
+              <span className="text-transparent bg-clip-text bg-gradient-to-r from-[#FF7E00] via-orange-500 to-[#e67300] italic pr-2">
+                :
+              </span>
+              <br />
+              We make it work for you
             </motion.h2>
 
-            <div className="space-y-6 text-xl text-slate-600 leading-relaxed max-w-2xl font-medium">
-              <p>
-                At{" "}
-                <span className="text-slate-900 font-bold underline decoration-[#FF7E00] decoration-4 underline-offset-4">
-                  VVSPL TECH
-                </span>
-                , we serve as the critical bridge between legacy infrastructure and the AI-driven future.
+            <div className="space-y-6 text-slate-600 leading-relaxed max-w-2xl font-medium">
+              <p className="text-md text-xl">
+                "Innovation means nothing without impact — we deliver both."
               </p>
-              <p>
-                We operate on a philosophy of <span className="text-[#044DB6] font-bold">Precision Architecture</span>. Every line of code is deployed to turn technical debt into a competitive engine.
+              <p className="text-md">
+                We believe innovation should be practical, scalable, and purposeful. From AI-driven systems and intelligent automation to secure, resilient digital infrastructures, we engineer solutions that simplify complexity. Our approach is the simple way to solve complete digital problems.
               </p>
             </div>
 
             {/* CTA Action Group - Matching Hero Buttons */}
             <div className="flex flex-col sm:flex-row gap-5 mt-12">
-              <motion.button
-                whileHover={{ scale: 1.02 }}
-                whileTap={{ scale: 0.98 }}
-                className="flex items-center justify-center space-x-3 px-6 py-4 rounded-2xl font-bold text-white bg-gradient-to-r from-[#FF7E00] to-[#e67300] shadow-lg shadow-orange-500/20 group"
+              {/* <Link href="/contact">
+                <motion.span
+                  whileHover={{ y: 2 }}
+                  whileTap={{ y: 6 }}
+                  className="inline-flex items-center justify-center space-x-3 px-6 py-4 rounded-2xl font-bold text-white bg-gradient-to-r from-[#FF7E00] via-orange-500 to-[#e67300] shadow-[0_6px_0_#cc6600] transition-all duration-150 group cursor-pointer"
+                >
+                  <span>Start Your Project</span>
+                  <FiArrowUpRight className="group-hover:rotate-45 transition-transform duration-300" />
+                </motion.span>
+              </Link> */}
+              <Link
+                href="/about"
+                className="relative flex items-center justify-center space-x-2 px-6 py-4 rounded-xl font-semibold text-white bg-gradient-to-r from-[#044DB6] to-blue-500 shadow-[0_6px_0_#033a8c] transition-all duration-150 hover:translate-y-[2px] hover:shadow-[0_4px_0_#033a8c] active:translate-y-[6px] active:shadow-[0_0px_0_#033a8c]"
               >
-                <span>Start Your Project</span>
-                <FiArrowUpRight className="group-hover:rotate-45 transition-transform duration-300" />
-              </motion.button>
+                <span>Know more</span>
+              </Link>
 
-              <motion.button
-                whileHover={{ scale: 1.02 }}
-                whileTap={{ scale: 0.98 }}
-                className="flex items-center justify-center space-x-2 px-6 py-4 rounded-xl font-semibold text-[#044DB6] border border-[#044DB6]/25 bg-white hover:bg-gradient-to-r hover:from-[#044DB6] hover:to-[#2A6BFF] hover:text-white hover:border-transparent transition-all duration-300 shadow-sm hover:shadow-md"
-              >
-                <span>More About Us</span>
-              </motion.button>
+              <a href="tel:+917894689818">
+                <motion.span
+                  whileHover={{ y: 2 }}
+                  whileTap={{ y: 6 }}
+                  className="inline-flex items-center justify-center space-x-2 px-6 py-4 rounded-xl font-semibold text-[#044DB6] bg-white border border-[#044DB6]/25 shadow-[0_6px_0_#cbd5e1] transition-all duration-150 cursor-pointer hover:border-[#044DB6] hover:shadow-[0_4px_0_#033a8c]"
+                >
+                  <span>Call us now</span>
+                </motion.span>
+              </a>
             </div>
           </div>
         </div>
@@ -152,8 +154,12 @@ const About = () => {
 
       <style jsx>{`
         @keyframes marquee {
-          0% { transform: translateX(0); }
-          100% { transform: translateX(-50%); }
+          0% {
+            transform: translateX(0);
+          }
+          100% {
+            transform: translateX(-50%);
+          }
         }
         .animate-marquee {
           animation: marquee 25s linear infinite;

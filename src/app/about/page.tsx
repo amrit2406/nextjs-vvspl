@@ -30,8 +30,8 @@ const AboutPage = () => {
             animate={{ opacity: 1, y: 0 }}
           >
             <h1 className="text-5xl md:text-7xl font-black text-slate-900 tracking-tight leading-[1.1]">
-              We Build What <br />
-              <span className="text-[#FF7E00]">Matters</span> .
+              We Build What <br /> Matters
+              <span className="text-[#FF7E00]">.</span> 
             </h1>
             <p className="mt-8 text-xl text-slate-500 max-w-3xl mx-auto font-medium leading-relaxed">
               We aren't just building software; we're architecting the digital
@@ -52,7 +52,7 @@ const AboutPage = () => {
                 The Blueprint
               </span>
             </div>
-            <h2 className="text-4xl lg:text-6xl font-black text-slate-900 mb-8 tracking-tighter">
+            <h2 className="text-4xl md:text-5xl font-black text-slate-900 mb-8 tracking-tighter">
               Architecting <br /> Bold Futures
             </h2>
             <p className="text-slate-600 text-lg lg:text-xl leading-relaxed mb-10">
@@ -60,7 +60,7 @@ const AboutPage = () => {
               Our approach is surgical: we identify bottlenecks and deploy high-velocity 
               code that scales without friction.
             </p>
-            <div className="grid grid-cols-2 gap-6">
+            {/* <div className="grid grid-cols-2 gap-6">
               {[
                 { label: "Scalability", val: "Enterprise Ready" },
                 { label: "Security", val: "Military Grade" },
@@ -70,7 +70,7 @@ const AboutPage = () => {
                   <p className="font-bold text-slate-800">{item.val}</p>
                 </div>
               ))}
-            </div>
+            </div> */}
           </div>
           <div className="w-full lg:w-1/2 relative group">
             <div className="absolute -inset-4 bg-orange-500/5 rounded-[2.5rem] blur-2xl group-hover:bg-orange-500/10 transition duration-700" />

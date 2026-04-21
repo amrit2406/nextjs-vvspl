@@ -142,7 +142,7 @@ const Contact = () => {
             initial={{ opacity: 0, x: 20 }}
             whileInView={{ opacity: 1, x: 0 }}
             viewport={{ once: true }}
-            className="bg-white p-8 lg:p-12 rounded-3xl border border-orange-500 shadow-[0_20px_50px_rgba(0,0,0,0.02)]"
+            className="bg-white p-8 lg:p-12 rounded-3xl border border-blue-500 shadow-[0_20px_50px_rgba(0,0,0,0.02)]"
           >
             <form className="space-y-10">
               <div className="grid grid-cols-1 md:grid-cols-2 gap-10">

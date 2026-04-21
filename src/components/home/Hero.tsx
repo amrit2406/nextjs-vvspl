@@ -36,19 +36,18 @@ const Hero = () => {
 
           {/* Headline */}
           <h1 className="text-5xl font-black text-slate-900 leading-[0.95] mb-8 tracking-tighter">
-            Build Fast.
+            Power your future with
             <br />
-            <span className="text-transparent bg-clip-text bg-gradient-to-r from-[#FF7E00] via-orange-500 to-[#e67300] italic">
-              Scale Smarter.
-            </span>
+            <span className="text-transparent bg-clip-text bg-gradient-to-r from-[#FF7E00] via-orange-500 to-[#e67300] italic pr-1">
+              intelligent technology
+            </span>.
           </h1>
 
           {/* Subheadline */}
-          <p className="text-xl text-slate-600 mb-10 max-w-lg leading-relaxed font-medium">
-            VVSPL TECH engineers high-performance{" "}
-            <span className="text-[#044DB6] font-bold">AI architectures</span>{" "}
-            and cloud-native software that turns operational bottlenecks into
-            competitive advantages.
+          <p className="text-md text-slate-600 mb-10 max-w-lg leading-relaxed font-medium">
+            Innovation is not just about writing code — {" "}
+            <span className="text-[#044DB6] font-bold">it’s about engineering impact.</span>{" "}
+             We are a software company built on systems thinking, architectural precision, and disciplined execution. We don’t chase trends or build disposable products.
           </p>
 
           {/* Buttons */}
@@ -56,18 +55,18 @@ const Hero = () => {
             {/* Primary (Orange Gradient) */}
             <Link
               href="/contact"
-              className="flex items-center justify-center space-x-3 px-6 py-4 rounded-2xl font-bold text-white bg-gradient-to-r from-[#FF7E00] to-[#e67300] hover:from-[#e67300] hover:to-[#cc6600] transition-all duration-300 shadow-lg shadow-orange-500/20 group"
+              className="relative flex items-center justify-center space-x-3 px-6 py-4 rounded-2xl font-bold text-white bg-gradient-to-r from-[#FF7E00] via-orange-500 to-[#e67300] shadow-[0_6px_0_#cc6600] transition-all duration-150 hover:translate-y-[2px] hover:shadow-[0_4px_0_#cc6600] active:translate-y-[6px] active:shadow-[0_0px_0_#cc6600]"
             >
               <span>Start Your Project</span>
-              <FiArrowRight className="group-hover:translate-x-1 transition-transform" />
+              <FiArrowRight />
             </Link>
 
             {/* Secondary (Minimal) */}
             <Link
               href="/services"
-              className="flex items-center justify-center space-x-2 px-6 py-4 rounded-xl font-semibold text-[#044DB6] border border-[#044DB6]/25 bg-white hover:bg-gradient-to-r hover:from-[#044DB6] hover:to-[#2A6BFF] hover:text-white hover:border-transparent transition-all duration-300 shadow-sm hover:shadow-md"
+              className="relative flex items-center justify-center space-x-2 px-6 py-4 rounded-xl font-semibold text-white bg-gradient-to-r from-[#044DB6] to-blue-500 shadow-[0_6px_0_#033a8c] transition-all duration-150 hover:translate-y-[2px] hover:shadow-[0_4px_0_#033a8c] active:translate-y-[6px] active:shadow-[0_0px_0_#033a8c]"
             >
-              <span>Services</span>
+              <span>Our Offerings</span>
             </Link>
           </div>
 

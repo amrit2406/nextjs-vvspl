@@ -163,7 +163,7 @@ const FAQ = () => {
   const [openIndex, setOpenIndex] = useState<number>(0);
 
   return (
-    <section className="py-32 bg-white relative overflow-hidden">
+    <section className="py-20 bg-white relative overflow-hidden">
       {/* Background Decorative Blob - Matching Hero */}
       <div className="absolute top-1/2 -right-20 w-96 h-96 bg-blue-50 rounded-full blur-[120px] opacity-60 pointer-events-none" />
 

@@ -2,6 +2,7 @@
 import React from "react";
 import { motion } from "framer-motion";
 import { FaWhatsapp, FaFacebookF, FaLinkedinIn, FaInstagram } from "react-icons/fa";
+import { IoIosCall } from "react-icons/io";
 
 const SocialSidebar = () => {
   const socials = [
@@ -31,6 +32,13 @@ const SocialSidebar = () => {
       href: "https://www.linkedin.com/company/112707331/admin/dashboard/", 
       label: "LinkedIn", 
       color: "hover:bg-[#0077B5]",
+      shadow: "hover:shadow-[0_0_20px_rgba(0,119,181,0.5)]"
+    },
+    { 
+      icon: <IoIosCall />, 
+      href: "tel:+919876543210", 
+      label: "Call Now", 
+      color: "hover:bg-[#FF7B00]",
       shadow: "hover:shadow-[0_0_20px_rgba(0,119,181,0.5)]"
     },
   ];

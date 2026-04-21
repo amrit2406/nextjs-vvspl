@@ -13,6 +13,7 @@ import Services from "@/components/home/Service";
 import WhyChooseUs from "@/components/home/Why";
 import CTA from "@/components/home/CTA";
 import SocialSidebar from "@/components/layout/SideBtn";
+import ChatWidget from "@/components/layout/Chatbot";
 // import TechStackSection from "@/components/layout/TechStack";
 
 
@@ -27,6 +28,7 @@ export default function Home() {
       <WhyChooseUs />
       {/* <TechStackSection /> */}
       <SocialSidebar />
+      <ChatWidget />
       {/* <SisterCompany /> */}
       {/* <Leaders /> */}
       <CTA />
