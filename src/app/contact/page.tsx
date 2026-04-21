@@ -15,10 +15,10 @@ const ContactPage = () => {
         <div className="max-w-7xl mx-auto px-6 lg:px-8 text-center">
           <motion.div initial={{ opacity: 0, y: 20 }} animate={{ opacity: 1, y: 0 }}>
             <h1 className="text-5xl md:text-7xl font-black text-slate-900 tracking-tight">
-              Let's Connect<span className="text-[#FF7E00]">.</span>
+              Get In Touch<span className="text-[#FF7E00]">.</span>
             </h1>
             <p className="mt-6 text-xl text-slate-500 max-w-2xl mx-auto font-medium leading-relaxed">
-              Ready to transform your digital ecosystem? Reach out and let's build something extraordinary together.
+              Whether it's a project, a partnership, or just a conversation — we'd love to hear from you. We respond within 24 hours.
             </p>
           </motion.div>
         </div>

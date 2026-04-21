@@ -95,7 +95,7 @@ const BlogSection = () => {
               </div>
 
               {/* Content */}
-              <div className="p-4 flex flex-col flex-grow">
+              <div className="p-6 flex flex-col flex-grow">
                 {/* <div className="flex items-center space-x-4 text-[10px] font-bold uppercase tracking-widest text-slate-400 mb-4">
                   <div className="flex items-center space-x-1.5">
                     <FiCalendar className="text-[#FF7E00]" />

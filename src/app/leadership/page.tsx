@@ -41,7 +41,7 @@ const LeaderCard = ({ name, role, image, bio, links }: any) => (
               <FiLinkedin size={18} />
             </a>
           )}
-          {links.twitter && (
+          {/* {links.twitter && (
             <a
               href={links.twitter}
               className="w-11 h-11 rounded-xl bg-slate-50 flex items-center justify-center text-slate-400 hover:bg-[#FF7E00] hover:text-white transition-all"
@@ -56,7 +56,7 @@ const LeaderCard = ({ name, role, image, bio, links }: any) => (
             >
               <FiGithub size={18} />
             </a>
-          )}
+          )} */}
         </div>
       </div>
     </div>
@@ -66,35 +66,31 @@ const LeaderCard = ({ name, role, image, bio, links }: any) => (
 const LeadershipPage = () => {
   const leaders = [
     {
-      name: "Marcus Thorne",
-      role: "Founder & CEO",
-      image:
-        "https://images.unsplash.com/photo-1507003211169-0a1dd7228f2d?q=80&w=1974&auto=format&fit=crop",
-      bio: "Former lead architect at two FAANG giants. Marcus started the Squad with a mission to decentralize high-performance engineering for the enterprise sector. He believes that the best code is written in environments of absolute trust.",
+      name: "LT. Col. Anil Tripathi, Sena Medal (Retd.)",
+      role: "Chairman cum Founder Director",
+      image: "/assets/img11.png",
+      bio: "A decorated Army veteran and Sena Medal awardee, Anil Tripathi is a mission-driven leader with over two decades of operational excellence in the Army Service Corps and an alumni of IIM Bangalore, India Institute of Financial Management Faridabad, National Institute of Mass Communication (JNU) New Delhi and Executive MBA in operations from Mumbai. An expert in defence logistics, strategic supply chains, crisis response, and large-scale administration, he successfully built and led a high-performing logistics enterprise in the port and integrated supply chain sector. Today, he is charting a new course — transitioning from physical logistics to digital force multiplication. Through Veteran Ventures Pvt Ltd, he is spearheading next-generation IT solutions designed to address real-world defence and civil challenges. His vision is clear: leverage technology as a strategic enabler to enhance national capability, operational efficiency, and secure digital ecosystems. With disciplined execution and a future-ready mindset, he is positioning the company at the intersection of defence expertise and digital innovation.",
       links: { linkedin: "#", twitter: "#" },
     },
     {
-      name: "Elena Rodriguez",
-      role: "Chief Product Officer",
-      image:
-        "https://images.unsplash.com/photo-1573496359142-b8d87734a5a2?q=80&w=1976&auto=format&fit=crop",
-      bio: "Specializing in human-centric design for complex systems. Elena ensures that our proprietary tech remains intuitive and high-impact, bridging the gap between high-level logic and user experience.",
+      name: "Ankit Tripathi",
+      role: "Additional Director",
+      image: "/assets/img22.png",
+      bio: "An MBA and BCom graduate from PDPU Gandhinagar, Ankit brings structured business strategy and growth-oriented leadership to the organization. Having actively managed operations and expansion initiatives, he now drives digital transformation efforts, ensuring scalable systems, strong governance, and technology-led value creation. Ankit Tripathi has expertised himself in futurestic digital revolution and financial growth. He is deeply immersed in AI and ML innovation, leveraging emerging technologies to optimize decision-making, enhance operational intelligence, and unlock next-generation business opportunities.",
       links: { linkedin: "#", github: "#" },
     },
     {
-      name: "David Chen",
-      role: "VP of Engineering",
-      image:
-        "https://images.unsplash.com/photo-1500648767791-00dcc994a43e?q=80&w=1974&auto=format&fit=crop",
-      bio: "A systems enthusiast with a focus on Rust and distributed databases. David manages our global engineering nodes and security protocols, ensuring our infrastructure is as robust as it is scalable.",
+      name: "Dattavi Jariwala Tripathi",
+      role: "Founder Director",
+      image: "/assets/img33.png",
+      bio: "With a BA and MA in Clinical Psychology, Dattavi contributes a human-centric dimension to leadership, organizational design, and stakeholder engagement. Strengthening the technology backbone in support with her life partner who is MTech – Computer Science, BTech – Electronics), whose technical expertise supports the company’s ambition to build secure, intelligent, and impact-driven digital solutions. Dattavi herself is involved in Network Security domain to extend her expertise to clients and giants of digital world",
       links: { linkedin: "#", github: "#", twitter: "#" },
     },
     {
-      name: "Sarah Jenkins",
-      role: "Head of Operations",
-      image:
-        "https://images.unsplash.com/photo-1580489944761-15a19d654956?q=80&w=1961&auto=format&fit=crop",
-      bio: "The engine behind the machine. Sarah optimizes our remote-first culture, ensuring the squad scales efficiently across 20+ nationalities while maintaining our core high-performance values.",
+      name: "Priyanka Tripathi Kriech",
+      role: "Executive Director",
+      image: "/assets/img44.png",
+      bio: "Based in Horgan, Zurich, Switzerland, and educated at London School of Economics and Political Science (LSE), she combines global financial acumen with a refined understanding of international economic and political dynamics. With over four years of entrepreneurial leadership, she leverages specialized knowledge of off-market digital assets to deliver exclusive investment opportunities to a discerning clientele. Drawing on a strong foundation in Salesforce B2B commerce and experience across asset management and sales, she provides tailored, trust-driven solutions. She has multilingual cultural insight, enabling seamless navigation of complex international markets.",
       links: { linkedin: "#" },
     },
   ];
@@ -109,7 +105,7 @@ const LeadershipPage = () => {
             animate={{ opacity: 1, y: 0 }}
           >
             <h1 className="text-5xl md:text-7xl font-black text-slate-900 tracking-tight">
-              Leadership <span className="text-[#FF7E00]">.</span>
+              The Leadership <span className="text-[#FF7E00]">.</span>
             </h1>
 
             <p className="mt-8 text-xl text-slate-500 font-medium leading-relaxed max-w-2xl mx-auto">

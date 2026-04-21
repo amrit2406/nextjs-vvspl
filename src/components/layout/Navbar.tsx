@@ -35,12 +35,12 @@ const Navbar = () => {
       icon: <FiHelpCircle />,
       desc: "Common questions",
     },
-    {
-      name: "Leadership",
-      href: "/leadership",
-      icon: <FiUsers />,
-      desc: "Meet the team",
-    },
+    // {
+    //   name: "Leadership",
+    //   href: "/leadership",
+    //   icon: <FiUsers />,
+    //   desc: "Meet the team",
+    // },
     {
       name: "Gallery",
       href: "/gallery",
@@ -86,12 +86,12 @@ const Navbar = () => {
 
         {/* Desktop Navigation */}
         <div className="hidden lg:flex items-center gap-2 z-10">
-          {["About", "Services", "Industries", "Careers"].map((item) => (
+          {["About", "Services", "Industries", "Careers", "Leadership"].map((item) => (
             // {["Home", "About", "Services", "Industries", "Careers"].map((item) => (
             <Link
               key={item}
               href={`/${item.toLowerCase()}`}
-              className="px-4 py-2 text-sm font-medium text-slate-900 hover:text-black transition-colors"
+              className="px-4 py-2 text-md font-bold text-slate-900 hover:text-black transition-colors"
             >
               {item}
             </Link>
@@ -167,7 +167,7 @@ const Navbar = () => {
             onMouseLeave={() => setIsMoreOpen(false)}
           >
             <button
-              className={`px-4 py-2 text-sm font-medium transition-colors flex items-center gap-1 ${
+              className={`px-4 py-2 text-md font-bold transition-colors flex items-center gap-1 ${
                 isMoreOpen ? "text-black" : "text-slate-900"
               }`}
             >
@@ -197,7 +197,7 @@ const Navbar = () => {
                           {link.icon}
                         </div> */}
                         <div>
-                          <div className="text-sm font-medium text-black">
+                          <div className="text-md font-bold text-black">
                             {link.name}
                           </div>
                           {/* <div className="text-[10px] text-slate-500">{link.desc}</div> */}
