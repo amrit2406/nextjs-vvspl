@@ -61,7 +61,7 @@ const Navbar = () => {
         initial={{ y: -20, opacity: 0 }}
         animate={{ y: 0, opacity: 1 }}
         className={`
-          relative pointer-events-auto flex items-center justify-between px-4 py-2 rounded-2xl
+          relative pointer-events-auto flex items-center justify-between px-4 rounded-2xl
           transition-all duration-500 border
           ${
             isScrolled
@@ -76,7 +76,7 @@ const Navbar = () => {
           <img
             src="/assets/logo.svg"
             alt="VVSPLTECH Logo"
-            className="w-18 h-18 object-contain transition-transform duration-500 group-hover:scale-110"
+            className="w-22 h-22 object-contain transition-transform duration-500 group-hover:scale-110"
           />
           {/* <span className="text-xl font-black tracking-tight text-black">
             VVSPL
@@ -86,6 +86,12 @@ const Navbar = () => {
 
         {/* Desktop Navigation */}
         <div className="hidden lg:flex items-center gap-2 z-10">
+          <Link
+              href='/'
+              className="px-4 py-2 text-md font-bold text-slate-900 hover:text-black transition-colors"
+            >
+              Home
+            </Link>
           {["About", "Services", "Industries", "Careers", "Leadership"].map((item) => (
             // {["Home", "About", "Services", "Industries", "Careers"].map((item) => (
             <Link

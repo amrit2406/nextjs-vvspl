@@ -17,51 +17,45 @@ interface ServiceItem {
 // --- Data Objects for easy management ---
 const SOFTWARE_SOLUTIONS: ServiceItem[] = [
   {
-    slug: "eddva",
+    slug: "edtech",
     title: "Edu tech",
     desc: "Building proprietary digital assets that scale. We engineer SaaS platforms and ERPs designed for high concurrency.",
-    image:
-      "https://images.unsplash.com/photo-1460925895917-afdab827c52f?q=80&w=2426&auto=format&fit=crop",
+    image: "/assets/product2.png",
     color: "from-[#FF7E00] to-orange-400",
   },
   {
     slug: "hrms",
     title: "HRMS & Workforce",
     desc: "Streamlined workforce management solutions for modern enterprises to handle scaling human capital.",
-    image:
-      "https://images.unsplash.com/photo-1454165833767-027ffea9e77b?q=80&w=2070&auto=format&fit=crop",
+    image: "https://static.vecteezy.com/system/resources/previews/054/696/791/non_2x/hrms-infographic-circles-flowchart-human-resource-management-system-employment-strategy-visualization-diagram-with-5-steps-circular-info-graphic-editable-vector.jpg",
     color: "from-[#FF7E00] to-orange-400",
   },
   {
     slug: "erp",
     title: "ERP Systems",
     desc: "Integrated resource planning that unifies your back-office and frontline operations.",
-    image:
-      "https://images.unsplash.com/photo-1551288049-bebda4e38f71?q=80&w=2070&auto=format&fit=crop",
+    image: "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcTzQSQ6veIW1vVJSYMv6Ke3sK9me2kqrkrmYg&s",
     color: "from-[#FF7E00] to-orange-400",
   },
   {
     slug: "crm",
     title: "CRM",
     desc: "Deep customer relationship management logic to drive sales and retention through data.",
-    image:
-      "https://images.unsplash.com/photo-1552664730-d307ca884978?q=80&w=2070&auto=format&fit=crop",
+    image: "https://img.freepik.com/free-vector/isometric-crm-illustration_52683-83950.jpg?semt=ais_hybrid&w=740&q=80",
     color: "from-[#FF7E00] to-orange-400",
   },
   {
     slug: "ui-ux-design",
     title: "UI/UX Design",
     desc: "Human-centric design systems that bridge the gap between complex engineering and usability.",
-    image:
-      "https://images.unsplash.com/photo-1586717791821-3f44a563eb4c?q=80&w=2070&auto=format&fit=crop",
+    image: "https://img.freepik.com/free-vector/gradient-ui-ux-background_23-2149052117.jpg?semt=ais_hybrid&w=740&q=80",
     color: "from-[#FF7E00] to-orange-400",
   },
   {
     slug: "back-office-automation",
     title: "Back Office Automation",
     desc: "Modernizing legacy systems with cloud-native backends and deep-tech logic.",
-    image:
-      "https://images.unsplash.com/photo-1555066931-4365d14bab8c?q=80&w=2070&auto=format&fit=crop",
+    image: "https://static.vecteezy.com/system/resources/thumbnails/011/432/157/small/workforce-organization-and-management-workflow-processes-workflow-process-design-and-automation-boost-your-office-productivity-concept-flat-modern-illistration-vector.jpg",
     color: "from-[#FF7E00] to-orange-400",
   },
 ];
@@ -71,16 +65,14 @@ const CONSULTING_SERVICES: ServiceItem[] = [
     slug: "digital-marketing",
     title: "Digital Marketing",
     desc: "Data-driven conversion engines ranging from technical SEO to high-impact performance marketing.",
-    image:
-      "https://images.unsplash.com/photo-1432888622747-4eb9a8f2c26d?q=80&w=2074&auto=format&fit=crop",
+    image: "https://static.vecteezy.com/system/resources/thumbnails/015/881/035/small/isometric-flat-3d-illustration-social-media-strategy-concept-digital-marketing-startup-business-vector.jpg",
     color: "from-[#044DB6] to-blue-500",
   },
   {
     slug: "it-staffing",
     title: "IT Staffing",
     desc: "Project-ready, vetted technical talent that integrates seamlessly into your company culture.",
-    image:
-      "https://images.unsplash.com/photo-1522071820081-009f0129c71c?q=80&w=2070&auto=format&fit=crop",
+    image: "https://www.shutterstock.com/image-vector/remote-interview-male-female-professionals-600nw-2573986875.jpg",
     color: "from-indigo-600 to-[#044DB6]",
   },
 ];
@@ -117,7 +109,7 @@ const ServiceCard = ({ title, desc, slug, image, color }: ServiceItem) => (
       <img
         src={image}
         alt={title}
-        className="w-full h-full object-cover transition-transform duration-1000 group-hover:scale-105"
+        className="w-full h-full object-contain transition-transform duration-1000 group-hover:scale-105"
       />
       {/* Subtle overlay gradient */}
       <div className="absolute inset-0 bg-gradient-to-t from-white/20 to-transparent" />

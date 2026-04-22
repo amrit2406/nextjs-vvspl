@@ -9,11 +9,16 @@ const techData = [
     label: "Frontend",
     description: "Building immersive, high-performance user interfaces with modern reactivity.",
     items: [
-      { src: "/tech/react.png", name: "React JS" },
-      { src: "/tech/nextjs.png", name: "Next.js" },
-      { src: "/tech/typescript.png", name: "TypeScript" },
-      { src: "/tech/tailwind.png", name: "Tailwind" },
-      { src: "/tech/figma.png", name: "Figma" },
+      { src: "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcSVS5wOrF1fXHLGU-HDaTvt1LZG0ZF2aRmIEw&s", name: "Html" },
+      { src: "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcSa7ECW4xHgJyeIQexegqGhxgHGknkobmD0xA&s", name: "React JS" },
+      { src: "https://img.icons8.com/color/1200/nextjs.jpg", name: "Next.js" },
+      { src: "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcR4FpjNSdg6ar1qS69pBn7f8Hq5IAeYX3eSYw&s", name: "Angular" },
+      { src: "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcSaSLSz1LCP-tQvV7GISoSczS3cmt3vRBr-ZQ&s", name: "Vue.js" },
+      { src: "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcS0MqB2Rz3qYFo5tItauvtVjo2y2DvoHH37Vw&s", name: "Svelte" },
+      { src: "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcQS7WzMXdCh8eU-8m1Xz9-XGXFxJ6LuEV0_yA&s", name: "TypeScript" },
+      { src: "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcQxUqrDjcsIvW63BHgQpfAOQLwzsYjAmgFF5A&s", name: "Bootstrap" },
+      { src: "https://upload.wikimedia.org/wikipedia/commons/thumb/d/d5/Tailwind_CSS_Logo.svg/1280px-Tailwind_CSS_Logo.svg.png", name: "Tailwind" },
+      // { src: "/tech/figma.png", name: "Figma" },
     ]
   },
   {
@@ -21,11 +26,15 @@ const techData = [
     label: "Backend",
     description: "Robust, distributed server-side logic designed for maximum uptime and security.",
     items: [
-      { src: "/tech/node.png", name: "Node.js" },
-      { src: "/tech/python.png", name: "Python" },
-      { src: "/tech/springboot.png", name: "Java Spring" },
-      { src: "/tech/rust.png", name: "Rust" },
-      { src: "/tech/go.png", name: "Golang" },
+      { src: "https://cdn.iconscout.com/icon/free/png-256/free-node-js-icon-svg-download-png-1174937.png", name: "Node.js" },
+      { src: "https://image.similarpng.com/file/similarpng/very-thumbnail/2021/12/Python-programming-logo-on-transparent-background-PNG.png", name: "Python" },
+      { src: "https://cdn.iconscout.com/icon/free/png-256/free-java-logo-icon-svg-download-png-1720088.png?f=webp", name: "Java Spring" },
+      { src: "https://alex-bezverkhniy.github.io/images/spring-boot/spring-boot-logo.png", name: "Java Spring" },
+      { src: "https://e7.pngegg.com/pngimages/515/403/png-clipart-rust-unturned-survival-game-computer-servers-kurma-game-angle-thumbnail.png", name: "Rust" },
+      { src: "https://img.icons8.com/color/1200/golang.jpg", name: "Golang" },
+      { src: "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcSTjaR2SA-XnbFfkyjHVeuyj0ugg8Yrv4NeWQ&s", name: "Ruby on rail" },
+      { src: "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcRcqTkFDyu6mpbV-XH1T-VXCNq2c_1HvDMInA&s", name: "Golang" },
+      { src: "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcRczZI3ghLdEmTkBPVz8LQS064LMt4gz0q61Q&s", name: "Php" },
     ]
   },
   {
@@ -33,10 +42,11 @@ const techData = [
     label: "Mobile",
     description: "Native and cross-platform mobile ecosystems for iOS and Android.",
     items: [
-      { src: "/tech/flutter.png", name: "Flutter" },
-      { src: "/tech/react-native.png", name: "React Native" },
-      { src: "/tech/kotlin.png", name: "Kotlin" },
-      { src: "/tech/swift.png", name: "Swift" },
+      { src: "https://img.icons8.com/color/1200/flutter.jpg", name: "Flutter" },
+      { src: "https://img.icons8.com/color/1200/android-studio--v2.jpg", name: "Flutter" },
+      { src: "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcQHR_P-7OxbDx2-EpUFbKc24Ee2jKJYms_gUw&s", name: "React Native" },
+      { src: "https://download.logo.wine/logo/Kotlin_(programming_language)/Kotlin_(programming_language)-Logo.wine.png", name: "Kotlin" },
+      { src: "https://cdn.iconscout.com/icon/free/png-256/free-swift-logo-icon-svg-download-png-1720082.png", name: "Swift" },
     ]
   },
   {
@@ -44,11 +54,11 @@ const techData = [
     label: "Infra & AI",
     description: "Cloud-native scaling and intelligent automation for modern enterprises.",
     items: [
-      { src: "/tech/aws.png", name: "AWS" },
-      { src: "/tech/docker.png", name: "Docker" },
-      { src: "/tech/k8s.png", name: "K8s" },
-      { src: "/tech/postgres.png", name: "PostgreSQL" },
-      { src: "/tech/openai.png", name: "OpenAI/LLM" },
+      { src: "https://download.logo.wine/logo/Amazon_Web_Services/Amazon_Web_Services-Logo.wine.png", name: "AWS" },
+      { src: "https://cdn.iconscout.com/icon/free/png-256/free-docker-icon-svg-download-png-1175230.png", name: "Docker" },
+      { src: "https://img.icons8.com/color/1200/kubernetes.jpg", name: "K8s" },
+      { src: "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcToErbo5Q_2GWHB1oKv2mwUYZvvkwzhxrMlsg&s", name: "PostgreSQL" },
+      { src: "https://img.icons8.com/color/1200/chatgpt.jpg", name: "OpenAI/LLM" },
     ]
   }
 ];
@@ -72,7 +82,7 @@ const InteractiveStack = () => {
         </div>
 
         {/* Tab Navigation */}
-        <div className="flex flex-wrap justify-center gap-2 mb-12 p-2 bg-slate-50 rounded-[2.5rem] border border-slate-100 w-fit mx-auto">
+        <div className="flex flex-wrap justify-center gap-2 mb-8 p-2 bg-slate-50 rounded-[2.5rem] border border-slate-100 w-fit mx-auto">
           {techData.map((tab) => (
             <button
               key={tab.id}
@@ -94,7 +104,7 @@ const InteractiveStack = () => {
         </div>
 
         {/* Content Display Area */}
-        <div className="min-h-[400px]">
+        <div className="min-h-[300px]">
           <AnimatePresence mode="wait">
             {techData.map((tab) => tab.id === activeTab && (
               <motion.div
@@ -116,11 +126,11 @@ const InteractiveStack = () => {
                       className="bg-slate-50 border border-slate-100 p-4 rounded-[2.5rem] flex flex-col items-center justify-center gap-4 hover:bg-white hover:shadow-xl hover:shadow-slate-200/50 transition-all group"
                     >
                       {/* Image replacement for Icon */}
-                      <div className="w-10 h-10 flex items-center justify-center">
+                      <div className="w-18 h-18 flex items-center justify-center">
                         <img 
                           src={item.src} 
                           alt={item.name} 
-                          className="max-w-full max-h-full object-contain grayscale group-hover:grayscale-0 transition-all duration-300 transform group-hover:scale-110"
+                          className="max-w-full max-h-full object-contain transition-all duration-300 transform group-hover:scale-110"
                         />
                       </div>
                       
