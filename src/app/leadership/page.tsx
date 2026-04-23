@@ -5,7 +5,7 @@ import { FiLinkedin, FiTwitter, FiGithub, FiCommand } from "react-icons/fi";
 
 // --- Updated Sub-Component: Horizontal Leader Card ---
 const LeaderCard = ({ name, role, image, bio, links }: any) => (
-  <div className="group bg-white border border-slate-100 rounded-[2.5rem] p-4 lg:p-6 hover:shadow-xl hover:shadow-slate-200/50 transition-all duration-300">
+  <div className="group bg-white border border-blue-200 rounded-[2.5rem] p-4 lg:p-6 hover:shadow-xl hover:shadow-slate-200/50 transition-all duration-300">
     <div className="flex flex-col lg:flex-row gap-8 lg:items-center">
       {/* Left Section: Image */}
       <div className="relative w-full lg:w-1/3 aspect-square lg:aspect-[4/5] shrink-0 rounded-[2rem] overflow-hidden bg-slate-100">
@@ -27,7 +27,7 @@ const LeaderCard = ({ name, role, image, bio, links }: any) => (
           </h3>
         </div>
 
-        <p className="text-slate-500 font-medium leading-relaxed text-lg mb-8">
+        <p className="text-slate-600 font-medium leading-relaxed text-lg mb-8">
           {bio}
         </p>
 

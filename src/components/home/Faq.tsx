@@ -18,7 +18,7 @@ const faqs: FAQData[] = [
   {
     question: "What industries does VVSPL TECH specialize in?",
     answer:
-      "We primarily focus on FinTech, HealthTech, and Enterprise SaaS. Our architectural expertise in AI/ML and Cloud Infrastructure allows us to scale solutions across any data-driven industry.",
+      "We primarily focus on Ed-Tech, HealthTech, and Enterprise SaaS. Our architectural expertise in AI/ML and Cloud Infrastructure allows us to scale solutions across any data-driven industry.",
   },
   {
     question: "How long does a typical software project take?",

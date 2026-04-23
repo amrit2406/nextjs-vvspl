@@ -16,3 +16,7 @@
 .animate-wave {
   animation: waveMove 3s linear infinite;
 }
+
+nextjs-portal {
+  display: none !important;
+}

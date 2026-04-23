@@ -38,64 +38,73 @@ interface ServiceItem {
 
 export const serviceData: ServiceItem[] = [
   {
-    title: "AI Solutions",
+    title: "Edu tech",
     description:
-      "Transforming raw data into actionable insights through advanced Machine Learning models.",
-    image:
-      "https://images.unsplash.com/photo-1551288049-bbbda536339a?q=80&w=800&auto=format&fit=crop",
+      "Innovative digital learning platforms, LMS solutions, and AI-driven tools designed to enhance education delivery and student engagement.",
+    image: "/assets/product2.png",
     icon: <FiBarChart />,
     theme: "from-purple-600 to-[#FF7E00]",
-    slug: "ai-solutions",
+    slug: "edtech",
   },
   {
-    title: "Web Apps",
+    title: "HRMS & Workflow",
     description:
-      "Tailor-made web solutions designed to scale with your business logic and enterprise needs.",
+      "Comprehensive HR management systems with automated workflows to streamline recruitment, payroll, attendance, and employee lifecycle processes.",
     image:
-      "https://images.unsplash.com/photo-1510915228340-29c85a43dcfe?q=80&w=800&auto=format&fit=crop",
+      "https://static.vecteezy.com/system/resources/previews/054/696/791/non_2x/hrms-infographic-circles-flowchart-human-resource-management-system-employment-strategy-visualization-diagram-with-5-steps-circular-info-graphic-editable-vector.jpg",
     icon: <FiCode />,
     theme: "from-[#FF7E00] to-indigo-600",
-    slug: "web-apps",
+    slug: "hrms",
   },
   {
-    title: "Mobile Apps",
+    title: "ERP Systems",
     description:
-      "High-performance native and cross-platform mobile applications for iOS and Android.",
+      "Integrated enterprise resource planning solutions to manage operations, finance, inventory, and business processes in a unified platform.",
     image:
-      "https://images.unsplash.com/photo-1512941937669-90a1b58e7e9c?q=80&w=800&auto=format&fit=crop",
+      "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcTzQSQ6veIW1vVJSYMv6Ke3sK9me2kqrkrmYg&s",
     icon: <FiSmartphone />,
     theme: "from-[#FF7E00] to-cyan-500",
-    slug: "mobile-apps",
+    slug: "erp",
   },
   {
-    title: "E-Comm",
+    title: "CRM",
     description:
-      "Scalable e-commerce platforms focused on user experience and maximizing conversions.",
+      "Customer relationship management systems that help businesses track leads, manage sales pipelines, and improve customer engagement.",
     image:
-      "https://images.unsplash.com/photo-1556742049-0cfed4f6a45d?q=80&w=800&auto=format&fit=crop",
+      "https://img.freepik.com/free-vector/isometric-crm-illustration_52683-83950.jpg?semt=ais_hybrid&w=740&q=80",
     icon: <FiShoppingCart />,
     theme: "from-emerald-500 to-teal-600",
-    slug: "e-comm",
+    slug: "crm",
   },
   {
-    title: "Cyber Security",
+    title: "UI/UX Design",
     description:
-      "Proactive threat detection and robust security protocols to protect your digital assets.",
+      "User-centric design solutions focused on creating intuitive, engaging, and visually appealing interfaces that enhance user experience.",
     image:
-      "https://images.unsplash.com/photo-1550751827-4bd374c3f58b?q=80&w=800&auto=format&fit=crop",
+      "https://img.freepik.com/free-vector/gradient-ui-ux-background_23-2149052117.jpg?semt=ais_hybrid&w=740&q=80",
     icon: <FiShield />,
     theme: "from-slate-700 to-slate-900",
-    slug: "cyber-security",
+    slug: "ui-ux-design",
   },
   {
-    title: "Cloud Services",
+    title: "Back Office Automation",
     description:
-      "Secure, scalable, and highly available cloud architectures using AWS, Azure, and GCP.",
+      "Scalable and secure cloud solutions including deployment, migration, and management across AWS, Azure, and Google Cloud platforms.",
     image:
-      "https://images.unsplash.com/photo-1451187580459-43490279c0fa?q=80&w=800&auto=format&fit=crop",
+      "https://static.vecteezy.com/system/resources/thumbnails/011/432/157/small/workforce-organization-and-management-workflow-processes-workflow-process-design-and-automation-boost-your-office-productivity-concept-flat-modern-illistration-vector.jpg",
     icon: <FiServer />,
     theme: "from-orange-500 to-rose-500",
-    slug: "cloud-services",
+    slug: "back-office-automation",
+  },
+  {
+    title: "Digital marketing",
+    description:
+      "Data-driven digital marketing strategies including SEO, social media, content marketing, and paid campaigns to grow your online presence.",
+    image:
+      "https://static.vecteezy.com/system/resources/thumbnails/015/881/035/small/isometric-flat-3d-illustration-social-media-strategy-concept-digital-marketing-startup-business-vector.jpg",
+    icon: <FiServer />,
+    theme: "from-orange-500 to-rose-500",
+    slug: "digital-marketing",
   },
 ];
 
@@ -170,7 +179,7 @@ const Services = () => {
                     <img
                       src={service.image}
                       alt={service.title}
-                      className="w-full h-full object-cover transition-transform duration-700 group-hover:scale-110"
+                      className="w-full h-full object-contain transition-transform duration-700 group-hover:scale-110"
                     />
                     {/* Subtle gradient overlay on image */}
                     <div className="absolute inset-0 bg-gradient-to-t from-slate-900/20 to-transparent opacity-0 group-hover:opacity-100 transition-opacity" />

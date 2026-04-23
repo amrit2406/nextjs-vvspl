@@ -12,11 +12,11 @@ const Hero = () => {
         {/* Base Logo: 60% transparent (40% visible) */}
         <motion.img 
           initial={{ opacity: 0, x: -50 }}
-          animate={{ opacity: 0.2, x: 0 }}
+          animate={{ opacity: 0.05, x: 0 }}
           transition={{ duration: 1, ease: "easeOut" }}
           src="/assets/vvslogo.png" 
           alt="" 
-          className="absolute top-1/2 left-[-1%] -translate-y-1/2 w-[45%] max-w-xl object-contain grayscale"
+          className="absolute top-1/2 left-[-1%] -translate-y-1/2 w-[55%] max-w-xl object-contain grayscale"
         />
         
         {/* Overlay Image: Small Accent, 40% transparent (60% visible) */}
@@ -27,7 +27,7 @@ const Hero = () => {
           src="/assets/img11.png" 
           alt="" 
           /* Changed width to 20% and max-width to 150px for a "small" look */
-          className="absolute top-[75%] left-[4%] -translate-y-1/2 w-[20%] max-w-[150px] object-contain mix-blend-multiply"
+          className="absolute top-[83%] left-[24%] -translate-y-1/2 w-[20%] max-w-[150px] object-contain mix-blend-multiply"
         />
       </div>
 
@@ -113,23 +113,58 @@ const Hero = () => {
           className="w-full h-[80px] lg:h-[140px]"
         >
           <defs>
-            <filter id="waveShadow" x="-10%" y="-10%" width="120%" height="140%">
-              <feGaussianBlur in="SourceGraphic" stdDeviation="3" result="blur" />
+            <filter
+              id="waveShadow"
+              x="-10%"
+              y="-10%"
+              width="120%"
+              height="140%"
+            >
+              <feGaussianBlur
+                in="SourceGraphic"
+                stdDeviation="3"
+                result="blur"
+              />
+
               <feOffset in="blur" dy="4" result="offsetBlur" />
+
               <feMerge>
                 <feMergeNode in="offsetBlur" />
               </feMerge>
             </filter>
           </defs>
+
+          {/* Background */}
           <path
             d="M0,120V7.23C0,65.52,268.63,112.77,600,112.77S1200,65.52,1200,7.23V120Z"
             className="fill-white"
           />
+
+          {/* Shadow (blurred stroke behind) */}
+          <path
+            d="M0,7.23C0,65.52,268.63,112.77,600,112.77S1200,65.52,1200,7.23"
+            fill="none"
+            stroke="rgba(255, 166, 0, 0.28)"
+            strokeWidth="4"
+            filter="url(#waveShadow)"
+          />
+
+          {/* Base line */}
           <path
             d="M0,7.23C0,65.52,268.63,112.77,600,112.77S1200,65.52,1200,7.23"
             fill="none"
             stroke="orange"
             strokeWidth="1"
+          />
+
+          {/* Animated darker segment */}
+          <path
+            d="M0,7.23C0,65.52,268.63,112.77,600,112.77S1200,65.52,1200,7.23"
+            fill="none"
+            stroke="darkorange"
+            strokeWidth="2"
+            strokeDasharray="150 1000"
+            className="animate-wave"
           />
         </svg>
       </div>

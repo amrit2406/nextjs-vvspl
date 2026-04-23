@@ -8,7 +8,7 @@ import {
 
 // Using your existing DetailedBlock component logic
 const DetailedBlock = ({ title, desc, points, image, isReversed, color, icon: Icon }: any) => (
-  <div className={`flex flex-col ${isReversed ? "lg:flex-row-reverse" : "lg:flex-row"} gap-12 lg:gap-20 py-20 items-center border-b border-slate-100 last:border-0`}>
+  <div className={`flex flex-col ${isReversed ? "lg:flex-row-reverse" : "lg:flex-row"} gap-12 lg:gap-20 py-10 items-center border-b border-slate-100 last:border-0`}>
     <motion.div 
       initial={{ opacity: 0, x: isReversed ? 40 : -40 }}
       whileInView={{ opacity: 1, x: 0 }}
@@ -69,9 +69,9 @@ const IndustryPage = () => {
       </section>
 
       {/* --- SECTION 1: LIFESTYLE & ESSENTIALS --- */}
-      <section className="py-24">
+      <section className="py-18">
         <div className="max-w-7xl mx-auto px-6 lg:px-8">
-          <div className="flex flex-col items-center justify-center text-center mb-10 gap-4 border-b border-slate-100 pb-10">
+          {/* <div className="flex flex-col items-center justify-center text-center mb-10 gap-4 border-b border-slate-100 pb-10">
             <div className="flex items-center justify-center gap-3 text-[#FF7E00] font-black mb-4">
               <div className="w-8 h-[2px] bg-[#FF7E00]" />
               <span className="uppercase tracking-[0.3em] text-[10px]">Pillar 01</span>
@@ -79,7 +79,7 @@ const IndustryPage = () => {
             <h2 className="text-4xl md:text-5xl font-black text-slate-900 tracking-tighter">
               Education & Tourism
             </h2>
-          </div>
+          </div> */}
 
           <DetailedBlock 
             icon={FiBookOpen}
@@ -106,7 +106,7 @@ const IndustryPage = () => {
       {/* --- SECTION 2: INFRASTRUCTURE & SERVICE --- */}
       <section className="py-24 bg-slate-50/50 border-y border-slate-100">
         <div className="max-w-7xl mx-auto px-6 lg:px-8">
-          <div className="flex flex-col items-center justify-center text-center mb-10 gap-6 border-b border-slate-200 pb-10">
+          {/* <div className="flex flex-col items-center justify-center text-center mb-10 gap-6 border-b border-slate-200 pb-10">
             <div className="flex items-center justify-center gap-3 text-[#044DB6] font-black mb-4">
               <div className="w-8 h-[2px] bg-[#044DB6]" />
               <span className="uppercase tracking-[0.3em] text-[10px]">Pillar 02</span>
@@ -114,7 +114,7 @@ const IndustryPage = () => {
             <h2 className="text-4xl md:text-5xl font-black text-slate-900 tracking-tighter">
               Hospitality & Logistics
             </h2>
-          </div>
+          </div> */}
 
           <DetailedBlock 
             icon={FiBriefcase}
@@ -133,7 +133,7 @@ const IndustryPage = () => {
             points={["Fleet Tracking", "Route Optimization", "Warehouse Tech", "Last-mile Delivery"]}
             image="https://images.unsplash.com/photo-1586528116311-ad8dd3c8310d?q=80&w=2070&auto=format&fit=crop"
             isReversed={true}
-            color="from-indigo-600 to-[#044DB6]"
+            color="from-[#044DB6] to-blue-500"
           />
         </div>
       </section>
@@ -141,7 +141,7 @@ const IndustryPage = () => {
       {/* --- SECTION 3: HEALTH & PUBLIC SECTOR --- */}
       <section className="py-24">
         <div className="max-w-7xl mx-auto px-6 lg:px-8">
-          <div className="flex flex-col items-center justify-center text-center mb-10 gap-4 border-b border-slate-100 pb-10">
+          {/* <div className="flex flex-col items-center justify-center text-center mb-10 gap-4 border-b border-slate-100 pb-10">
             <div className="flex items-center justify-center gap-3 text-[#FF7E00] font-black mb-4">
               <div className="w-8 h-[2px] bg-[#FF7E00]" />
               <span className="uppercase tracking-[0.3em] text-[10px]">Pillar 03</span>
@@ -149,7 +149,7 @@ const IndustryPage = () => {
             <h2 className="text-4xl md:text-5xl font-black text-slate-900 tracking-tighter">
               Healthcare & Governance
             </h2>
-          </div>
+          </div> */}
 
           <DetailedBlock 
             icon={FiActivity}

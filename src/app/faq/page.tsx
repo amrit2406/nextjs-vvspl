@@ -11,17 +11,17 @@ const FAQItem = ({ question, answer, isOpen, onClick }: any) => (
   <motion.div 
     layout
     className={`mb-4 rounded-3xl border transition-all duration-300 overflow-hidden ${
-      isOpen ? "bg-white border-[#FF7E00] shadow-lg shadow-orange-500/10" : "bg-white border-slate-100 hover:border-slate-200"
+      isOpen ? "bg-white border-[#0751BC]/60 shadow-lg shadow-blue-500/10" : "bg-white border-blue-100 hover:border-slate-200"
     }`}
   >
     <button
       onClick={onClick}
-      className="w-full flex items-center justify-between p-8 text-left outline-none group"
+      className="w-full flex items-center justify-between p-6 text-left outline-none group"
     >
-      <span className={`text-lg md:text-xl font-bold tracking-tight transition-colors ${isOpen ? "text-[#FF7E00]" : "text-slate-900 group-hover:text-[#FF7E00]"}`}>
+      <span className={`text-lg font-bold tracking-tight transition-colors ${isOpen ? "text-[#FF7E00]" : "text-slate-900 group-hover:text-[#FF7E00]"}`}>
         {question}
       </span>
-      <div className={`flex-shrink-0 ml-6 w-10 h-10 rounded-full flex items-center justify-center transition-all duration-300 ${isOpen ? "bg-[#FF7E00] text-white rotate-180" : "bg-slate-50 text-slate-400 group-hover:bg-slate-100"}`}>
+      <div className={`flex-shrink-0 ml-6 w-10 h-10 rounded-full flex items-center justify-center transition-all duration-300 ${isOpen ? "bg-[#0751BC] text-white rotate-180" : "bg-slate-50 text-slate-400 group-hover:bg-slate-100"}`}>
         {isOpen ? <FiMinus size={20} /> : <FiPlus size={20} />}
       </div>
     </button>
@@ -34,7 +34,7 @@ const FAQItem = ({ question, answer, isOpen, onClick }: any) => (
           transition={{ duration: 0.3, ease: [0.22, 1, 0.36, 1] }}
         >
           <div className="px-8 pb-8 pt-0">
-            <p className="text-slate-600 font-medium leading-relaxed max-w-3xl border-t border-slate-100 pt-6">
+            <p className="text-slate-600 text-md font-medium leading-relaxed max-w-3xl border-t border-slate-100 pt-6">
               {answer}
             </p>
           </div>
@@ -51,10 +51,46 @@ const FAQPage = () => {
   const categories = ['All', 'Product', 'Process', 'Security'];
   
   const faqs = [
-    { category: "Product", question: "How does the 'Proprietary Revolution' impact your tech stack?", answer: "We build everything from the ground up to ensure zero dependencies on legacy bottlenecks. This means you'll be working with custom-tuned Rust engines and Next.js frameworks designed for hyper-scale performance." },
-    { category: "Process", question: "What is the typical project timeline for enterprise clients?", answer: "While every build is unique, our agile infrastructure allows us to move from blueprint to deployment in 45-60 days. We prioritize high-velocity shipping without compromising code integrity." },
-    { category: "Security", question: "How do you handle data sovereignty and privacy?", answer: "Security is baked into our DNA. We implement end-to-end encryption and decentralized data storage protocols that exceed standard ISO requirements, ensuring your data stays yours." },
-    { category: "General", question: "Do you offer post-deployment maintenance?", answer: "Yes. Our 'Squad-as-a-Service' model includes 24/7 technical monitoring and bi-weekly optimization sprints to keep your digital infrastructure ahead of the curve." }
+    { 
+      category: "Product", 
+      question: "How can your technology solutions help grow my business?",
+      answer: "Our solutions are designed to improve efficiency, reduce manual effort, and create scalable systems that support long-term business growth." 
+    },
+    { 
+      category: "Process", 
+      question: "What is the typical project timeline for enterprise clients?",
+      answer: "While every build is unique, our agile infrastructure allows us to move from blueprint to deployment in 45-60 days. We prioritize high-velocity shipping without compromising code integrity." 
+    },
+    { 
+      category: "Security", 
+      question: "Do you customize solutions based on specific business needs?", 
+      answer: "Yes, every business is different. We build tailored solutions that align with your goals, operations, and future expansion plans." 
+    },
+    { 
+      category: "General", 
+      question: "How long does it take to complete a project?", 
+      answer: "Project timelines vary depending on complexity and scope, but we ensure a structured approach with clear milestones and timely delivery." 
+    },
+    { 
+      category: "General", 
+      question: "Can you help businesses transition from traditional systems to digital platforms?", 
+      answer: "Absolutely. We assist in seamless digital transformation, helping businesses move from outdated processes to modern, efficient systems." 
+    },
+    { 
+      category: "General", 
+      question: "Is your pricing flexible for different business sizes?", 
+      answer: "Yes, we offer scalable solutions and flexible pricing models to suit startups, growing businesses, and larger enterprises." 
+    },
+    { 
+      category: "General", 
+      question: "How do I get started with your services?", 
+      answer: "Digital marketing uses targeted strategies and data-driven campaigns to reach the right audience, attract potential customers, and convert them into qualified leads." 
+    },
+    { 
+      category: "General", 
+      question: "Can you help improve my brand’s online presence?", 
+      answer: "Absolutely. We focus on building a strong digital presence through consistent branding, engaging content, and strategic campaign execution." 
+    },
   ];
 
   return (
