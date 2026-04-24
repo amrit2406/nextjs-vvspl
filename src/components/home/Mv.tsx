@@ -9,7 +9,7 @@ const MissionVision = () => {
       icon: <FiTarget size={24} />,
       bgColor: "bg-blue-600",
       description:
-        "To design and deploy defence-grade, AI-enabled digital architectures that enhance national capability and enterprise competitiveness — delivered with precision engineering and globally competitive cost discipline.",
+        "To design AI-enabled digital architectures that enhance national capability and enterprise competitiveness — to bring in AI revolution in Ed-tech and to design a defence grade solution by delivering with precision engineering and globally competitive cost discipline.",
       isVision: false,
     },
     {

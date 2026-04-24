@@ -7,6 +7,7 @@ import {
   FiCamera,
   FiLayout,
 } from "react-icons/fi";
+import Link from "next/link";
 
 // --- Sub-Component: Gallery Card ---
 const GalleryCard = ({ image, title, category, size }: any) => (
@@ -196,9 +197,9 @@ const GalleryPage = () => {
                 <span className="text-[#FF7E00]">next shot?</span>
               </h2>
 
-              <button className="inline-flex items-center gap-3 px-10 py-5 bg-slate-900 text-white rounded-2xl font-black hover:bg-[#FF7E00] transition-colors">
+              <Link href="/careers" className="inline-flex items-center gap-3 px-10 py-5 bg-slate-900 text-white rounded-2xl font-black hover:bg-[#FF7E00] transition-colors">
                 Join the Team <FiExternalLink />
-              </button>
+              </Link>
             </div>
 
             {/* Background Accent */}

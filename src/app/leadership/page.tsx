@@ -2,6 +2,7 @@
 import React from "react";
 import { motion } from "framer-motion";
 import { FiLinkedin, FiTwitter, FiGithub, FiCommand } from "react-icons/fi";
+import Link from "next/link";
 
 // --- Updated Sub-Component: Horizontal Leader Card ---
 const LeaderCard = ({ name, role, image, bio, links }: any) => (
@@ -140,9 +141,9 @@ const LeadershipPage = () => {
                 We are always looking for visionary Technical Leads and Growth
                 Strategists.
               </p>
-              <button className="px-12 py-5 bg-[#FF7E00] text-white rounded-2xl font-black hover:scale-105 transition-transform shadow-[0_20px_50px_rgba(255,126,0,0.2)]">
+              <Link href="/caresrs" className="px-12 py-5 bg-[#FF7E00] text-white rounded-2xl font-black hover:scale-105 transition-transform shadow-[0_20px_50px_rgba(255,126,0,0.2)]">
                 View Executive Roles
-              </button>
+              </Link>
             </div>
           </div>
         </div>

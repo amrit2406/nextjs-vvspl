@@ -5,6 +5,7 @@ import {
   FiPlus, FiMinus, FiSearch, FiMessageCircle, 
   FiMail, FiHelpCircle ,FiBookOpen, FiArrowRight
 } from "react-icons/fi";
+import Link from "next/link";
 
 // --- Sub-Component: Accordion Item ---
 const FAQItem = ({ question, answer, isOpen, onClick }: any) => (
@@ -195,19 +196,19 @@ const FAQPage = () => {
               </p>
               
               <div className="mt-12 flex flex-col sm:flex-row gap-4">
-                <motion.button 
-                  whileHover={{ scale: 1.05 }}
-                  whileTap={{ scale: 0.95 }}
+                <Link href="/contact"
+                  // whileHover={{ scale: 1.05 }}
+                  // whileTap={{ scale: 0.95 }}
                   className="px-10 py-5 bg-[#FF7E00] text-white rounded-2xl font-black text-lg shadow-xl shadow-orange-500/20 hover:bg-[#ff912b] transition-colors"
                 >
-                  Contact Support
-                </motion.button>
-                <motion.button 
-                  whileHover={{ backgroundColor: "rgba(255,255,255,0.1)" }}
+                  Contact Us
+                </Link>
+                <Link href="/services" 
+                  // whileHover={{ backgroundColor: "rgba(255,255,255,0.1)" }}
                   className="px-10 py-5 bg-white/5 border border-white/10 text-white rounded-2xl font-black text-lg transition-colors backdrop-blur-md"
                 >
-                  Schedule a Demo
-                </motion.button>
+                  Our Services
+                </Link>
               </div>
             </div>
           </div>

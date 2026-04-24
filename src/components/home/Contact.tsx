@@ -115,7 +115,8 @@ const Contact = () => {
                     {
                       icon: <FiInstagram />,
                       link: "https://www.instagram.com/vvspltech?igsh=cjcyczloZWNuaGZx",
-                      color: "hover:bg-gradient-to-tr from-[#f9ce34] via-[#ee2a7b] to-[#6228d7] hover:text-white", // Instagram
+                      color:
+                        "hover:bg-gradient-to-tr from-[#f9ce34] via-[#ee2a7b] to-[#6228d7] hover:text-white", // Instagram
                     },
                     {
                       icon: <FaFacebook />,
@@ -139,65 +140,100 @@ const Contact = () => {
 
           {/* --- Right Column: The Modern Form --- */}
           <motion.div
-            initial={{ opacity: 0, x: 20 }}
-            whileInView={{ opacity: 1, x: 0 }}
+            initial={{ opacity: 0, y: 30 }}
+            whileInView={{ opacity: 1, y: 0 }}
             viewport={{ once: true }}
-            className="bg-white p-8 lg:p-12 rounded-3xl border border-blue-500 shadow-[0_20px_50px_rgba(0,0,0,0.02)]"
+            className="max-w-2xl mx-auto relative"
           >
-            <form className="space-y-10">
-              <div className="grid grid-cols-1 md:grid-cols-2 gap-10">
-                <div className="group relative">
-                  <label className="text-[10px] font-bold uppercase tracking-widest text-slate-400 transition-colors group-focus-within:text-orange-500">
-                    Full Name
+            {/* Subtle brand glow */}
+            <div className="absolute -inset-1 rounded-2xl bg-gradient-to-r from-[#044DB6]/10 via-blue-500/10 to-orange-400/10 blur-xl" />
+
+            <div className="relative bg-white border border-slate-200 rounded-2xl p-10 lg:p-12 shadow-[0_20px_60px_rgba(0,0,0,0.05)]">
+              {/* Header */}
+              {/* <div className="mb-10">
+                <h2 className="text-2xl font-semibold text-slate-900 tracking-tight">
+                  Start a Conversation
+                </h2>
+                <p className="text-slate-500 text-sm mt-2">
+                  Tell us about your project. We’ll respond within 24 hours.
+                </p>
+              </div> */}
+
+              <form className="space-y-7">
+                {/* Row */}
+                <div className="grid md:grid-cols-2 gap-6">
+                  {/* Name */}
+                  <div className="space-y-2 group">
+                    <label className="text-sm font-medium text-slate-700 group-focus-within:text-[#044DB6] transition">
+                      Full Name
+                    </label>
+                    <input
+                      type="text"
+                      className="w-full px-4 py-3 rounded-lg border border-slate-300 bg-white text-slate-900
+            focus:border-[#044DB6] focus:ring-2 focus:ring-[#044DB6]/10
+            transition-all outline-none"
+                      placeholder="John Doe"
+                    />
+                  </div>
+
+                  {/* Email */}
+                  <div className="space-y-2 group">
+                    <label className="text-sm font-medium text-slate-700 group-focus-within:text-[#044DB6] transition">
+                      Email Address
+                    </label>
+                    <input
+                      type="email"
+                      className="w-full px-4 py-3 rounded-lg border border-slate-300 bg-white text-slate-900
+            focus:border-[#044DB6] focus:ring-2 focus:ring-[#044DB6]/10
+            transition-all outline-none"
+                      placeholder="john@example.com"
+                    />
+                  </div>
+                </div>
+
+                {/* Phone */}
+                <div className="space-y-2 group">
+                  <label className="text-sm font-medium text-slate-700 group-focus-within:text-[#044DB6] transition">
+                    Phone Number
                   </label>
                   <input
-                    type="text"
-                    className="w-full bg-transparent border-b border-slate-200 py-3 outline-none focus:border-orange-500 transition-all text-slate-900 font-medium"
-                    placeholder="Enter your name"
+                    type="tel"
+                    className="w-full px-4 py-3 rounded-lg border border-slate-300 bg-white text-slate-900
+          focus:border-[#044DB6] focus:ring-2 focus:ring-[#044DB6]/10
+          transition-all outline-none"
+                    placeholder="+91 98765 43210"
                   />
                 </div>
-                <div className="group relative">
-                  <label className="text-[10px] font-bold uppercase tracking-widest text-slate-400 transition-colors group-focus-within:text-orange-500">
-                    Email
+
+                {/* Message */}
+                <div className="space-y-2 group">
+                  <label className="text-sm font-medium text-slate-700 group-focus-within:text-[#044DB6] transition">
+                    Project Details
                   </label>
-                  <input
-                    type="email"
-                    className="w-full bg-transparent border-b border-slate-200 py-3 outline-none focus:border-orange-500 transition-all text-slate-900 font-medium"
-                    placeholder="Enter you mail"
+                  <textarea
+                    rows={5}
+                    className="w-full px-4 py-3 rounded-lg border border-slate-300 bg-white text-slate-900
+          focus:border-[#044DB6] focus:ring-2 focus:ring-[#044DB6]/10
+          transition-all outline-none resize-none"
+                    placeholder="Briefly describe your project..."
                   />
                 </div>
-              </div>
 
-              <div className="group relative">
-                <label className="text-[10px] font-bold uppercase tracking-widest text-slate-400 transition-colors group-focus-within:text-orange-500">
-                  Phone Number
-                </label>
-                <input
-                  type="tel"
-                  className="w-full bg-transparent border-b border-slate-200 py-3 outline-none focus:border-orange-500 transition-all text-slate-900 font-medium"
-                  placeholder="Enter you mobile number"
-                />
-              </div>
+                {/* CTA */}
+                <button className="relative w-full py-3.5 rounded-lg font-medium tracking-wide text-white overflow-hidden group">
+                  {/* Base gradient */}
+                  <div className="absolute inset-0 bg-gradient-to-r from-[#044DB6] to-blue-500" />
 
-              <div className="group relative">
-                <label className="text-[10px] font-bold uppercase tracking-widest text-slate-400 transition-colors group-focus-within:text-orange-500">
-                  Message
-                </label>
-                <textarea
-                  rows={4}
-                  className="w-full bg-transparent border-b border-slate-200 py-3 outline-none focus:border-orange-500 transition-all text-slate-900 font-medium resize-none"
-                  placeholder="Tell us about your project"
-                />
-              </div>
+                  {/* Hover accent (orange sweep) */}
+                  <div className="absolute inset-0 bg-gradient-to-r from-orange-400 to-orange-500 translate-x-[-100%] group-hover:translate-x-0 transition-transform duration-500" />
 
-              <button className="relative group w-full py-5 bg-gradient-to-r from-[#044DB6] to-blue-500 overflow-hidden rounded-xl">
-                <div className="absolute inset-0 w-0 bg-gradient-to-r from-[#FF7E00] via-orange-500 to-[#e67300] transition-all duration-[400ms] ease-out group-hover:w-full" />
-                <span className="relative flex items-center justify-center gap-2 text-white font-bold text-sm tracking-widest uppercase transition-colors group-hover:text-white">
-                  Submit Inquiry{" "}
-                  <FiArrowRight className="group-hover:translate-x-1 transition-transform" />
-                </span>
-              </button>
-            </form>
+                  <span className="relative flex items-center justify-center gap-2 z-10">
+                    Submit Inquiry
+                    <FiArrowRight className="transition-transform group-hover:translate-x-1" />
+                  </span>
+                </button>
+              </form>
+            </div>
           </motion.div>
         </div>
       </div>

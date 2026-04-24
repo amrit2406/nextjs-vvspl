@@ -77,7 +77,7 @@ const BlogSection = () => {
               whileInView={{ opacity: 1, y: 0 }}
               viewport={{ once: true }}
               transition={{ delay: index * 0.1 }}
-              className="group cursor-pointer flex flex-col h-full bg-slate-50/50 border border-slate-100 rounded-[2.5rem] overflow-hidden hover:bg-white hover:shadow-[0_30px_60px_-20px_rgba(0,0,0,0.1)] transition-all duration-500 hover:-translate-y-2"
+              className="group cursor-pointer flex flex-col h-full bg-blue-50/50 border border-blue-100 rounded-[2.5rem] overflow-hidden hover:bg-white hover:shadow-[0_30px_60px_-20px_rgba(0,0,0,0.1)] transition-all duration-500 hover:-translate-y-2"
             >
               {/* Image Header */}
               <div className="relative aspect-[16/11] overflow-hidden m-3 rounded-[2rem]">

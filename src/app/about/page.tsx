@@ -153,9 +153,9 @@ const AboutPage = () => {
           <div className="w-full lg:w-1/2 relative group">
             <div className="absolute -inset-4 bg-orange-500/5 rounded-[2.5rem] blur-2xl group-hover:bg-orange-500/10 transition duration-700" />
             <img
-              src="https://images.unsplash.com/photo-1497366216548-37526070297c?auto=format&fit=crop&q=80"
+              src="https://images.unsplash.com/photo-1504384308090-c894fdcc538d?q=80&w=2070"
               alt="Workspace"
-              className="relative rounded-[2rem] shadow-2xl grayscale hover:grayscale-0 transition-all duration-1000 object-cover aspect-[4/3]"
+              className="relative rounded-[2rem] shadow-2xl transition-all duration-1000 object-cover aspect-[4/3]"
             />
           </div>
         </div>

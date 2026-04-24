@@ -194,13 +194,13 @@ const EddvaProduct = () => {
                 rel="noopener noreferrer"
                 className="flex items-center justify-center space-x-3 px-8 py-4 rounded-2xl font-black text-white bg-gradient-to-r from-[#FF7E00] to-[#e67300] hover:shadow-orange-500/20 hover:shadow-2xl transition-all duration-300 group"
               >
-                <span>Request Demo</span>
+                <span>Visit Us</span>
                 <FiArrowRight className="group-hover:translate-x-1 transition-transform" />
               </a>
 
               {/* Secondary CTA */}
               <a
-                href="/brochure.pdf"
+                href="/EDDVA.pdf"
                 download
                 className="flex items-center justify-center space-x-2 px-8 py-4 rounded-2xl font-semibold text-[#044DB6] border border-[#044DB6]/25 bg-white hover:bg-gradient-to-r hover:from-[#044DB6] hover:to-[#2A6BFF] hover:text-white hover:border-transparent transition-all duration-300 shadow-sm"
               >
