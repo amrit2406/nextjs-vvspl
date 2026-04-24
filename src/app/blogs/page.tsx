@@ -65,13 +65,13 @@ const BlogPage = () => {
 
   const posts = [
     {
-      slug: "rust-migration-throughput",
+      slug: "saas-ideas-2026",
       category: "Engineering",
-      title: "Why we migrated our core engine to Rust for 10x throughput",
-      date: "Oct 12, 2025",
+      title: "Top 10 SaaS Ideas for 2026: The Future of Scalable Innovation",
+      date: "Apr 12, 2026",
       readTime: "8 min read",
       image:
-        "https://images.unsplash.com/photo-1550751827-4bd374c3f58b?q=80&w=2070&auto=format&fit=crop",
+        "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcTuYMV4nb0WaY6wN2w8FhNI2CF0M9Bu5AxIvA&s",
     },
     // {
     //   category: "Design",
@@ -82,22 +82,20 @@ const BlogPage = () => {
     //     "https://images.unsplash.com/photo-1558655146-d09347e92766?q=80&w=1964&auto=format&fit=crop",
     // },
     {
-      slug: "proprietary-ai-security-risk",
+      slug: "how-ai-is-transforming-saas-products",
       category: "Future",
-      title: "Proprietary AI: Why third-party LLMs are a security risk",
-      date: "Sep 28, 2025",
+      title: "How AI is Transforming SaaS Products in 2026",
+      date: "May 2, 2026",
       readTime: "12 min read",
-      image:
-        "https://images.unsplash.com/photo-1677442136019-21780ecad995?q=80&w=1932&auto=format&fit=crop",
+      image: "https://img.freepik.com/free-vector/ai-futuristic-technology-background_53876-97391.jpg",
     },
     {
-      slug: "scaling-nationalities-culture",
+      slug: "digital-marketing-ai",
       category: "Culture",
-      title: "Scaling to 20 nationalities without losing our soul",
-      date: "Sep 15, 2025",
-      readTime: "6 min read",
-      image:
-        "https://images.unsplash.com/photo-1522202176988-66273c2fd55f?q=80&w=2071&auto=format&fit=crop",
+      title: "AI is Changing Digital Marketing – Are You Ready?",
+      date: "March 15, 2026",
+      readTime: "5 min read",
+      image: "https://img.freepik.com/free-vector/digital-marketing-landing-page_33099-1726.jpg?semt=ais_hybrid&w=740&q=80",
     },
   ];
 

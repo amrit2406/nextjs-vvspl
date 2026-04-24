@@ -47,6 +47,15 @@ export const serviceData: ServiceItem[] = [
     slug: "edtech",
   },
   {
+    title: "Defence grade",
+    description:
+      "Built for mission-critical operations, this advanced solution integrates drones and LORROS with data-driven automation.",
+    image: "https://t4.ftcdn.net/jpg/08/81/63/37/360_F_881633751_L67MxhHEpdWCwGlLNs621ZEoVbDELCa4.jpg",
+    icon: <FiBarChart />,
+    theme: "from-purple-600 to-[#FF7E00]",
+    slug: "defence",
+  },
+  {
     title: "HRMS & Workflow",
     description:
       "Comprehensive HR management systems with automated workflows to streamline recruitment, payroll, attendance, and employee lifecycle processes.",

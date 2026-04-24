@@ -223,7 +223,7 @@ const Navbar = () => {
             href="/contact"
             className="hidden sm:flex items-center gap-2 px-5 py-2.5 rounded-xl bg-black text-white text-sm font-bold hover:bg-[#FF7E00] transition-all group"
           >
-            Start Project
+            Schedule a call
             <FiArrowUpRight className="group-hover:translate-x-0.5 group-hover:-translate-y-0.5 transition-transform" />
           </Link>
 

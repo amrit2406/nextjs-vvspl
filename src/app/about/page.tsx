@@ -15,6 +15,7 @@ import {
   FiStar,
   FiLayers,
 } from "react-icons/fi";
+import Link from "next/link";
 import Leaders from "@/components/home/Leaders";
 
 type ImpactItem = {
@@ -385,7 +386,7 @@ const AboutPage = () => {
             whileInView={{ opacity: 1, y: 0 }}
             viewport={{ once: true }}
           >
-            <h2 className="text-4xl md:text-6xl font-black text-slate-900 tracking-tighter mb-6">
+            <h2 className="text-3xl md:text-5xl font-black text-slate-900 tracking-tighter mb-6">
               Let's Build The <span className="text-orange-500">Next</span> .
             </h2>
             <p className="text-slate-500 text-lg md:text-xl max-w-2xl mx-auto mb-10 font-medium">
@@ -394,12 +395,19 @@ const AboutPage = () => {
             </p>
 
             <div className="flex flex-col sm:flex-row items-center justify-center gap-4">
-              <button className="w-full sm:w-auto px-8 py-4 bg-slate-900 text-white rounded-lg font-bold text-lg hover:bg-orange-500 transition-colors flex items-center justify-center gap-2">
-                Get Started <FiArrowRight />
-              </button>
-              <button className="w-full sm:w-auto px-8 py-4 bg-white text-slate-900 border border-slate-200 rounded-lg font-bold text-lg hover:bg-slate-50 transition-colors">
-                Contact Sales
-              </button>
+              <Link
+                href="/services"
+                className="w-full sm:w-auto px-8 py-4 bg-slate-900 text-white rounded-lg font-bold text-lg hover:bg-orange-500 transition-colors flex items-center justify-center gap-2"
+              >
+                Explore Services <FiArrowRight />
+              </Link>
+
+              <Link
+                href="/contact"
+                className="w-full sm:w-auto px-8 py-4 bg-white text-slate-900 border border-slate-200 rounded-lg font-bold text-lg hover:bg-slate-50 transition-colors text-center"
+              >
+                Get Started
+              </Link>
             </div>
           </motion.div>
         </div>

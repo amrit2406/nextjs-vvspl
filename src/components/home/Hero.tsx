@@ -12,7 +12,7 @@ const Hero = () => {
         {/* Base Logo: 60% transparent (40% visible) */}
         <motion.img 
           initial={{ opacity: 0, x: -50 }}
-          animate={{ opacity: 0.05, x: 0 }}
+          animate={{ opacity: 0.1, x: 0 }}
           transition={{ duration: 1, ease: "easeOut" }}
           src="/assets/vvslogo.png" 
           alt="" 
@@ -20,15 +20,14 @@ const Hero = () => {
         />
         
         {/* Overlay Image: Small Accent, 40% transparent (60% visible) */}
-        <motion.img 
+        {/* <motion.img 
           initial={{ opacity: 0, scale: 0.5 }}
-          animate={{ opacity: 0.6, scale: 1 }}
+          animate={{ opacity: 0.3, scale: 1 }}
           transition={{ duration: 1.2, delay: 0.4, ease: "backOut" }}
-          src="/assets/img11.png" 
+          src="/assets/img113.png" 
           alt="" 
-          /* Changed width to 20% and max-width to 150px for a "small" look */
-          className="absolute top-[83%] left-[24%] -translate-y-1/2 w-[20%] max-w-[150px] object-contain mix-blend-multiply"
-        />
+          className="absolute top-[65%] left-[4%] -translate-y-1/2 w-[50%] object-contain mix-blend-multiply"
+        /> */}
       </div>
 
       <div className="max-w-7xl mx-auto px-6 lg:px-8 grid grid-cols-1 lg:grid-cols-2 gap-16 items-center z-10 mb-8">
@@ -60,7 +59,7 @@ const Hero = () => {
           </h1>
 
           {/* Subheadline */}
-          <p className="text-md text-slate-600 mb-10 max-w-lg leading-relaxed font-medium">
+          <p className="text-md text-slate-900 mb-10 max-w-lg leading-relaxed font-medium">
             Innovation is not just about writing code — {" "}
             <span className="text-[#044DB6] font-bold">it’s about engineering impact.</span>{" "}
             We are a software company built on systems thinking, architectural precision, and disciplined execution.

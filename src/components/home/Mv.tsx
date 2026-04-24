@@ -7,20 +7,18 @@ const MissionVision = () => {
     {
       title: "Our Mission",
       icon: <FiTarget size={24} />,
-      color: "from-[#FF7E00] to-[#e67300]",
-      accent: "bg-orange-50 text-[#FF7E00]",
+      bgColor: "bg-blue-600",
       description:
         "To design and deploy defence-grade, AI-enabled digital architectures that enhance national capability and enterprise competitiveness — delivered with precision engineering and globally competitive cost discipline.",
-      features: ["Technical Integrity", "Scalable Excellence"],
+      isVision: false,
     },
     {
       title: "Our Vision",
       icon: <FiEye size={24} />,
-      color: "from-[#044DB6] to-[#2A6BFF]",
-      accent: "bg-blue-50 text-[#044DB6]",
+      bgColor: "bg-orange-500",
       description:
         "We envision a digitally sovereign ecosystem where national infrastructure is intelligent, industries operate autonomously, governance is decisively data-driven, and security is structural rather than reactive.",
-      features: ["Global Leadership", "Future-Ready Tech"],
+      isVision: true,
     },
   ];
 
@@ -35,17 +33,13 @@ const MissionVision = () => {
           playsInline
           className="w-full h-full object-cover opacity-90 grayscale-[40%]"
         >
-          {/* Replace this URL with your hosted video file */}
           <source src="/assets/mv-video.mp4" type="video/mp4" />
           Your browser does not support the video tag.
         </video>
-
-        {/* Modern Overlay: Fades the video into the background color */}
-        {/* <div className="absolute inset-0 bg-gradient-to-b from-slate-950 via-slate-900/90 to-slate-950" /> */}
         <div className="absolute inset-0 bg-[radial-gradient(circle_at_center,rgba(0,0,0,0.2)_0%,rgba(0,0,0,0.6)_70%,rgba(0,0,0,0.85)_100%)]" />
       </div>
 
-      {/* Subtle Blobs - Reduced opacity to avoid clashing with video */}
+      {/* Subtle Blobs */}
       <div className="absolute -top-24 -right-24 w-96 h-96 bg-orange-200/20 rounded-full mix-blend-multiply filter blur-[128px] animate-blob" />
       <div className="absolute -bottom-24 -left-24 w-96 h-96 bg-blue-200/20 rounded-full mix-blend-multiply filter blur-[128px] animate-blob animation-delay-2000" />
 
@@ -69,7 +63,7 @@ const MissionVision = () => {
             viewport={{ once: true }}
             className="text-5xl md:text-6xl font-black text-white tracking-tighter leading-[0.95] mb-6"
           >
-            Purpose Beyond <span></span>
+            Purpose Beyond{" "}
             <span className="text-transparent bg-clip-text bg-gradient-to-r from-[#FF7E00] via-orange-500 to-[#e67300] pr-2 italic">
               Code
             </span>
@@ -86,64 +80,77 @@ const MissionVision = () => {
           </motion.p>
         </div>
 
-        <div className="grid grid-cols-1 lg:grid-cols-2 gap-10 max-w-7xl mx-auto px-6">
-          {data.map((item, index) => {
-            const isVision = item.title.toLowerCase().includes("vision");
-            const bgColor = isVision ? "bg-orange-500" : "bg-blue-600";
+        {/* --- GRID LAYOUT: 1 Col on Mobile, 3 Cols on Large Screens --- */}
+        <div className="grid grid-cols-1 lg:grid-cols-3 gap-2 items-center max-w-full">
+          
+          {/* 1. MISSION CARD */}
+          <Card item={data[0]} />
 
-            return (
-              <motion.div
-                key={index}
-                initial={{ opacity: 0, x: isVision ? 50 : -50 }}
-                whileInView={{ opacity: 1, x: 0 }}
-                viewport={{ once: true }}
-                transition={{ duration: 0.6, ease: "easeOut" }}
-                className={`group relative flex flex-col md:flex-row shadow-[0_0_25px_rgba(255,246,235,0.6)] ${
-                  isVision ? "md:flex-row-reverse" : "md:flex-row"
-                } bg-white backdrop-blur-md rounded-[2.5rem] overflow-hidden min-h-[350px]`}
-              >
-                {/* 1. THE COLOR ACCENT BLOCK */}
-                <div
-                  className={`relative w-full md:w-2/5 ${bgColor} p-10 flex flex-col justify-between overflow-hidden`}
-                >
-                  <div
-                    className="absolute inset-0 opacity-20 pointer-events-none group-hover:scale-110 transition-transform duration-700"
-                    style={{
-                      backgroundImage: `radial-gradient(circle at 2px 2px, white 1px, transparent 0)`,
-                      backgroundSize: "24px 24px",
-                    }}
-                  />
+          {/* 2. MIDDLE IMAGE ELEMENT */}
+          <motion.div
+            initial={{ opacity: 0, scale: 0.8 }}
+            whileInView={{ opacity: 1, scale: 1 }}
+            viewport={{ once: true }}
+            transition={{ duration: 0.8 }}
+            className="relative flex justify-center items-center py-10 lg:py-0"
+          >
+            {/* Spinning decorative ring */}
+            <div className="absolute w-64 h-64 border-2 border-dashed border-orange-500/40 rounded-full animate-[spin_15s_linear_infinite]" />
+            <div className="absolute w-48 h-48 border border-blue-400/20 rounded-full animate-[spin_10s_linear_infinite_reverse]" />
+            
+            <img
+              src="/assets/img111.png" // Replace with your actual image
+              alt="Core Engineering"
+              className="relative z-10 w-48 h-48 md:w-64 md:h-64 object-contain drop-shadow-[0_0_35px_rgba(255,126,0,0.4)]"
+            />
+          </motion.div>
 
-                  <div className="relative z-10 self-start bg-white/10 backdrop-blur-xl p-4 rounded-2xl text-white border border-white/20 shadow-2xl group-hover:rotate-6 transition-transform">
-                    {item.icon}
-                  </div>
-
-                  <div className="relative z-10">
-                    <h4 className="text-2xl font-black text-white leading-[0.8] uppercase tracking-tighter">
-                      {isVision ? "Vision" : "Mission"}
-                    </h4>
-                  </div>
-                </div>
-
-                {/* 2. THE READABLE CONTENT BLOCK */}
-                <div
-                  className={`w-full md:w-3/5 p-10 flex flex-col justify-center ${isVision ? "text-right items-end" : "text-left items-start"}`}
-                >
-                  <div className="relative z-10 max-w-sm">
-                    <div
-                      className={`w-16 h-1.5 ${bgColor} mb-8 rounded-full ${isVision ? "ml-auto" : "mr-auto"}`}
-                    />
-                    <p className="text-md text-slate-700 font-semibold leading-relaxed tracking-tight">
-                      {item.description}
-                    </p>
-                  </div>
-                </div>
-              </motion.div>
-            );
-          })}
+          {/* 3. VISION CARD */}
+          <Card item={data[1]} />
         </div>
       </div>
     </section>
+  );
+};
+
+// Internal Card Component for clean code
+const Card = ({ item }: { item: any }) => {
+  const { isVision, bgColor, icon, title, description } = item;
+  
+  return (
+    <motion.div
+      initial={{ opacity: 0, x: isVision ? 50 : -50 }}
+      whileInView={{ opacity: 1, x: 0 }}
+      viewport={{ once: true }}
+      transition={{ duration: 0.6, ease: "easeOut" }}
+      className={`group relative flex flex-col shadow-[0_0_25px_rgba(255,246,235,0.4)] 
+        bg-white backdrop-blur-md rounded-[2.5rem] overflow-hidden min-h-[400px] w-full`}
+    >
+      {/* COLOR ACCENT BLOCK */}
+      <div className={`relative w-full h-1/3 ${bgColor} p-8 flex flex-col justify-between overflow-hidden`}>
+        <div
+          className="absolute inset-0 opacity-20 pointer-events-none group-hover:scale-110 transition-transform duration-700"
+          style={{
+            backgroundImage: `radial-gradient(circle at 2px 2px, white 1px, transparent 0)`,
+            backgroundSize: "24px 24px",
+          }}
+        />
+        <div className="relative z-10 self-start bg-white/10 backdrop-blur-xl p-3 rounded-xl text-white border border-white/20 shadow-2xl group-hover:rotate-6 transition-transform">
+          {icon}
+        </div>
+        <h4 className="relative z-10 text-2xl font-black text-white uppercase tracking-tighter">
+          {isVision ? "Vision" : "Mission"}
+        </h4>
+      </div>
+
+      {/* CONTENT BLOCK */}
+      <div className="w-full h-2/3 p-8 flex flex-col justify-start">
+        <div className={`w-12 h-1.5 ${bgColor} mb-6 rounded-full`} />
+        <p className="text-md text-slate-700 font-semibold leading-relaxed tracking-tight">
+          {description}
+        </p>
+      </div>
+    </motion.div>
   );
 };
 

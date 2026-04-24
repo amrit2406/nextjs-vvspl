@@ -24,6 +24,13 @@ const SOFTWARE_SOLUTIONS: ServiceItem[] = [
     color: "from-[#FF7E00] to-orange-400",
   },
   {
+    slug: "defence",
+    title: "Defence grade",
+    desc: "Built for mission-critical operations, this advanced solution integrates drones and LORROS with data-driven automation.",
+    image: "https://t4.ftcdn.net/jpg/08/81/63/37/360_F_881633751_L67MxhHEpdWCwGlLNs621ZEoVbDELCa4.jpg",
+    color: "from-[#FF7E00] to-orange-400",
+  },
+  {
     slug: "hrms",
     title: "HRMS & Workforce",
     desc: "End-to-end workforce management solutions covering recruitment, payroll, attendance, and performance tracking in one system.",
@@ -247,12 +254,12 @@ const ServicePage = () => {
             <span className="text-[#FF7E00]">competitive edge.</span>
           </h2>
           <div className="flex flex-col sm:flex-row gap-4 justify-center">
-            <button className="px-12 py-5 bg-black text-white rounded-2xl font-black hover:bg-[#FF7E00] transition-all shadow-xl hover:shadow-[#FF7E00]/20">
+            <Link href="/contact" className="px-12 py-5 bg-black text-white rounded-2xl font-black hover:bg-[#FF7E00] transition-all shadow-xl hover:shadow-[#FF7E00]/20">
               Consult an Expert
-            </button>
-            <button className="px-12 py-5 bg-white border border-slate-200 text-slate-900 rounded-2xl font-black hover:bg-slate-50 transition-all">
-              See Our Work
-            </button>
+            </Link>
+            <Link href="tel:+917894689818" className="px-12 py-5 bg-white border border-slate-200 text-slate-900 rounded-2xl font-black hover:bg-slate-50 transition-all">
+              Call Now
+            </Link>
           </div>
         </div>
       </section>

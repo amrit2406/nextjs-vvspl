@@ -11,6 +11,7 @@ import {
   FiStar,
   FiClock,
 } from "react-icons/fi";
+import Link from "next/link";
 
 // --- Sub-Component: Benefit Card ---
 const BenefitCard = ({ icon: Icon, title, desc }: any) => (
@@ -212,9 +213,9 @@ const CareerPage = () => {
                 Become a part of the <br />
                 <span className="text-[#FF7E00]">proprietary revolution.</span>
               </h2>
-              <button className="px-12 py-5 bg-white text-slate-900 rounded-2xl font-black hover:bg-[#FF7E00] hover:text-white transition-all">
-                View All Open Positions
-              </button>
+              <Link href="tel:+917894689818" className="px-12 py-5 bg-white text-slate-900 rounded-2xl font-black hover:bg-[#FF7E00] hover:text-white transition-all">
+                Call for more details
+              </Link>
             </div>
             {/* Abstract Background element */}
             <div className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-full h-full opacity-20 pointer-events-none">

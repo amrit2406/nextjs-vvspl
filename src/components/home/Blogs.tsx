@@ -5,28 +5,28 @@ import { FiArrowRight, FiClock, FiCalendar } from "react-icons/fi";
 
 const blogs = [
   {
-    slug: "rust-migration-throughput",
-    title: "Why we migrated our core engine to Rust for 10x throughput",
+    slug: "saas-ideas-2026",
+    title: "Top 10 SaaS Ideas for 2026: The Future of Scalable Innovation",
     category: "Engineering",
-    date: "April 02, 2026",
-    readTime: "6 min read",
-    image: "https://images.unsplash.com/photo-1677442136019-21780ecad995?q=80&w=800&auto=format&fit=crop",
+    date: "April 12, 2026",
+    readTime: "8 min read",
+    image: "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcTuYMV4nb0WaY6wN2w8FhNI2CF0M9Bu5AxIvA&s",
   },
   {
-    slug: "proprietary-ai-security-risk",
-    title: "Proprietary AI: Why third-party LLMs are a security risk",
+    slug: "how-ai-is-transforming-saas-products",
+    title: "How AI is Transforming SaaS Products in 2026",
     category: "Future",
-    date: "March 28, 2026",
-    readTime: "4 min read",
-    image: "https://images.unsplash.com/photo-1550751827-4bd374c3f58b?q=80&w=800&auto=format&fit=crop",
+    date: "May 2, 2026",
+    readTime: "12 min read",
+    image: "https://img.freepik.com/free-vector/ai-futuristic-technology-background_53876-97391.jpg",
   },
   {
-    slug: "scaling-nationalities-culture",
-    title: "Scaling to 20 nationalities without losing our soul",
+    slug: "digital-marketing-ai",
+    title: "AI is Changing Digital Marketing – Are You Ready?",
     category: "Culture",
     date: "March 15, 2026",
     readTime: "5 min read",
-    image: "https://images.unsplash.com/photo-1460925895917-afdab827c52f?q=80&w=800&auto=format&fit=crop",
+    image: "https://img.freepik.com/free-vector/digital-marketing-landing-page_33099-1726.jpg?semt=ais_hybrid&w=740&q=80",
   },
 ];
 
