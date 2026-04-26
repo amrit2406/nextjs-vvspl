@@ -1,7 +1,12 @@
 "use client";
 import Link from "next/link";
 import { motion } from "framer-motion";
-import { FiArrowRight, FiClock, FiCalendar } from "react-icons/fi";
+import {
+  FiArrowRight,
+  FiClock,
+  FiCalendar,
+  FiExternalLink,
+} from "react-icons/fi";
 
 const blogs = [
   {
@@ -10,7 +15,8 @@ const blogs = [
     category: "Engineering",
     date: "April 12, 2026",
     readTime: "8 min read",
-    image: "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcTuYMV4nb0WaY6wN2w8FhNI2CF0M9Bu5AxIvA&s",
+    image:
+      "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcTuYMV4nb0WaY6wN2w8FhNI2CF0M9Bu5AxIvA&s",
   },
   {
     slug: "how-ai-is-transforming-saas-products",
@@ -18,7 +24,8 @@ const blogs = [
     category: "Future",
     date: "May 2, 2026",
     readTime: "12 min read",
-    image: "https://img.freepik.com/free-vector/ai-futuristic-technology-background_53876-97391.jpg",
+    image:
+      "https://img.freepik.com/free-vector/ai-futuristic-technology-background_53876-97391.jpg",
   },
   {
     slug: "digital-marketing-ai",
@@ -26,7 +33,8 @@ const blogs = [
     category: "Culture",
     date: "March 15, 2026",
     readTime: "5 min read",
-    image: "https://img.freepik.com/free-vector/digital-marketing-landing-page_33099-1726.jpg?semt=ais_hybrid&w=740&q=80",
+    image:
+      "https://img.freepik.com/free-vector/digital-marketing-landing-page_33099-1726.jpg?semt=ais_hybrid&w=740&q=80",
   },
 ];
 
@@ -34,17 +42,19 @@ const BlogSection = () => {
   return (
     <section className="relative py-24 bg-white overflow-hidden">
       {/* Hero-matched Background Grid */}
-      <div 
-        className="absolute inset-0 z-0 opacity-20" 
-        style={{ backgroundImage: 'url("data:image/svg+xml,%3Csvg width=\'60\' height=\'60\' viewBox=\'0\' 0\' 60\' 60\' xmlns=\'http://www.w3.org/2000/svg\'%3E%3Cg fill=\'none\' fill-rule=\'evenodd\'%3E%3Cg fill=\'%239C92AC\' fill-opacity=\'0.15\'%3E%3Cpath d=\'M36 34v-4h-2v4h-4v2h4v4h2v-4h4v-2h-4zm0-30V0h-2v4h-4v2h4v4h2V6h4V4h-4zM6 34v-4H4v4H0v2h4v4h2v-4h4v-2H6zM6 4V0H4v4H0v2h4v4h2V6h4V4H6z\'/%3E%3C/g%3E%3C/g%3E%3C/svg%3E")' }} 
+      <div
+        className="absolute inset-0 z-0 opacity-20"
+        style={{
+          backgroundImage:
+            "url(\"data:image/svg+xml,%3Csvg width='60' height='60' viewBox='0' 0' 60' 60' xmlns='http://www.w3.org/2000/svg'%3E%3Cg fill='none' fill-rule='evenodd'%3E%3Cg fill='%239C92AC' fill-opacity='0.15'%3E%3Cpath d='M36 34v-4h-2v4h-4v2h4v4h2v-4h4v-2h-4zm0-30V0h-2v4h-4v2h4v4h2V6h4V4h-4zM6 34v-4H4v4H0v2h4v4h2v-4h4v-2H6zM6 4V0H4v4H0v2h4v4h2V6h4V4H6z'/%3E%3C/g%3E%3C/g%3E%3C/svg%3E\")",
+        }}
       />
 
       <div className="max-w-7xl mx-auto px-6 lg:px-8 relative z-10">
-        
         {/* Section Header */}
         <div className="flex flex-col md:flex-row md:items-end justify-between mb-16">
           <div className="max-w-xl">
-            <motion.div 
+            <motion.div
               initial={{ opacity: 0, y: 20 }}
               whileInView={{ opacity: 1, y: 0 }}
               viewport={{ once: true }}
@@ -56,11 +66,17 @@ const BlogSection = () => {
               </span>
             </motion.div>
             <h3 className="text-5xl font-black text-slate-900 tracking-tighter leading-[0.9]">
-              Latest <span className="text-transparent bg-clip-text bg-gradient-to-r from-[#FF7E00] via-orange-500 to-[#e67300] italic">Insights.</span>
+              Latest{" "}
+              <span className="text-transparent bg-clip-text bg-gradient-to-r from-[#FF7E00] via-orange-500 to-[#e67300] italic">
+                Insights.
+              </span>
             </h3>
           </div>
-          
-          <Link href="/blogs" className="mt-6 md:mt-0 flex items-center space-x-3 text-xs font-black uppercase tracking-widest text-slate-900 group">
+
+          <Link
+            href="/blogs"
+            className="mt-6 md:mt-0 flex items-center space-x-3 text-xs font-black uppercase tracking-widest text-slate-900 group"
+          >
             <span>View All Articles</span>
             <div className="w-10 h-10 rounded-full border border-slate-200 flex items-center justify-center group-hover:bg-slate-900 group-hover:text-white transition-all">
               <FiArrowRight />
@@ -68,35 +84,123 @@ const BlogSection = () => {
           </Link>
         </div>
 
+        {/* --- UPGRADED LIGHT-THEME EXTERNAL FEATURED SECTION --- */}
+        <motion.div
+          initial={{ opacity: 0, y: 30 }}
+          whileInView={{ opacity: 1, y: 0 }}
+          viewport={{ once: true }}
+          className="mb-16 group"
+        >
+          <a
+            href="https://external-website.com"
+            target="_blank"
+            rel="noopener noreferrer"
+            className="relative block"
+          >
+            {/* Soft Ambient Glow - Light Theme */}
+            <div className="absolute -inset-2 bg-gradient-to-r from-orange-100 via-blue-50 to-orange-50 rounded-[3.5rem] blur-2xl opacity-0 group-hover:opacity-100 transition duration-700" />
+
+            <div className="relative flex flex-col lg:flex-row items-stretch bg-white rounded-[3rem] overflow-hidden border border-slate-200 shadow-[0_8px_30px_rgb(0,0,0,0.04)] group-hover:shadow-[0_20px_50px_rgba(255,126,0,0.1)] transition-all duration-500">
+              {/* Image Container */}
+              <div className="relative w-full lg:w-1/2 min-h-[350px] overflow-hidden m-4 rounded-[2.2rem]">
+                <img
+                  src="https://images.unsplash.com/photo-1519389950473-47ba0277781c?q=80&w=2070"
+                  alt="External Feature"
+                  className="absolute inset-0 w-full h-full object-cover transition-transform duration-1000 group-hover:scale-105"
+                />
+                {/* Subtle Inner Shadow on Image */}
+                <div className="absolute inset-0 ring-1 ring-inset ring-black/5 rounded-[2.2rem]" />
+
+                {/* Floating Category Badge - Glass Style */}
+                <div className="absolute top-6 left-6">
+                  <div className="bg-white/70 backdrop-blur-md border border-white/40 px-4 py-2 rounded-2xl flex items-center gap-2 shadow-sm">
+                    <div className="w-2 h-2 rounded-full bg-[#FF7E00] animate-pulse" />
+                    <span className="text-slate-900 text-[10px] font-black uppercase tracking-[0.2em]">
+                      Partner Spotlight
+                    </span>
+                  </div>
+                </div>
+              </div>
+
+              {/* Text Content */}
+              <div className="w-full lg:w-1/2 p-10 lg:p-14 flex flex-col justify-center">
+                <div className="space-y-6">
+                  <div className="flex items-center gap-3">
+                    <span className="text-[#FF7E00] text-[10px] font-black uppercase tracking-[0.3em]">
+                      Global Publication
+                    </span>
+                    <span className="w-1 h-1 rounded-full bg-slate-300" />
+                    <span className="text-slate-400 text-[10px] font-bold uppercase tracking-[0.1em]">
+                      2026 Edition
+                    </span>
+                  </div>
+
+                  <h4 className="text-4xl font-black text-slate-900 leading-[1.1] tracking-tight">
+                    The Future of{" "}
+                    <span className="text-transparent bg-clip-text bg-gradient-to-r from-[#FF7E00] to-orange-600">
+                      Scalable AI
+                    </span>{" "}
+                    Architecture.
+                  </h4>
+
+                  <p className="text-slate-500 text-lg leading-relaxed font-medium">
+                    An in-depth look at how decentralized systems are redefining
+                    the SaaS landscape. Perfect for engineers and founders.
+                  </p>
+
+                  <div className="pt-6 flex items-center justify-between">
+                    <div className="flex items-center gap-4 group/btn text-slate-900">
+                      <span className="text-sm font-black uppercase tracking-widest">
+                        Read Full Story
+                      </span>
+                      <div className="w-12 h-12 rounded-full bg-slate-900 flex items-center justify-center text-white group-hover/btn:bg-[#FF7E00] transition-all duration-300 shadow-lg shadow-slate-200 group-hover/btn:shadow-[#FF7E00]/30">
+                        <FiArrowRight
+                          className="group-hover/btn:translate-x-1 transition-transform"
+                          size={20}
+                        />
+                      </div>
+                    </div>
+
+                    <FiExternalLink
+                      className="text-slate-300 group-hover:text-[#FF7E00] transition-colors"
+                      size={24}
+                    />
+                  </div>
+                </div>
+              </div>
+            </div>
+          </a>
+        </motion.div>
+
         {/* 3-Card Grid */}
         <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
           {blogs.map((post, index) => (
             <Link key={index} href={`/blogs/${post.slug}`}>
-            <motion.article
-              initial={{ opacity: 0, y: 20 }}
-              whileInView={{ opacity: 1, y: 0 }}
-              viewport={{ once: true }}
-              transition={{ delay: index * 0.1 }}
-              className="group cursor-pointer flex flex-col h-full bg-blue-50/50 border border-blue-100 rounded-[2.5rem] overflow-hidden hover:bg-white hover:shadow-[0_30px_60px_-20px_rgba(0,0,0,0.1)] transition-all duration-500 hover:-translate-y-2"
-            >
-              {/* Image Header */}
-              <div className="relative aspect-[16/11] overflow-hidden m-3 rounded-[2rem]">
-                <img 
-                  src={post.image} 
-                  alt={post.title}
-                  className="w-full h-full object-cover transition-transform duration-700 group-hover:scale-110"
-                />
-                <div className="absolute inset-0 bg-gradient-to-t from-slate-900/40 to-transparent opacity-0 group-hover:opacity-100 transition-opacity" />
-                {/* <div className="absolute top-4 left-4">
+              <motion.article
+                initial={{ opacity: 0, y: 20 }}
+                whileInView={{ opacity: 1, y: 0 }}
+                viewport={{ once: true }}
+                transition={{ delay: index * 0.1 }}
+                className="group cursor-pointer flex flex-col h-full bg-blue-50/50 border border-blue-100 rounded-[2.5rem] overflow-hidden hover:bg-white hover:shadow-[0_30px_60px_-20px_rgba(0,0,0,0.1)] transition-all duration-500 hover:-translate-y-2"
+              >
+                {/* Image Header */}
+                <div className="relative aspect-[16/11] overflow-hidden m-3 rounded-[2rem]">
+                  <img
+                    src={post.image}
+                    alt={post.title}
+                    className="w-full h-full object-cover transition-transform duration-700 group-hover:scale-110"
+                  />
+                  <div className="absolute inset-0 bg-gradient-to-t from-slate-900/40 to-transparent opacity-0 group-hover:opacity-100 transition-opacity" />
+                  {/* <div className="absolute top-4 left-4">
                   <span className="bg-white/90 backdrop-blur-md px-4 py-2 rounded-xl text-[10px] font-black uppercase tracking-widest text-slate-900 shadow-sm border border-white/20">
                     {post.category}
                   </span>
                 </div> */}
-              </div>
+                </div>
 
-              {/* Content */}
-              <div className="p-6 flex flex-col flex-grow">
-                {/* <div className="flex items-center space-x-4 text-[10px] font-bold uppercase tracking-widest text-slate-400 mb-4">
+                {/* Content */}
+                <div className="p-6 flex flex-col flex-grow">
+                  {/* <div className="flex items-center space-x-4 text-[10px] font-bold uppercase tracking-widest text-slate-400 mb-4">
                   <div className="flex items-center space-x-1.5">
                     <FiCalendar className="text-[#FF7E00]" />
                     <span>{post.date}</span>
@@ -108,18 +212,20 @@ const BlogSection = () => {
                   </div>
                 </div> */}
 
-                <h4 className="text-xl font-black text-slate-900 tracking-tight leading-tight group-hover:text-[#FF7E00] transition-colors mb-6">
-                  {post.title}
-                </h4>
+                  <h4 className="text-xl font-black text-slate-900 tracking-tight leading-tight group-hover:text-[#FF7E00] transition-colors mb-6">
+                    {post.title}
+                  </h4>
 
-                <div className="mt-auto pt-6 border-t border-slate-100 flex items-center justify-between">
-                  <span className="text-xs font-black uppercase tracking-widest text-slate-900">Read Full Story</span>
-                  <div className="w-8 h-8 rounded-lg bg-slate-100 text-slate-900 flex items-center justify-center group-hover:bg-[#FF7E00] group-hover:text-white transition-all transform group-hover:-rotate-45">
-                    <FiArrowRight size={16} />
+                  <div className="mt-auto pt-6 border-t border-slate-100 flex items-center justify-between">
+                    <span className="text-xs font-black uppercase tracking-widest text-slate-900">
+                      Read Full Story
+                    </span>
+                    <div className="w-8 h-8 rounded-lg bg-slate-100 text-slate-900 flex items-center justify-center group-hover:bg-[#FF7E00] group-hover:text-white transition-all transform group-hover:-rotate-45">
+                      <FiArrowRight size={16} />
+                    </div>
                   </div>
                 </div>
-              </div>
-            </motion.article>
+              </motion.article>
             </Link>
           ))}
         </div>
