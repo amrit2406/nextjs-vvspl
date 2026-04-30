@@ -17,6 +17,7 @@ import {
   FiFacebook,
   FiMessageCircle,
 } from "react-icons/fi";
+import { FaWhatsapp } from "react-icons/fa";
 import Link from "next/link";
 
 const SocialTile = ({ icon, label, href, color }: any) => (
@@ -44,7 +45,7 @@ const QuickContactCard = ({
   <motion.a
     href={href}
     whileHover={{ y: -10 }}
-    className="relative overflow-hidden group bg-white border border-slate-100 p-8 rounded-[2.5rem] shadow-[0_20px_50px_rgba(0,0,0,0.03)] hover:shadow-[0_40px_80px_rgba(0,0,0,0.07)] transition-all duration-500"
+    className="relative overflow-hidden group bg-white border border-blue-100 p-8 rounded-[2.5rem] shadow-[0_20px_50px_rgba(0,0,0,0.03)] hover:shadow-[0_40px_80px_rgba(0,0,0,0.07)] transition-all duration-500"
   >
     {/* Animated Background Blob */}
     <div
@@ -53,7 +54,7 @@ const QuickContactCard = ({
 
     <div className="relative z-10">
       <div
-        className={`w-16 h-16 rounded-2xl ${color} text-white flex items-center justify-center mb-8 shadow-lg shadow-inherit`}
+        className={`w-10 h-10 p-2 rounded-2xl ${color} text-white flex items-center justify-center mb-8 shadow-lg shadow-inherit`}
       >
         {icon}
       </div>
@@ -118,7 +119,7 @@ const ContactPage = () => {
               title="Location"
               detail="Block-309/310, ODYSSA Business Center, Rasulgarh, Bhubaneswar, 751010"
               subtext="Odisha"
-              href="https://www.google.com/maps?q=Block-309/310,+ODYSSA+Business+Center,+Rasulgarh,+Bhubaneswar,+751010&output=embed"
+              href="https://www.google.com/maps?ll=20.295794,85.859028&z=15&t=m&hl=en-US&gl=US&mapclient=embed&q=Block-309/310,+ODYSSA+Business+Center,+Rasulgarh,+Bhubaneswar,+751010"
               color="bg-slate-900"
             />
           </div>
@@ -153,38 +154,38 @@ const ContactPage = () => {
               {/* Social Grid */}
               <div className="space-y-4">
                 <p className="text-[10px] font-black uppercase tracking-[0.3em] text-slate-400 mb-6">
-                  Social Connectivity
+                  Social Links
                 </p>
                 <div className="grid grid-cols-2 gap-4">
                   <SocialTile
                     icon={<FiLinkedin />}
                     label="LinkedIn"
-                    href="#"
+                    href="https://www.linkedin.com/company/112707331/admin/dashboard/"
                     color="hover:text-[#0077B5]"
                   />
                   <SocialTile
-                    icon={<FiMessageCircle />}
+                    icon={<FaWhatsapp />}
                     label="WhatsApp"
-                    href="#"
+                    href="https://wa.me/917894689818"
                     color="hover:text-[#25D366]"
                   />
                   <SocialTile
                     icon={<FiInstagram />}
                     label="Instagram"
-                    href="#"
+                    href="https://www.instagram.com/vvspltech?igsh=cjcyczloZWNuaGZx"
                     color="hover:text-[#E4405F]"
                   />
                   <SocialTile
                     icon={<FiFacebook />}
                     label="Facebook"
-                    href="#"
+                    href="https://www.facebook.com/share/1D4x5YWeff/"
                     color="hover:text-[#1877F2]"
                   />
                 </div>
               </div>
 
               {/* Quick Availability Badge */}
-              <div className="inline-flex items-center gap-3 px-4 py-2 bg-white border border-slate-100 rounded-full shadow-sm">
+              {/* <div className="inline-flex items-center gap-3 px-4 py-2 bg-white border border-slate-100 rounded-full shadow-sm">
                 <span className="relative flex h-2 w-2">
                   <span className="animate-ping absolute inline-flex h-full w-full rounded-full bg-green-400 opacity-75"></span>
                   <span className="relative inline-flex rounded-full h-2 w-2 bg-green-500"></span>
@@ -192,7 +193,7 @@ const ContactPage = () => {
                 <span className="text-[11px] font-bold text-slate-600 uppercase tracking-tight">
                   Active for new projects
                 </span>
-              </div>
+              </div> */}
             </div>
 
             {/* RIGHT: Minimalist Form */}
@@ -226,7 +227,7 @@ const ContactPage = () => {
                       </label>
                       <input
                         type="text"
-                        placeholder="John Doe"
+                        placeholder="Enter your full name"
                         className="w-full px-4 py-3 rounded-xl border border-slate-300 bg-white text-slate-900
             focus:border-[#044DB6] focus:ring-2 focus:ring-[#044DB6]/10
             transition-all outline-none hover:shadow-sm"
@@ -240,7 +241,7 @@ const ContactPage = () => {
                       </label>
                       <input
                         type="email"
-                        placeholder="john@example.com"
+                        placeholder="Enter your email address"
                         className="w-full px-4 py-3 rounded-xl border border-slate-300 bg-white text-slate-900
             focus:border-[#044DB6] focus:ring-2 focus:ring-[#044DB6]/10
             transition-all outline-none hover:shadow-sm"
@@ -255,7 +256,7 @@ const ContactPage = () => {
                     </label>
                     <input
                       type="tel"
-                      placeholder="+91 98765 43210"
+                      placeholder="Enter your phone number"
                       className="w-full px-4 py-3 rounded-xl border border-slate-300 bg-white text-slate-900
           focus:border-[#044DB6] focus:ring-2 focus:ring-[#044DB6]/10
           transition-all outline-none hover:shadow-sm"

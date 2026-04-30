@@ -141,7 +141,7 @@ const LeadershipPage = () => {
                 We are always looking for visionary Technical Leads and Growth
                 Strategists.
               </p>
-              <Link href="/caresrs" className="px-12 py-5 bg-[#FF7E00] text-white rounded-2xl font-black hover:scale-105 transition-transform shadow-[0_20px_50px_rgba(255,126,0,0.2)]">
+              <Link href="/careers" className="px-12 py-5 bg-[#FF7E00] text-white rounded-2xl font-black hover:scale-105 transition-transform shadow-[0_20px_50px_rgba(255,126,0,0.2)]">
                 View Executive Roles
               </Link>
             </div>
